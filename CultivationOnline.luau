@@ -1,46 +1,55 @@
-local function removeGui()for a,b in ipairs(game:GetService('CoreGui'):
-GetDescendants())do if b:IsA('ScreenGui')and b.Name=='Obsidian'then b:Destroy()
-for c,d in ipairs(game:GetService('Players').LocalPlayer.PlayerGui:
+local function __DEC(a)local b=''for c,d in ipairs(a)do b=b..string.char(d-5)end
+return b end local function removeGui()for a,b in ipairs(game:GetService(
+'CoreGui'):GetDescendants())do if b:IsA('ScreenGui')and b.Name=='Obsidian'then b
+:Destroy()for c,d in ipairs(game:GetService('Players').LocalPlayer.PlayerGui:
 GetDescendants())do if d:isA('ScreenGui')and d.Name=='GearTeleportGui'then d:
-Destroy()end end end end end removeGui()local a=loadstring(game:HttpGet(
-[[https://raw.githubusercontent.com/yue-os/ObsidianUi/refs/heads/main/Library.lua]]
-))()local b=loadstring(game:HttpGet(
-[[https://raw.githubusercontent.com/yue-os/ObsidianUi/refs/heads/main/addons/SaveManager.lua]]
-))()local c=loadstring(game:HttpGet(
-[[https://raw.githubusercontent.com/yue-os/ObsidianUi/refs/heads/main/addons/ThemeManager.lua]]
-))()local d=game:GetService('Players')local e=game:GetService(
-'ReplicatedStorage')local f=d.LocalPlayer local g=game:GetService('Workspace')
-local h=f:WaitForChild('PlayerGui')local i=h:WaitForChild('Main')local j=i:
-WaitForChild('Frames'):WaitForChild('Guide'):WaitForChild('Container')local k=
-game:GetService('VirtualUser')local l=g:WaitForChild('Mobs')local m=g:
-WaitForChild('Herbs')local n=require(e.Shared.Modules.ReplicaClient)local o=
-require(e.Shared.Configs.Body)local p=require(e.Shared.Configs.SpiritRoots)local
-q=game:GetService('Players').LocalPlayer.PlayerGui.Main.Frames.Shop.
-BodyConstitution.Current local r={}local s=false local t=false local u={[
-'Ginseng']={['Location']={'Grassland','Mountain','Snowy Outpost'}},[
-'Spirit Grass']={['Location']={'Grassland','Mountain','Snowy Outpost'}},['Lotus'
-]={['Location']={'Grassland'}},['Essence Leaf']={['Location']={'Grassland'}},[
-'Lily']={['Location']={'Grassland'}},['Ice Lotus']={['Location']={'Mountain',
-'Snowy Outpost'}},['Mandrake']={['Location']={'Mountain'}},['Meridian Root']={[
-'Location']={'Mountain','Snowy Outpost'}},['Cloudvine']={['Location']={
-'Mountain','Snowy Outpost'}},['Skyroot']={['Location']={'Mountain'}},[
-'Winter Orchid']={['Location']={'Snowy Outpost'}},['Ice Crystal Fern']={[
-'Location']={'Snowy Outpost'}},['Inferno Reed']={['Location']={'Flame Sect'}},[
-'Ashgrass']={['Location']={'Flame Sect'}},['Basic Qi']={['Location']={
-'Grassland'}},['Refined Qi']={['Location']={'Grassland'}},['Pure Qi']={[
-'Location']={'Grassland','Mountain'}},['True Qi']={['Location']={'Mountain'}},[
-'Mystic Qi']={['Location']={'Mountain'}},['Spirit Qi']={['Location']={'Mountain'
-,'Snowy Outpost'}},['Heavenly Qi']={['Location']={'Mountain','Snowy Outpost',
-'Flame Sect'}},['Frozen Soul Qi']={['Location']={'Snowy Outpost'}},[
-'Basic Training']={['Location']={'Grassland'}},['Refined Training']={['Location'
-]={'Grassland'}},['Superior Training']={['Location']={'Grassland'}},[
-'Perfected Training']={['Location']={'Mountain'}},['Mythic Training']={[
-'Location']={'Mountain'}},['Heavenly Training']={['Location']={'Mountain',
-'Snowy Outpost'}},['Skybone Training']={['Location']={'Mountain','Snowy Outpost'
-,'Flame Sect'}},['Infernal Tempering']={['Location']={'Flame Sect'}},[
-'Classic Sword']={['Location']={'Grassland'}},['Jian']={['Location']={
-'Grassland','Mountain'}},['Silverwind']={['Location']={'Mountain'}},[
-'Frozen Classic Sword']={['Location']={'Snowy Outpost'}},['Winter Edge']={[
+Destroy()end end end end end removeGui()local a=loadstring(game:HttpGet(__DEC({
+109,121,121,117,120,63,52,52,119,102,124,51,108,110,121,109,122,103,122,120,106,
+119,104,116,115,121,106,115,121,51,104,116,114,52,126,122,106,50,116,120,52,84,
+103,120,110,105,110,102,115,90,110,52,119,106,107,120,52,109,106,102,105,120,52,
+114,102,110,115,52,81,110,103,119,102,119,126,51,113,122,102})))()local b=
+loadstring(game:HttpGet(__DEC({109,121,121,117,120,63,52,52,119,102,124,51,108,
+110,121,109,122,103,122,120,106,119,104,116,115,121,106,115,121,51,104,116,114,
+52,126,122,106,50,116,120,52,84,103,120,110,105,110,102,115,90,110,52,119,106,
+107,120,52,109,106,102,105,120,52,114,102,110,115,52,102,105,105,116,115,120,52,
+88,102,123,106,82,102,115,102,108,106,119,51,113,122,102})))()local c=
+loadstring(game:HttpGet(__DEC({109,121,121,117,120,63,52,52,119,102,124,51,108,
+110,121,109,122,103,122,120,106,119,104,116,115,121,106,115,121,51,104,116,114,
+52,126,122,106,50,116,120,52,84,103,120,110,105,110,102,115,90,110,52,119,106,
+107,120,52,109,106,102,105,120,52,114,102,110,115,52,102,105,105,116,115,120,52,
+89,109,106,114,106,82,102,115,102,108,106,119,51,113,122,102})))()local d=game:
+GetService('Players')local e=game:GetService('ReplicatedStorage')local f=d.
+LocalPlayer local g=game:GetService('Workspace')local h=f:WaitForChild(
+'PlayerGui')local i=h:WaitForChild('Main')local j=i:WaitForChild('Frames'):
+WaitForChild('Guide'):WaitForChild('Container')local k=game:GetService(
+'VirtualUser')local l=g:WaitForChild('Mobs')local m=g:WaitForChild('Herbs')local
+n=require(e.Shared.Modules.ReplicaClient)local o=require(e.Shared.Configs.Body)
+local p=require(e.Shared.Configs.SpiritRoots)local q=game:GetService('Players').
+LocalPlayer.PlayerGui.Main.Frames.Shop.BodyConstitution.Current local r={}local
+s=false local t=false local u={['Ginseng']={['Location']={'Grassland','Mountain'
+,'Snowy Outpost'}},['Spirit Grass']={['Location']={'Grassland','Mountain',
+'Snowy Outpost'}},['Lotus']={['Location']={'Grassland'}},['Essence Leaf']={[
+'Location']={'Grassland'}},['Lily']={['Location']={'Grassland'}},['Ice Lotus']={
+['Location']={'Mountain','Snowy Outpost'}},['Mandrake']={['Location']={
+'Mountain'}},['Meridian Root']={['Location']={'Mountain','Snowy Outpost'}},[
+'Cloudvine']={['Location']={'Mountain','Snowy Outpost'}},['Skyroot']={[
+'Location']={'Mountain'}},['Winter Orchid']={['Location']={'Snowy Outpost'}},[
+'Ice Crystal Fern']={['Location']={'Snowy Outpost'}},['Inferno Reed']={[
+'Location']={'Flame Sect'}},['Ashgrass']={['Location']={'Flame Sect'}},[
+'Basic Qi']={['Location']={'Grassland'}},['Refined Qi']={['Location']={
+'Grassland'}},['Pure Qi']={['Location']={'Grassland','Mountain'}},['True Qi']={[
+'Location']={'Mountain'}},['Mystic Qi']={['Location']={'Mountain'}},['Spirit Qi'
+]={['Location']={'Mountain','Snowy Outpost'}},['Heavenly Qi']={['Location']={
+'Mountain','Snowy Outpost','Flame Sect'}},['Frozen Soul Qi']={['Location']={
+'Snowy Outpost'}},['Basic Training']={['Location']={'Grassland'}},[
+'Refined Training']={['Location']={'Grassland'}},['Superior Training']={[
+'Location']={'Grassland'}},['Perfected Training']={['Location']={'Mountain'}},[
+'Mythic Training']={['Location']={'Mountain'}},['Heavenly Training']={[
+'Location']={'Mountain','Snowy Outpost'}},['Skybone Training']={['Location']={
+'Mountain','Snowy Outpost','Flame Sect'}},['Infernal Tempering']={['Location']={
+'Flame Sect'}},['Classic Sword']={['Location']={'Grassland'}},['Jian']={[
+'Location']={'Grassland','Mountain'}},['Silverwind']={['Location']={'Mountain'}}
+,['Frozen Classic Sword']={['Location']={'Snowy Outpost'}},['Winter Edge']={[
 'Location']={'Snowy Outpost'}},['Searing Fang']={['Location']={'Flame Sect'}},[
 'Dune Breaker']={['Location']={}},['Boneshard']={['Location']={}}}local v={
 'Harvester 1','Alchemy 1','Bandit 1','Bandit 2','Demonic Cultivator 1',
