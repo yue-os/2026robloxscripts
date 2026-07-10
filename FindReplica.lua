@@ -1,1 +1,0 @@
-game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("ffrostflame_bytenet@0.4.6"):WaitForChild("bytenet")

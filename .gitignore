@@ -1,0 +1,7 @@
+/*
+!/.gitignore
+!/cultivationonline.lua
+!/keysys.lua
+!/.github/
+!/.github/workflows/
+!/.github/workflows/obfuscate.yml
