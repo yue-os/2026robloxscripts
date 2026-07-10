@@ -10,33 +10,56 @@ b=''local c=loadstring(game:HttpGet(__DEC({109,121,121,117,120,63,52,52,119,102,
 116,103,113,116,125,50,112,106,126,120,126,120,121,106,114,50,120,110,113,112,51
 ,123,106,119,104,106,113,51,102,117,117,52})local e=__DEC({109,121,121,117,120,
 63,52,52,105,110,120,104,116,119,105,51,108,108,52,124,83,92,83,114,118,108,58,
-79,109})if setclipboard then setclipboard(d)else warn(
-'Executor does not support setclipboard')end c:Notify(
-'\u{2705} Key URL has been copied to your clipboard!',5)c:Notify(
-'\u{1f517} Please visit the link to get your key.',5)local f=c:CreateWindow({
-Title='Y-Hub',Center=true,Icon=128171209017859,AutoShow=true,Size=UDim2.
-fromOffset(650,460),ShowCustomCursor=false,ToggleKeybind=Enum.KeyCode.
-LeftControl})local g=f:AddTab('Authentication')local h=g:AddLeftGroupbox(
-'Verification')h:AddInput('KeyInput',{Text='Script Key',Default='',Numeric=false
-,Finished=false,Placeholder='Paste your key here...',Tooltip=
-'Get your key from the Discord or Linkvertise.',Callback=function(i)b=i end})h:
-AddButton({Text='Verify & Load',DoubleClick=false,Tooltip=
-'Checks the server to see if your key is valid.',Func=function()local i=b:gsub(
-'%s+','')if i==''then c:Notify('\u{26a0}\u{fe0f} Please enter a key first!',3)
-return end c:Notify('\u{1f504} Verifying key with server...',2)local j,k=pcall(
-function()return game:HttpGet(a..i)end)if j and k:match('VALID')then c:Notify(
-'\u{2705} Key Validated! Loading main script...',3)task.wait(1)Librarya:Unload()
-loadMainScript()else c:Notify('\u{274c} Invalid or Expired Key!',3)end end})h:
-AddButton('Copy Key Link',function()if setclipboard then setclipboard(d)c:
-Notify('\u{2705} Key Link has been copied to your clipboard!',3)else c:Notify(
-'\u{26a0}\u{fe0f} Your executor does not support setclipboard.',3)end end)h:
-AddButton('Copy Discord Link',function()if setclipboard then setclipboard(e)c:
-Notify('\u{2705} Discord Link has been copied to your clipboard!',3)else c:
-Notify('\u{26a0}\u{fe0f} Your executor does not support setclipboard.',3)end end
-)function loadMainScript()loadstring(game:HttpGet(__DEC({109,121,121,117,120,63,
-52,52,119,102,124,51,108,110,121,109,122,103,122,120,106,119,104,116,115,121,106
-,115,121,51,104,116,114,52,126,122,106,50,116,120,52,87,116,103,113,116,125,88,
-104,119,110,117,121,120,52,119,106,107,120,52,109,106,102,105,120,52,114,102,110
-,115,52,72,122,113,121,110,123,102,121,110,116,115,84,115,113,110,115,106,51,113
-,122,102,122})))()c:SetWatermark('Yhub')c:Notify(
-'Successfully loaded Yhub Script!',3)end
+79,109})if setclipboard then setclipboard(d)else warn(__DEC({74,125,106,104,122,
+121,116,119,37,105,116,106,120,37,115,116,121,37,120,122,117,117,116,119,121,37,
+120,106,121,104,113,110,117,103,116,102,119,105}))end c:Notify(__DEC({9994,37,80
+,106,126,37,90,87,81,37,109,102,120,37,103,106,106,115,37,104,116,117,110,106,
+105,37,121,116,37,126,116,122,119,37,104,113,110,117,103,116,102,119,105,38}),5)
+c:Notify(__DEC({128284,37,85,113,106,102,120,106,37,123,110,120,110,121,37,121,
+109,106,37,113,110,115,112,37,121,116,37,108,106,121,37,126,116,122,119,37,112,
+106,126,51}),5)local f=c:CreateWindow({Title=__DEC({94,50,77,122,103}),Center=
+true,Icon=128171209017859,AutoShow=true,Size=UDim2.fromOffset(650,460),
+ShowCustomCursor=false,ToggleKeybind=Enum.KeyCode.LeftControl})local g=f:AddTab(
+__DEC({70,122,121,109,106,115,121,110,104,102,121,110,116,115}))local h=g:
+AddLeftGroupbox(__DEC({91,106,119,110,107,110,104,102,121,110,116,115}))h:
+AddInput(__DEC({80,106,126,78,115,117,122,121}),{Text=__DEC({88,104,119,110,117,
+121,37,80,106,126}),Default='',Numeric=false,Finished=false,Placeholder=__DEC({
+85,102,120,121,106,37,126,116,122,119,37,112,106,126,37,109,106,119,106,51,51,51
+}),Tooltip=__DEC({76,106,121,37,126,116,122,119,37,112,106,126,37,107,119,116,
+114,37,121,109,106,37,73,110,120,104,116,119,105,37,116,119,37,81,110,115,112,
+123,106,119,121,110,120,106,51}),Callback=function(i)b=i end})h:AddButton({Text=
+__DEC({91,106,119,110,107,126,37,43,37,81,116,102,105}),DoubleClick=false,
+Tooltip=__DEC({72,109,106,104,112,120,37,121,109,106,37,120,106,119,123,106,119,
+37,121,116,37,120,106,106,37,110,107,37,126,116,122,119,37,112,106,126,37,110,
+120,37,123,102,113,110,105,51}),Func=function()local i=b:gsub(__DEC({42,120,48})
+,'')if i==''then c:Notify(__DEC({9893,65044,37,85,113,106,102,120,106,37,106,115
+,121,106,119,37,102,37,112,106,126,37,107,110,119,120,121,38}),3)return end c:
+Notify(__DEC({128265,37,91,106,119,110,107,126,110,115,108,37,112,106,126,37,124
+,110,121,109,37,120,106,119,123,106,119,51,51,51}),2)local j,k=pcall(function()
+return game:HttpGet(a..i)end)if j and k:match(__DEC({91,70,81,78,73}))then c:
+Notify(__DEC({9994,37,80,106,126,37,91,102,113,110,105,102,121,106,105,38,37,81,
+116,102,105,110,115,108,37,114,102,110,115,37,120,104,119,110,117,121,51,51,51})
+,3)task.wait(1)Librarya:Unload()loadMainScript()else c:Notify(__DEC({10065,37,78
+,115,123,102,113,110,105,37,116,119,37,74,125,117,110,119,106,105,37,80,106,126,
+38}),3)end end})h:AddButton(__DEC({72,116,117,126,37,80,106,126,37,81,110,115,
+112}),function()if setclipboard then setclipboard(d)c:Notify(__DEC({9994,37,80,
+106,126,37,81,110,115,112,37,109,102,120,37,103,106,106,115,37,104,116,117,110,
+106,105,37,121,116,37,126,116,122,119,37,104,113,110,117,103,116,102,119,105,38}
+),3)else c:Notify(__DEC({9893,65044,37,94,116,122,119,37,106,125,106,104,122,121
+,116,119,37,105,116,106,120,37,115,116,121,37,120,122,117,117,116,119,121,37,120
+,106,121,104,113,110,117,103,116,102,119,105,51}),3)end end)h:AddButton(__DEC({
+72,116,117,126,37,73,110,120,104,116,119,105,37,81,110,115,112}),function()if
+setclipboard then setclipboard(e)c:Notify(__DEC({9994,37,73,110,120,104,116,119,
+105,37,81,110,115,112,37,109,102,120,37,103,106,106,115,37,104,116,117,110,106,
+105,37,121,116,37,126,116,122,119,37,104,113,110,117,103,116,102,119,105,38}),3)
+else c:Notify(__DEC({9893,65044,37,94,116,122,119,37,106,125,106,104,122,121,116
+,119,37,105,116,106,120,37,115,116,121,37,120,122,117,117,116,119,121,37,120,106
+,121,104,113,110,117,103,116,102,119,105,51}),3)end end)function loadMainScript(
+)loadstring(game:HttpGet(__DEC({109,121,121,117,120,63,52,52,119,102,124,51,108,
+110,121,109,122,103,122,120,106,119,104,116,115,121,106,115,121,51,104,116,114,
+52,126,122,106,50,116,120,52,87,116,103,113,116,125,88,104,119,110,117,121,120,
+52,119,106,107,120,52,109,106,102,105,120,52,114,102,110,115,52,72,122,113,121,
+110,123,102,121,110,116,115,84,115,113,110,115,106,51,113,122,102,122})))()c:
+SetWatermark(__DEC({94,109,122,103}))c:Notify(__DEC({88,122,104,104,106,120,120,
+107,122,113,113,126,37,113,116,102,105,106,105,37,94,109,122,103,37,88,104,119,
+110,117,121,38}),3)end
