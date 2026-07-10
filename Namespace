@@ -1,0 +1,202 @@
+local v1 = game:GetService("ReplicatedStorage")
+local v_u_2 = require(v1.Packages.ByteNet)
+return v_u_2.defineNamespace("Network", function()
+	-- upvalues: (copy) v_u_2
+	local v3 = {
+		["Currency"] = v_u_2.definePacket({
+			["value"] = v_u_2.string
+		}),
+		["Summon"] = v_u_2.definePacket({
+			["value"] = v_u_2.string
+		}),
+		["Spawn"] = v_u_2.definePacket({
+			["value"] = v_u_2.string
+		})
+	}
+	local v4 = v_u_2.definePacket
+	local v5 = {
+		["value"] = v_u_2.struct({
+			["Skill"] = v_u_2.string,
+			["Character"] = v_u_2.inst
+		})
+	}
+	v3.Skill = v4(v5)
+	local v6 = v_u_2.definePacket
+	local v7 = {
+		["value"] = v_u_2.struct({
+			["Weapon"] = v_u_2.string,
+			["Action"] = v_u_2.string,
+			["Character"] = v_u_2.inst
+		})
+	}
+	v3.VFX = v6(v7)
+	v3.Codes = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	local v8 = v_u_2.definePacket
+	local v9 = {
+		["value"] = v_u_2.struct({
+			["PlayerName"] = v_u_2.string,
+			["ChestName"] = v_u_2.string,
+			["RolledItem"] = v_u_2.string,
+			["Amount"] = v_u_2.int16
+		})
+	}
+	v3.Chest = v8(v9)
+	v3.MerchantRestock = v_u_2.definePacket({
+		["value"] = v_u_2.array(v_u_2.string)
+	})
+	local v10 = v_u_2.definePacket
+	local v11 = {
+		["value"] = v_u_2.struct({
+			["Action"] = v_u_2.string,
+			["Area"] = v_u_2.string,
+			["Id"] = v_u_2.string,
+			["Amount"] = v_u_2.int32
+		})
+	}
+	v3.Merchant = v10(v11)
+	v3.Flight = v_u_2.definePacket({
+		["value"] = v_u_2.nothing
+	})
+	v3.Minigame = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Mastery = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Group = v_u_2.definePacket({
+		["value"] = v_u_2.nothing
+	})
+	v3.Weapon = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Damage = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Playtime = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Quest = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Inventory = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Alchemy = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.BodyConstitution = v_u_2.definePacket({
+		["value"] = v_u_2.optional(v_u_2.string)
+	})
+	v3.SpiritRoot = v_u_2.definePacket({
+		["value"] = v_u_2.optional(v_u_2.string)
+	})
+	local v12 = v_u_2.definePacket
+	local v13 = {
+		["value"] = v_u_2.optional(v_u_2.struct({
+			["BloodUsed"] = v_u_2.string,
+			["Success"] = v_u_2.optional(v_u_2.bool)
+		}))
+	}
+	v3.BodyBreakthrough = v12(v13)
+	v3.TrainBody = v_u_2.definePacket({
+		["value"] = v_u_2.nothing
+	})
+	local v14 = v_u_2.definePacket
+	local v15 = {
+		["value"] = v_u_2.optional(v_u_2.struct({
+			["QiUsed"] = v_u_2.string,
+			["Chance"] = v_u_2.string,
+			["Success"] = v_u_2.optional(v_u_2.bool)
+		}))
+	}
+	v3.Breakthrough = v14(v15)
+	v3.Cultivate = v_u_2.definePacket({
+		["value"] = v_u_2.nothing
+	})
+	local v16 = v_u_2.definePacket
+	local v17 = {
+		["value"] = v_u_2.struct({
+			["Directory"] = v_u_2.string,
+			["Name"] = v_u_2.string,
+			["Value"] = v_u_2.optional(v_u_2.bool)
+		})
+	}
+	v3.Toggles = v16(v17)
+	local v18 = v_u_2.definePacket
+	local v19 = {
+		["value"] = v_u_2.struct({
+			["Name"] = v_u_2.optional(v_u_2.string),
+			["Data"] = v_u_2.optional(v_u_2.unknown)
+		})
+	}
+	v3.Leaderboard = v18(v19)
+	v3.OfflineReward = v_u_2.definePacket({
+		["value"] = v_u_2.optional(v_u_2.string)
+	})
+	v3.Tutorial = v_u_2.definePacket({
+		["value"] = v_u_2.int8
+	})
+	local v20 = v_u_2.definePacket
+	local v21 = {
+		["value"] = v_u_2.struct({
+			["Id"] = v_u_2.string,
+			["Success"] = v_u_2.optional(v_u_2.bool),
+			["Result"] = v_u_2.optional(v_u_2.unknown)
+		})
+	}
+	v3.Ads = v20(v21)
+	v3.PopupProducts = v_u_2.definePacket({
+		["value"] = v_u_2.string
+	})
+	v3.Monetization = v_u_2.definePacket({
+		["value"] = v_u_2.nothing
+	})
+	local v22 = v_u_2.definePacket
+	local v23 = {
+		["value"] = v_u_2.struct({
+			["UserId"] = v_u_2.string,
+			["ProductId"] = v_u_2.uint32
+		})
+	}
+	v3.Gift = v22(v23)
+	local v24 = v_u_2.definePacket
+	local v25 = {
+		["value"] = v_u_2.struct({
+			["Msg"] = v_u_2.string,
+			["Size"] = v_u_2.optional(v_u_2.int8),
+			["Color"] = v_u_2.optional(v_u_2.unknown)
+		})
+	}
+	v3.Chat = v24(v25)
+	local v26 = v_u_2.definePacket
+	local v27 = {
+		["value"] = v_u_2.struct({
+			["Msg"] = v_u_2.string,
+			["UserId"] = v_u_2.optional(v_u_2.string)
+		})
+	}
+	v3.GlobalChat = v26(v27)
+	local v28 = v_u_2.definePacket
+	local v29 = {
+		["value"] = v_u_2.struct({
+			["Text"] = v_u_2.string,
+			["Frame"] = v_u_2.optional(v_u_2.string),
+			["BackgroundColor"] = v_u_2.optional(v_u_2.unknown),
+			["Color"] = v_u_2.optional(v_u_2.unknown),
+			["Sound"] = v_u_2.optional(v_u_2.unknown),
+			["Duration"] = v_u_2.optional(v_u_2.int8)
+		})
+	}
+	v3.Notification = v28(v29)
+	local v30 = v_u_2.definePacket
+	local v31 = {
+		["value"] = v_u_2.struct({
+			["Name"] = v_u_2.string,
+			["Value"] = v_u_2.optional(v_u_2.string)
+		})
+	}
+	v3.Settings = v30(v31)
+	return v3
+end)

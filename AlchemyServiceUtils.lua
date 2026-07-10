@@ -1,0 +1,816 @@
+local v1 = game:GetService("ReplicatedStorage")
+local v_u_2 = require(v1.Shared.Modules.Namespace)
+local v_u_34 = {
+	["Materials"] = {
+		["Ginseng"] = {
+			["Text"] = "A common root filled with nourishing Qi.",
+			["Image"] = "rbxassetid://94897995998953",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 20,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Spirit Grass"] = {
+			["Text"] = "A faintly glowing grass rich with spiritual energy.",
+			["Image"] = "rbxassetid://82287195486266",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 20,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Lotus"] = {
+			["Text"] = "A pure lotus often used to refine Qi.",
+			["Image"] = "rbxassetid://105582072816023",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 20,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Lily"] = {
+			["Text"] = "A delicate flower known to calm spiritual energy.",
+			["Image"] = "rbxassetid://104159576205954",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 30,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Ice Lotus"] = {
+			["Text"] = "A rare lotus that grows in frozen spiritual pools.",
+			["Image"] = "rbxassetid://84777103625090",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 30,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Mandrake"] = {
+			["Text"] = "A strange root said to hold powerful life essence.",
+			["Image"] = "rbxassetid://71617600403499",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 30,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Meridian Root"] = {
+			["Text"] = "A root that strengthens and clears Qi meridians.",
+			["Image"] = "rbxassetid://92070903498902",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 40,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Essence Leaf"] = {
+			["Text"] = "A leaf that condenses pure spiritual essence.",
+			["Image"] = "rbxassetid://126880414636966",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 40,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Skyroot"] = {
+			["Text"] = "A sturdy root known for its resilience and growth.",
+			["Image"] = "rbxassetid://77653920393216",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 50,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Cloudvine"] = {
+			["Text"] = "A vine that floats in the air, absorbing spiritual energy from clouds.",
+			["Image"] = "rbxassetid://116352772475123",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 50,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Winter Orchid"] = {
+			["Text"] = "A rare orchid that blooms in the coldest winters, said to contain the essence of winter itself.",
+			["Image"] = "rbxassetid://126342891608820",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 60,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Ice Crystal Fern"] = {
+			["Text"] = "A fern that grows in icy caves, its leaves shimmering like crystals.",
+			["Image"] = "rbxassetid://97572378253479",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 60,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Inferno Reed"] = {
+			["Text"] = "A fiery reed that thrives in areas with intense spiritual heat.",
+			["Image"] = "rbxassetid://117639574029110",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 60,
+			["CanUse"] = false,
+			["Layout"] = 10
+		},
+		["Ashgrass"] = {
+			["Text"] = "A spiritual grass that grows from nutrient-rich volcanic ash.",
+			["Image"] = "rbxassetid://132606664573119",
+			["Type"] = "Material",
+			["MaxChance"] = 10,
+			["MaxAmount"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 60,
+			["CanUse"] = false,
+			["Layout"] = 10
+		}
+	},
+	["Pills"] = {
+		{
+			["Name"] = "Instant Qi",
+			["Text"] = "Instantly refill your Qi. Cannot use while breaking through.",
+			["Image"] = "rbxassetid://131543493083294",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Multiplier"] = 1,
+			["Duration"] = 0,
+			["CanUse"] = true,
+			["Layout"] = 1,
+			["Ingredients"] = {}
+		},
+		{
+			["Name"] = "Instant Health",
+			["Text"] = "Instantly refill your Health. Cannot use while breaking through.",
+			["Image"] = "rbxassetid://92510018299203",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Multiplier"] = 1,
+			["Duration"] = 0,
+			["CanUse"] = true,
+			["Layout"] = 1,
+			["Ingredients"] = {}
+		},
+		{
+			["Name"] = "Basic Qi",
+			["Text"] = "2x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 1,
+			["BaseChance"] = 30,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 15,
+			["Multiplier"] = 2,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 100,
+			["Ingredients"] = {
+				{
+					["Name"] = "Ginseng",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Spirit Grass",
+					["Amount"] = 1
+				}
+			}
+		},
+		{
+			["Name"] = "Refined Qi",
+			["Text"] = "5x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 2,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 30,
+			["Multiplier"] = 5,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 99,
+			["Ingredients"] = {
+				{
+					["Name"] = "Ginseng",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Spirit Grass",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Lotus",
+					["Amount"] = 1
+				}
+			}
+		},
+		{
+			["Name"] = "Pure Qi",
+			["Text"] = "10x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 3,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 65,
+			["Multiplier"] = 10,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 98,
+			["Ingredients"] = {
+				{
+					["Name"] = "Lotus",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Spirit Grass",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 4
+				}
+			}
+		},
+		{
+			["Name"] = "True Qi",
+			["Text"] = "25x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 4,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 130,
+			["Multiplier"] = 25,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 97,
+			["Ingredients"] = {
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Spirit Grass",
+					["Amount"] = 2
+				}
+			}
+		},
+		{
+			["Name"] = "Mystic Qi",
+			["Text"] = "50x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 5,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 250,
+			["Multiplier"] = 50,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 96,
+			["Ingredients"] = {
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 5
+				},
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Lotus",
+					["Amount"] = 3
+				}
+			}
+		},
+		{
+			["Name"] = "Spirit Qi",
+			["Text"] = "75x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 6,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 320,
+			["Multiplier"] = 75,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 95,
+			["Ingredients"] = {
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Cloudvine",
+					["Amount"] = 2
+				}
+			}
+		},
+		{
+			["Name"] = "Heavenly Qi",
+			["Text"] = "125x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 7,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 420,
+			["Multiplier"] = 125,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 94,
+			["Ingredients"] = {
+				{
+					["Name"] = "Cloudvine",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 5
+				},
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Lotus",
+					["Amount"] = 4
+				}
+			}
+		},
+		{
+			["Name"] = "Frozen Soul Qi",
+			["Text"] = "210x Qi gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Qi",
+			["Ingredients"] = nil,
+			["Exp"] = 8,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 650,
+			["Multiplier"] = 210,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 93,
+			["Ingredients"] = {
+				{
+					["Name"] = "Winter Orchid",
+					["Amount"] = 6
+				},
+				{
+					["Name"] = "Ice Crystal Fern",
+					["Amount"] = 5
+				},
+				{
+					["Name"] = "Cloudvine",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 4
+				}
+			}
+		},
+		{
+			["Name"] = "Basic Training",
+			["Text"] = "2x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 1,
+			["BaseChance"] = 30,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 17,
+			["Multiplier"] = 2,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 100,
+			["Ingredients"] = {
+				{
+					["Name"] = "Lily",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Spirit Grass",
+					["Amount"] = 1
+				},
+				{
+					["Name"] = "Ginseng",
+					["Amount"] = 1
+				}
+			}
+		},
+		{
+			["Name"] = "Refined Training",
+			["Text"] = "5x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 2,
+			["BaseChance"] = 5,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 25,
+			["Multiplier"] = 5,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 99,
+			["Ingredients"] = {
+				{
+					["Name"] = "Lily",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Spirit Grass",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Ginseng",
+					["Amount"] = 1
+				}
+			}
+		},
+		{
+			["Name"] = "Superior Training",
+			["Text"] = "10x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 3,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 50,
+			["Multiplier"] = 10,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 98,
+			["Ingredients"] = {
+				{
+					["Name"] = "Mandrake",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Ginseng",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Lily",
+					["Amount"] = 3
+				}
+			}
+		},
+		{
+			["Name"] = "Perfected Training",
+			["Text"] = "25x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 4,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 80,
+			["Multiplier"] = 25,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 97,
+			["Ingredients"] = {
+				{
+					["Name"] = "Mandrake",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Ginseng",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 3
+				}
+			}
+		},
+		{
+			["Name"] = "Mythic Training",
+			["Text"] = "50x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 5,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 180,
+			["Multiplier"] = 50,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 96,
+			["Ingredients"] = {
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 5
+				},
+				{
+					["Name"] = "Mandrake",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 5
+				},
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 2
+				},
+				{
+					["Name"] = "Lily",
+					["Amount"] = 3
+				}
+			}
+		},
+		{
+			["Name"] = "Heavenly Training",
+			["Text"] = "75x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 6,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 320,
+			["Multiplier"] = 75,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 95,
+			["Ingredients"] = {
+				{
+					["Name"] = "Mandrake",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Lily",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Skyroot",
+					["Amount"] = 2
+				}
+			}
+		},
+		{
+			["Name"] = "Skybone Training",
+			["Text"] = "125x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 7,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 420,
+			["Multiplier"] = 125,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 94,
+			["Ingredients"] = {
+				{
+					["Name"] = "Skyroot",
+					["Amount"] = 3
+				},
+				{
+					["Name"] = "Ice Lotus",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Mandrake",
+					["Amount"] = 5
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 6
+				},
+				{
+					["Name"] = "Meridian Root",
+					["Amount"] = 3
+				}
+			}
+		},
+		{
+			["Name"] = "Infernal Tempering",
+			["Text"] = "210x Blood gain for 5 minutes.",
+			["Type"] = "Pill",
+			["SubType"] = "Blood",
+			["Ingredients"] = nil,
+			["Exp"] = 8,
+			["BaseChance"] = 1,
+			["MinMastery"] = 1,
+			["MaxMastery"] = 650,
+			["Multiplier"] = 210,
+			["Duration"] = 300,
+			["CanUse"] = true,
+			["Layout"] = 93,
+			["Ingredients"] = {
+				{
+					["Name"] = "Inferno Reed",
+					["Amount"] = 6
+				},
+				{
+					["Name"] = "Ashgrass",
+					["Amount"] = 5
+				},
+				{
+					["Name"] = "Skyroot",
+					["Amount"] = 4
+				},
+				{
+					["Name"] = "Essence Leaf",
+					["Amount"] = 4
+				}
+			}
+		}
+	},
+	["GetCurrentPills"] = function(p3) -- name: GetCurrentPills
+		-- upvalues: (copy) v_u_34
+		local v4 = {}
+		for v5, _ in p3.Data.Pills do
+			local v6 = v_u_34.Pills[v_u_34.PillIndex(v5)]
+			if v6 then
+				if v4[v6.SubType] then
+					if v6.Multiplier > v4[v6.SubType].Multiplier then
+						v4[v6.SubType] = v6
+					end
+				else
+					v4[v6.SubType] = v6
+				end
+			end
+		end
+		return v4
+	end,
+	["ConsumePill"] = function(p7, p8, p9) -- name: ConsumePill
+		-- upvalues: (copy) v_u_34, (copy) v_u_2
+		local v10 = v_u_34.Pills[v_u_34.PillIndex(p7)]
+		if v10 then
+			if p7 == "Instant Qi" then
+				p8:Set({ "Stats", "Qi" }, p8.Data.Stats.MaxQi)
+				return
+			elseif p7 == "Instant Health" then
+				if p9.Character and p9.Character.Humanoid.Health > 0 then
+					p9.Character.Humanoid.Health = p9.Character.Humanoid.MaxHealth
+				else
+					v_u_2.Notification.sendTo({
+						["Text"] = "Cannot use: 0 HP or cannot find character!",
+						["Color"] = nil,
+						["Duration"] = 4,
+						["Sound"] = "Error",
+						["Color"] = Color3.fromRGB(255, 66, 66)
+					}, p9)
+				end
+			else
+				p8:Set({ "Pills", p7 }, (p8.Data.Pills[p7] or 0) + v10.Duration)
+				return
+			end
+		else
+			return
+		end
+	end,
+	["PillIndex"] = function(p11) -- name: PillIndex
+		-- upvalues: (copy) v_u_34
+		for v12, v13 in v_u_34.Pills do
+			if v13.Name == p11 then
+				return v12
+			end
+		end
+		return nil
+	end,
+	["GetHarvestingChance"] = function(p14, p15) -- name: GetHarvestingChance
+		-- upvalues: (copy) v_u_34
+		local v16 = v_u_34.Materials[p14]
+		if not v16 then
+			return 0
+		end
+		local v17 = v16.MaxChance
+		local v18 = v16.MinMastery
+		local v19 = v16.MaxMastery
+		if p15 <= v18 then
+			return 1
+		end
+		local v20 = (p15 - v18) / (v19 - v18)
+		return 1 + v17 * math.clamp(v20, 0, 1)
+	end,
+	["GetCraftChance"] = function(p21, p22) -- name: GetCraftChance
+		-- upvalues: (copy) v_u_34
+		local v23 = v_u_34.Pills[v_u_34.PillIndex(p21)]
+		if not v23 then
+			return 1
+		end
+		local v24 = v23.BaseChance
+		local v25 = v23.MinMastery
+		local v26 = v23.MaxMastery
+		if p22 <= v25 then
+			return v24
+		end
+		local v27 = (p22 - v25) / (v26 - v25)
+		local v28 = math.clamp(v27, 0, 1)
+		return v24 + (100 - v24) * v28
+	end,
+	["HasIngredients"] = function(p29, p30) -- name: HasIngredients
+		-- upvalues: (copy) v_u_34
+		local v31 = nil
+		for _, v32 in ipairs(v_u_34.Pills) do
+			if v32.Name == p30 then
+				v31 = v32
+				break
+			end
+		end
+		if not v31 then
+			return false
+		end
+		for _, v33 in v31.Ingredients do
+			if (p29.Inventory.Materials[v33.Name] or 0) < v33.Amount then
+				return false
+			end
+		end
+		return true
+	end
+}
+return v_u_34
