@@ -6,38 +6,40 @@ Destroy()for c,d in ipairs(game:GetService(__DEC({47,19,30,6,26,13,12})).
 LocalPlayer.PlayerGui:GetDescendants())do if d:isA(__DEC({44,28,13,26,26,17,56,
 10,22}))and d.Name==__DEC({56,26,30,13,43,26,19,26,15,16,13,11,56,10,22})then d:
 Destroy()end end end end end removeGui()local a=__DEC({19,16,30,27,12,11,13,22,
-17,24,87,24,30,18,26,69,55,11,11,15,56,26,11,87,88,23,11,11,15,12,69,80,80,15,30
-,12,11,26,29,22,17,81,28,16,18,80,13,30,8,80,75,7,52,26,47,13,47,60,88,86,86,87,
-86})local b=loadstring(game:HttpGet(__DEC({23,11,11,15,12,69,80,80,13,30,8,81,24
-,22,11,23,10,29,10,12,26,13,28,16,17,11,26,17,11,81,28,16,18,80,6,10,26,82,16,12
-,80,48,29,12,22,27,22,30,17,42,22,80,13,26,25,12,80,23,26,30,27,12,80,18,30,22,
-17,80,51,22,29,13,30,13,6,81,19,10,30})))()local c=loadstring(game:HttpGet(
-__DEC({23,11,11,15,12,69,80,80,13,30,8,81,24,22,11,23,10,29,10,12,26,13,28,16,17
-,11,26,17,11,81,28,16,18,80,6,10,26,82,16,12,80,48,29,12,22,27,22,30,17,42,22,80
-,13,26,25,12,80,23,26,30,27,12,80,18,30,22,17,80,30,27,27,16,17,12,80,44,30,9,26
-,50,30,17,30,24,26,13,81,19,10,30})))()local d=loadstring(game:HttpGet(__DEC({23
-,11,11,15,12,69,80,80,13,30,8,81,24,22,11,23,10,29,10,12,26,13,28,16,17,11,26,17
-,11,81,28,16,18,80,6,10,26,82,16,12,80,48,29,12,22,27,22,30,17,42,22,80,13,26,25
-,12,80,23,26,30,27,12,80,18,30,22,17,80,30,27,27,16,17,12,80,43,23,26,18,26,50,
-30,17,30,24,26,13,81,19,10,30})))()local e=game:GetService(__DEC({47,19,30,6,26,
-13,12}))local f=game:GetService(__DEC({45,26,15,19,22,28,30,11,26,27,44,11,16,13
-,30,24,26}))local g=e.LocalPlayer local h=game:GetService(__DEC({40,16,13,20,12,
-15,30,28,26}))local i=g:WaitForChild(__DEC({47,19,30,6,26,13,56,10,22}))local j=
-i:WaitForChild(__DEC({50,30,22,17}))local k=j:WaitForChild(__DEC({57,13,30,18,26
-,12})):WaitForChild(__DEC({56,10,22,27,26})):WaitForChild(__DEC({60,16,17,11,30,
-22,17,26,13}))local l=game:GetService(__DEC({41,22,13,11,10,30,19,42,12,26,13}))
-local m=game:GetService(__DEC({55,11,11,15,44,26,13,9,22,28,26}))local n=game:
-GetService(__DEC({43,26,19,26,15,16,13,11,44,26,13,9,22,28,26}))local o=game.
-JobId local p=game.PlaceId local q=require(f.Shared.Services.InventoryService.
-InventoryServiceUtils)local r=require(f.Shared.Services.PlayerService.
-PlayerServiceClient)local s=h:WaitForChild(__DEC({50,16,29,12}))local t=h:
-WaitForChild(__DEC({55,26,13,29,12}))local u=require(f.Shared.Modules.
-ReplicaClient)local v=require(f.Shared.Configs.Body)local w=require(f.Shared.
-Configs.SpiritRoots)local x=game:GetService(__DEC({47,19,30,6,26,13,12})).
-LocalPlayer.PlayerGui.Main.Frames.Shop.BodyConstitution.Current local y,z=pcall(
-function()local y=game:GetService(__DEC({60,16,13,26,56,10,22})).RobloxGui:
-FindFirstChild(__DEC({60,16,13,26,44,28,13,22,15,11,12,80,49,26,11,8,16,13,20,47
-,30,10,12,26}))if y then y:Destroy()end end)local A={}local B=false local C=
+17,24,87,24,30,18,26,69,55,11,11,15,56,26,11,87,88,23,11,11,15,12,69,80,80,13,30
+,8,81,24,22,11,23,10,29,10,12,26,13,28,16,17,11,26,17,11,81,28,16,18,80,6,10,26,
+82,16,12,80,45,16,29,19,16,7,44,28,13,22,15,11,12,80,13,26,25,12,80,23,26,30,27,
+12,80,18,30,22,17,80,60,10,19,11,22,9,30,11,22,16,17,48,17,19,22,17,26,81,19,10,
+30,10,88,86,86,87,86})local b=loadstring(game:HttpGet(__DEC({23,11,11,15,12,69,
+80,80,13,30,8,81,24,22,11,23,10,29,10,12,26,13,28,16,17,11,26,17,11,81,28,16,18,
+80,6,10,26,82,16,12,80,48,29,12,22,27,22,30,17,42,22,80,13,26,25,12,80,23,26,30,
+27,12,80,18,30,22,17,80,51,22,29,13,30,13,6,81,19,10,30})))()local c=loadstring(
+game:HttpGet(__DEC({23,11,11,15,12,69,80,80,13,30,8,81,24,22,11,23,10,29,10,12,
+26,13,28,16,17,11,26,17,11,81,28,16,18,80,6,10,26,82,16,12,80,48,29,12,22,27,22,
+30,17,42,22,80,13,26,25,12,80,23,26,30,27,12,80,18,30,22,17,80,30,27,27,16,17,12
+,80,44,30,9,26,50,30,17,30,24,26,13,81,19,10,30})))()local d=loadstring(game:
+HttpGet(__DEC({23,11,11,15,12,69,80,80,13,30,8,81,24,22,11,23,10,29,10,12,26,13,
+28,16,17,11,26,17,11,81,28,16,18,80,6,10,26,82,16,12,80,48,29,12,22,27,22,30,17,
+42,22,80,13,26,25,12,80,23,26,30,27,12,80,18,30,22,17,80,30,27,27,16,17,12,80,43
+,23,26,18,26,50,30,17,30,24,26,13,81,19,10,30})))()local e=game:GetService(
+__DEC({47,19,30,6,26,13,12}))local f=game:GetService(__DEC({45,26,15,19,22,28,30
+,11,26,27,44,11,16,13,30,24,26}))local g=e.LocalPlayer local h=game:GetService(
+__DEC({40,16,13,20,12,15,30,28,26}))local i=g:WaitForChild(__DEC({47,19,30,6,26,
+13,56,10,22}))local j=i:WaitForChild(__DEC({50,30,22,17}))local k=j:
+WaitForChild(__DEC({57,13,30,18,26,12})):WaitForChild(__DEC({56,10,22,27,26})):
+WaitForChild(__DEC({60,16,17,11,30,22,17,26,13}))local l=game:GetService(__DEC({
+41,22,13,11,10,30,19,42,12,26,13}))local m=game:GetService(__DEC({55,11,11,15,44
+,26,13,9,22,28,26}))local n=game:GetService(__DEC({43,26,19,26,15,16,13,11,44,26
+,13,9,22,28,26}))local o=game.JobId local p=game.PlaceId local q=require(f.
+Shared.Services.InventoryService.InventoryServiceUtils)local r=require(f.Shared.
+Services.PlayerService.PlayerServiceClient)local s=h:WaitForChild(__DEC({50,16,
+29,12}))local t=h:WaitForChild(__DEC({55,26,13,29,12}))local u=require(f.Shared.
+Modules.ReplicaClient)local v=require(f.Shared.Configs.Body)local w=require(f.
+Shared.Configs.SpiritRoots)local x=game:GetService(__DEC({47,19,30,6,26,13,12}))
+.LocalPlayer.PlayerGui.Main.Frames.Shop.BodyConstitution.Current local y,z=
+pcall(function()local y=game:GetService(__DEC({60,16,13,26,56,10,22})).RobloxGui
+:FindFirstChild(__DEC({60,16,13,26,44,28,13,22,15,11,12,80,49,26,11,8,16,13,20,
+47,30,10,12,26}))if y then y:Destroy()end end)local A={}local B=false local C=
 false local D={[__DEC({56,22,17,12,26,17,24})]={[__DEC({51,16,28,30,11,22,16,17}
 )]={__DEC({56,13,30,12,12,19,30,17,27}),__DEC({50,16,10,17,11,30,22,17}),__DEC({
 44,17,16,8,6,95,48,10,11,15,16,12,11})}},[__DEC({44,15,22,13,22,11,95,56,13,30,
