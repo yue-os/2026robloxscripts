@@ -288,310 +288,355 @@ if _==g or _==g.UserId then Y=true end end end if type(X.Token)==__DEC({12,11,13
 function getRootNames()local ab={}for ac,X in ipairs(z.Roots)do table.insert(ab,
 X[1])end return ab end local function getBodyNames()local ab={}for ac,X in
 ipairs(y.Constitution)do table.insert(ab,X[1])end return ab end local function 
-isMatch(ab,ac)return string.match(ab,ac)~=nil end local function getQiZoneData()
-local ab={}local ac={}for X=1,9 do local Y=__DEC({46,22,37,16,17,26,12})..
-tostring(X)local Z=k:FindFirstChild(Y)if Z then local _=Z:FindFirstChild(__DEC({
-43,22,11,19,26}))local ad=Z:FindFirstChild(__DEC({44,10,29,11,22,11,19,26}))if _
-and ad then local ae=_.Text..__DEC({95,3,95})..ad.Text table.insert(ab,ae)ac[ae]
-=L[X]end end end return ab,ac end local function calculateTrueBreakthroughQi(ab)
-local ac=math.ceil(ab/10)if ac>31 then ac=31 end if ac<1 then ac=1 end local ad=
-O[ac]local ae=ad*(1.15^(ab-1))local X=(ab-1)*0.05+1 return math.floor(ae*1.5*X)
-end local function calculateTrueBreakthroughBody(ab)local ac=math.ceil(ab/10)if
-ac>33 then ac=33 end if ac<1 then ac=1 end local ad=P[ac]local ae=ad*(1.11^(ab-1
-))local X=(ab-1)*0.01+1 return math.floor(ae*1*X)end g.Idled:Connect(function()l
-:CaptureController()l:ClickButton2(Vector2.new())end)local function 
-queueMyScript()if syn and syn.queue_on_teleport then syn.queue_on_teleport(a)
-elseif queue_on_teleport then queue_on_teleport(a)else warn(__DEC({38,16,10,13,
-95,26,7,26,28,10,11,16,13,95,27,16,26,12,95,17,16,11,95,12,10,15,15,16,13,11,95,
-14,10,26,10,26,32,16,17,32,11,26,19,26,15,16,13,11}))end end e.LocalPlayer.
-OnTeleport:Connect(function(ab)queueMyScript()end)repeat task.wait()until w.
-IsReady and w.Replica local ab=w.GetReplica()local function getMyFilteredItems()
-local ac={[__DEC({40,26,30,15,16,17})]=true,[__DEC({50,30,11,26,13,22,30,19})]=
-true,[__DEC({47,22,19,19})]=true}local ad={}local ae=ab.Data.Inventory for X,Y
-in pairs(ae)do if type(Y)==__DEC({11,30,29,19,26})and Y[1]~=nil then for Z,_ in
-ipairs(Y)do local af=v.Items[_]if af and ac[af.Type]then table.insert(ad,_)end
-end else for af,Z in pairs(Y)do local _=v.Items[af]local ag=(type(Z)==__DEC({17,
-10,18,29,26,13})and Z>0)or(type(Z)==__DEC({29,16,16,19,26,30,17})and Z==true)if
-_ and ac[_.Type]and ag then table.insert(ad,af)end end end end return ad end
-local function createPlaytimePacket(ac,ad)local ae=tostring(ac)local af='\20'..
-string.pack(__DEC({67,54,77}),#ae)..ae..string.pack(__DEC({67,54,77}),#ad)..ad
-return{buffer.fromstring(af)}end local ac={600,1200,2400,3600,4800,10800}local 
-function createEventPlaytimePacket(ad)local ae=tostring(ad)..__DEC({69,58,9,26,
-17,11,47,19,30,6,11,22,18,26})local af='\20'..string.pack(__DEC({67,54,77}),#ae)
-..ae return{buffer.fromstring(af)}end local ad=b:CreateWindow({Title=__DEC({38,
-82,55,10,29}),Center=true,Icon=128171209017859,AutoShow=true,Size=UDim2.
-fromOffset(650,460),ShowCustomCursor=false,ToggleKeybind=Enum.KeyCode.
-LeftControl})local ae=ad:AddTab(__DEC({50,30,22,17}),__DEC({29,16,16,20,82,10,12
-,26,13}))local af=ad:AddTab(__DEC({50,22,12,28}),__DEC({12,26,13,9,26,13}))local
-ag=ad:AddTab(__DEC({44,26,11,11,22,17,24,12}),__DEC({28,16,24}))local X=ae:
-AddLeftGroupbox(__DEC({44,15,22,17}))local Y=ae:AddRightGroupbox(__DEC({62,19,28
-,23,26,18,6}))local Z=ae:AddRightGroupbox(__DEC({46,22,95,30,17,27,95,43,13,30,
-22,17,22,17,24}))local _=ae:AddLeftGroupbox(__DEC({50,26,13,28,23,30,17,11}))
-local ah=ae:AddRightGroupbox(__DEC({46,10,26,12,11,12}))local ai=af:
-AddLeftGroupbox(__DEC({58,7,15,26,13,22,18,26,17,11,30,19}))local aj=af:
-AddRightGroupbox(__DEC({47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,12}))local ak
-=X:AddDropdown(__DEC({45,16,16,11,12}),{Values=getRootNames(),Default=A,Multi=
-false,Text=__DEC({44,26,19,26,28,11,95,45,16,16,11}),Tooltip=__DEC({44,26,19,26,
-28,11,95,11,23,26,95,13,16,16,11,95,6,16,10,95,8,30,17,11,95,11,16,95,12,15,22,
-17,95,11,16,81}),Callback=function(ak)end})local al=X:AddToggle(__DEC({44,15,22,
-17,95,45,16,16,11}),{Text=__DEC({44,15,22,17,95,45,16,16,11}),Tooltip=__DEC({62,
-10,11,16,18,30,11,22,28,30,19,19,6,95,12,15,22,17,12,95,6,16,10,13,95,13,16,16,
-11,81}),Callback=function(al)F=al task.spawn(function()while F do local am=ak.
-Value local an=getMyLiveStats()if an and an.SpiritRoot==am then b:Notify(__DEC({
-127990,95,44,10,28,28,26,12,12,25,10,19,19,6,95,13,16,19,19,26,27,95,45,16,16,11
-,69,95})..am)F=false break end local ao={buffer.fromstring('\30\0'),am}f.
-ByteNetReliable:FireServer(unpack(ao))task.wait(0.5)end end)end})local am=X:
-AddDropdown(__DEC({60,16,17,12,11,22,11,10,11,22,16,17}),{Values=getBodyNames(),
-Default=A.Text,Multi=false,Text=__DEC({44,26,19,26,28,11,95,60,16,17,12,11,22,11
-,10,11,22,16,17}),Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,95,28,16,17,12,11
-,22,11,10,11,22,16,17,95,6,16,10,95,8,30,17,11,95,11,16,95,12,15,22,17,95,11,16,
-81}),Callback=function(am)end})local an=X:AddToggle(__DEC({44,15,22,17,95,60,16,
-17,12,11,22,11,10,11,22,16,17}),{Text=__DEC({44,15,22,17,95,60,16,17,12,11,22,11
-,10,11,22,16,17}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,12,15,
-22,17,12,95,6,16,10,13,95,28,16,17,12,11,22,11,10,11,22,16,17,81}),Callback=
-function(an)E=an task.spawn(function()while E do local ao=am.Value local ap=
-getMyLiveStats()if ap and ap.BodyConstitution==ao then b:Notify(__DEC({127990,95
-,44,10,28,28,26,12,12,25,10,19,19,6,95,13,16,19,19,26,27,95,60,16,17,12,11,22,11
-,10,11,22,16,17,69,95})..ao)E=false break end local aq={buffer.fromstring(
-'\31\0'),ao}f.ByteNetReliable:FireServer(unpack(aq))task.wait(0.5)end end)end})
-local ao=__DEC({56,22,17,12,26,17,24})local ap=G[ao].Location[1]local aq={}local
-ar=1 local as=_:AddDropdown(__DEC({50,26,13,28,23,30,17,11,95,54,11,26,18}),{
-Values=getAllItemNames(),Default={},Multi=true,Text=__DEC({44,26,19,26,28,11,95,
-54,11,26,18,12}),Tooltip=__DEC({44,26,19,26,28,11,95,18,10,19,11,22,15,19,26,95,
-22,11,26,18,12,95,6,16,10,95,8,30,17,11,95,11,16,95,30,10,11,16,95,29,10,6,81}),
-Searchable=true,Callback=function(as)aq={}for at,au in pairs(as)do if au then
-table.insert(aq,at)end end end})local at=_:AddSlider(__DEC({62,18,16,10,17,11}),
-{Text=__DEC({62,18,16,10,17,11}),Min=1,Max=100,Default=1,Rounding=0,Callback=
-function(at)ar=at end})local au=false local av=false local aw={}local ax=_:
-AddToggle(__DEC({62,10,11,16,95,61,10,6}),{Text=__DEC({62,10,11,16,95,61,10,6}),
-Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,16,17,28,26,95,11,16,95,26,30,28,23
-,95,17,26,28,26,12,12,30,13,6,95,18,26,13,28,23,30,17,11,95,15,26,13,95,24,30,18
-,26,83,95,11,23,26,17,95,29,10,6,12,95,12,26,19,26,28,11,26,27,95,22,11,26,18,12
-,81}),Callback=function(ax)au=ax task.spawn(function()while au do for ay,az in
-ipairs(aq)do if not au then break end local aA=G[az]if aA and aA.Location then
-for aB,aC in ipairs(aA.Location)do if not au then break end if H[aC]and not aw[
-aC]then local aD=g.Character local aE=aD and aD:FindFirstChild(__DEC({55,10,18,
-30,17,16,22,27,45,16,16,11,47,30,13,11}))if aE then print(__DEC({128767,95,43,26
-,19,26,15,16,13,11,22,17,24,95,11,16,95})..aC..__DEC({95,50,26,13,28,23,30,17,11
-,95,87,57,22,13,12,11,95,11,22,18,26,95,16,17,19,6,86,81,81,81}))aE.CFrame=H[aC]
-aw[aC]=true task.wait(1.5)end end local aD=g.PlayerGui.Main.Frames.Merchant.
-Container:FindFirstChild(az)local aE=0 if aD and aD:FindFirstChild(__DEC({44,11,
-16,28,20}))then local aF=string.match(aD.Stock.Text,__DEC({90,27,84}))if aF then
-aE=tonumber(aF)end end if aE>0 then local aF=math.min(ar,aE)local aG=
-createBuyPacket(az,aF,aC)f.ByteNetReliable:FireServer(unpack(aG))task.wait(0.25)
-end end end end task.wait(1)end end)end})local ay=I[1]local az=ah:AddDropdown(
-__DEC({46,10,26,12,11}),{Values=I,Default=1,Multi=false,Text=__DEC({44,26,19,26,
-28,11,95,46,10,26,12,11}),Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,95,14,10,
-26,12,11,95,6,16,10,95,8,30,17,11,95,11,16,95,28,16,18,15,19,26,11,26,81}),
-Searchable=true,Callback=function(az)ay=az local aA={buffer.fromstring(
-'\t\6\0Cancel')}f.ByteNetReliable:FireServer(unpack(aA))task.wait(0.25)local aB=
-createQuestPacket(az)f.ByteNetReliable:FireServer(unpack(aB))end})az:SetValue(ay
-)local aA=false local function getQuestTarget(aB)local aC=J[aB]if not aC then
-local aD=aa[aB]if aD and#aD>0 then return aD[1]end return nil end local aD=aa[aC
-.Folder]if aD and#aD>0 then for aE,aF in ipairs(aD)do if aF.Name==aC.MobName
-then return aF end end end return nil end ah:AddToggle(__DEC({62,10,11,16,57,30,
-13,18,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,57,30
-,13,18}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,11,26,19,26,15,
-16,13,11,12,95,11,16,95,30,17,27,95,25,30,13,18,12,95,11,23,26,95,12,26,19,26,28
-,11,26,27,95,14,10,26,12,11,81}),Callback=function(aB)aA=aB task.spawn(function(
-)while aA do local aC=getQuestTarget(ay)if aC then teleportBehindMob(aC,4)else
-task.wait(1)end task.wait(0.1)end end)end})local aB=false ah:AddToggle(__DEC({62
-,10,11,16,52,22,19,19,61,16,12,12,26,12,43,16,24,24,19,26}),{Text=__DEC({62,10,
-11,16,95,52,22,19,19,95,62,19,19,95,61,16,12,12,26,12}),Tooltip=__DEC({43,26,19,
-26,15,16,13,11,12,95,11,16,95,12,15,30,8,17,95,15,16,22,17,11,12,95,11,16,95,19,
-16,30,27,95,11,23,26,95,28,23,10,17,20,83,95,11,23,26,17,95,23,10,17,11,12,95,11
-,23,26,95,29,16,12,12,81}),Callback=function(aC)aB=aC task.spawn(function()while
-aB do for aD,aE in ipairs(M)do if not aB then break end local aF=g.Character if
-aF and aF:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}
-))then aF.HumanoidRootPart.CFrame=aE.CF task.wait(1.5)if not aB then break end
-local aG=nil for aH,aI in ipairs(q:GetChildren())do for aJ,aK in ipairs(aI:
-GetChildren())do if aK.Name==aE.Name and aK:FindFirstChild(__DEC({55,10,18,30,17
-,16,22,27,45,16,16,11,47,30,13,11}))then local aL=aK:FindFirstChild(__DEC({55,10
-,18,30,17,16,22,27}))if aL and aL.Health>0 then aG=aK break end end end if aG
-then break end end if aG then local aH=aG:FindFirstChild(__DEC({55,10,18,30,17,
-16,22,27}))print(__DEC({9963,65136,95})..aE.Name..__DEC({95,19,16,30,27,26,27,94
-,95,58,17,24,30,24,22,17,24,81,81,81}))local aI=false while aG.Parent and aH and
-aH.Health>0 and aB do local aJ=g.Character local aK=aJ and aJ:FindFirstChild(
-__DEC({55,10,18,30,17,16,22,27}))if not aJ or not aK or aK.Health<=0 then aI=
-true break end if not aG:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,
-11,47,30,13,11}))then break end teleportBehindMob(aG,4)task.wait(0.1)end if aI
-then print(__DEC({9823,65136,95,38,16,10,95,27,22,26,27,95,11,16,95})..aE.Name..
-__DEC({81,95,40,30,22,11,22,17,24,95,25,16,13,95,13,26,12,15,30,8,17,81,81,81}))
-g.CharacterAdded:Wait()task.wait(2)else print(__DEC({128255,95})..aE.Name..
-__DEC({95,27,26,25,26,30,11,26,27,94}))task.wait(0.5)end else print(__DEC({
-128004,95})..aE.Name..__DEC({95,23,30,12,95,17,16,11,95,13,26,12,15,30,8,17,26,
-27,95,6,26,11,81}))end end end task.wait(2)end end)end})ai:AddToggle(__DEC({62,
-10,11,16,52,22,19,19,61,16,12,12,26,12,62,17,27,55,16,15,43,16,24,24,19,26}),{
-Text=__DEC({62,10,11,16,95,57,30,13,18,95,61,16,12,12,26,12,95,89,95,55,16,15}),
-Tooltip=__DEC({55,10,17,11,12,95,11,30,13,24,26,11,95,29,16,12,12,26,12,83,95,11
-,23,26,17,95,12,26,13,9,26,13,95,23,16,15,12,95,22,25,95,30,19,19,95,30,13,26,95
-,27,26,30,27,81}),Callback=function(aC)aB=aC task.spawn(function()while aB do
-local aD=false local aE={[__DEC({56,16,19,26,18,95,61,16,12,12})]=true,[__DEC({
-50,30,17,22,30,28,95,44,8,16,13,27,95,60,10,19,11,22,9,30,11,16,13})]=true,[
-__DEC({58,18,29,26,13,95,56,16,19,26,18})]=true}for aF,aG in ipairs(M)do if not
-aB then break end local aH=g.Character if aH and aH:FindFirstChild(__DEC({55,10,
-18,30,17,16,22,27,45,16,16,11,47,30,13,11}))then aH.HumanoidRootPart.CFrame=aG.
-CF task.wait(1.5)if not aB then break end local aI=nil for aJ,aK in ipairs(q:
-GetChildren())do for aL,aM in ipairs(aK:GetChildren())do if aM.Name==aG.Name and
-aM:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))then
-local aN=aM:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if aN and aN.Health>
-0 then aI=aM break end end end if aI then break end end if aI then aD=true local
-aJ=aI:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))print(__DEC({9963,65136,95
-})..aG.Name..__DEC({95,25,16,10,17,27,94}))while aI.Parent and aJ and aJ.Health>
-0 and aB do teleportBehindMob(aI,4)task.wait(0.1)end else print(__DEC({128004,95
-})..aG.Name..__DEC({95,22,12,95,27,26,30,27,95,16,13,95,18,22,12,12,22,17,24,81}
-))end end end if aB and not aD then b:Notify(__DEC({128379,95,62,19,19,95,11,30,
-13,24,26,11,95,29,16,12,12,26,12,95,27,26,30,27,80,18,22,12,12,22,17,24,81,95,44
-,26,13,9,26,13,95,23,16,15,15,22,17,24,81,81,81}))serverHop()end task.wait(2)end
-end)end})local aC=getMyFilteredItems()local aD={}local aE=ai:AddDropdown(__DEC({
-50,6,57,22,19,11,26,13,26,27,59,13,16,15,27,16,8,17}),{Values=aC,Default={},
-Multi=true,Text=__DEC({44,26,19,26,28,11,95,54,11,26,18,12,95,11,16,95,44,26,19,
-19}),Tooltip=__DEC({44,26,19,26,28,11,95,18,10,19,11,22,15,19,26,95,16,8,17,26,
-27,95,22,11,26,18,12,95,11,16,95,12,26,19,19,95,87,40,30,13,17,69,95,43,23,22,12
-,95,8,22,19,19,95,12,26,19,19,95,30,19,19,95,11,23,26,95,12,26,19,26,28,11,26,27
-,95,22,11,26,18,12,95,30,11,95,18,30,7,95,14,10,30,17,11,22,11,6,86,81}),
-Searchable=true,Callback=function(aE)aD={}for aF,aG in pairs(aE)do if aG then
-table.insert(aD,aF)end end end})local aF=false ai:AddToggle(__DEC({62,10,11,16,
-44,26,19,19,44,26,19,26,28,11,26,27,43,16,24,24,19,26}),{Text=__DEC({62,10,11,16
-,95,44,26,19,19,95,44,26,19,26,28,11,26,27}),Tooltip=__DEC({51,16,16,15,12,95,11
-,23,13,16,10,24,23,95,11,23,26,95,12,26,19,26,28,11,26,27,95,22,11,26,18,12,95,
-30,17,27,95,12,26,19,19,81}),Default=false,Callback=function(aG)aF=aG if aF then
-task.spawn(function()while aF do for aH,aI in ipairs(aD)do if not aF then break
-end local aJ=createSellPacket(aI)f.ByteNetReliable:FireServer(unpack(aJ))task.
-wait(0.25)end task.wait(1)end end)end end})local aG=Y:AddDropdown(__DEC({55,26,
-13,29,43,30,13,24,26,11,44,26,19,26,28,11}),{Values=T,Default=0,Multi=true,Text=
-__DEC({44,26,19,26,28,11,95,55,26,13,29,12,95,11,16,95,55,30,13,9,26,12,11}),
-Tooltip=__DEC({44,26,19,26,28,11,95,16,17,26,95,16,13,95,18,16,13,26,95,23,26,13
-,29,12,95,11,16,95,11,30,13,24,26,11,81}),Callback=function(aG)D=aG end})local
-aH=false local aI={}Y:AddToggle(__DEC({62,10,11,16,55,30,13,9,26,12,11,44,15,26,
-28,22,25,22,28,43,16,24,24,19,26}),{Text=__DEC({62,10,11,16,95,55,30,13,9,26,12,
-11}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,11,16,95,30,17,27,95,23,30,13,
-9,26,12,11,12,95,48,49,51,38,95,11,23,26,95,23,26,13,29,12,95,6,16,10,95,12,26,
-19,26,28,11,26,27,95,30,29,16,9,26,81}),Callback=function(aJ)aH=aJ task.spawn(
-function()while aH do task.wait(5)aI={}end end)task.spawn(function()while aH do
-local aK=false for aL,aM in ipairs(r:GetChildren())do if not aH then break end
-if aM:IsA(__DEC({50,26,12,23,47,30,13,11}))and not aI[aM]and D[aM.Name]then
-local aN=aM:FindFirstChildWhichIsA(__DEC({47,13,16,7,22,18,22,11,6,47,13,16,18,
-15,11}))if aN and aN.Enabled then aK=true teleportTo(aM)task.wait(0.2)
-fireproximityprompt(aN)aI[aM]=true task.wait(0.1)end end end if not aK then task
-.wait(0.5)else task.wait()end end end)end})local aJ=Z:AddDropdown(__DEC({61,16,
-27,6,95,37,16,17,26}),{Values=W,Default=1,Multi=false,Text=__DEC({44,26,19,26,28
-,11,95,61,16,27,6,95,37,16,17,26}),Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,
-95,29,16,27,6,95,5,16,17,26,95,6,16,10,95,8,30,17,11,95,11,16,95,11,13,30,22,17,
-95,22,17,81}),Callback=function(aJ)local aK=table.find(W,aJ)if aK and K[aK]then
-U=V[aJ]end end})local aK=false Z:AddToggle(__DEC({62,10,11,16,43,13,30,22,17,43,
-16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,43,13,30,22,17
-}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,11,16,95,5,16,17,26,83,95,11,13,
-22,24,24,26,13,12,95,11,13,30,22,17,22,17,24,95,16,17,28,26,83,95,11,23,26,17,95
-,18,30,22,17,11,30,22,17,12,95,29,16,16,12,11,95,10,17,11,22,19,95,55,47,95,22,
-12,95,19,16,8,81}),Callback=function(aL)aK=aL task.spawn(function()if aK then
-teleportToActiveZone(g.Character)task.wait(0.2)local aM={buffer.fromstring('\21'
-)}f.ByteNetReliable:FireServer(unpack(aM))end while aK do local aM=g.Character
-if aM then local aN=aM:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if aN and
-aN.Health>0 then local aO=(aN.Health/aN.MaxHealth)*100 if aO<12 then aN.Health=0
-g.CharacterAdded:Wait()task.wait(1)teleportToActiveZone(g.Character)task.wait(
-0.2)local aP={buffer.fromstring('\21')}f.ByteNetReliable:FireServer(unpack(aP))
-else local aP={buffer.fromstring('\n\b\0Training')}f.ByteNetReliable:FireServer(
-unpack(aP))task.wait(0.5)end else task.wait(0.5)end else task.wait(0.5)end end
-end)end})local aL=S[1]local aM=false local aN=Y:AddDropdown(__DEC({62,19,28,23,
-26,18,6,95,47,22,19,19}),{Values=S,Default=aL,Multi=false,Text=__DEC({44,26,19,
-26,28,11,95,47,22,19,19}),Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,95,15,22,
-19,19,95,6,16,10,95,8,30,17,11,95,11,16,95,28,13,30,25,11,81}),Searchable=true,
-Callback=function(aN)aL=aN end})Y:AddToggle(__DEC({62,10,11,16,62,19,28,23,26,18
-,6,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,62,19,28
-,23,26,18,6}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,28,13,30,
-25,11,12,95,11,23,26,95,12,26,19,26,28,11,26,27,95,15,22,19,19,95,22,25,95,6,16,
-10,95,23,30,9,26,95,11,23,26,95,18,30,11,26,13,22,30,19,12,81}),Callback=
-function(aO)aM=aO task.spawn(function()while aM do if aL then local aP=
-createAlchemyPacket(aL)f.ByteNetReliable:FireServer(unpack(aP))end task.wait(1)
-end end)end})local aO,aP=getQiZoneData()local aQ=Z:AddDropdown(__DEC({46,22,95,
-37,16,17,26}),{Values=aO,Default=1,Multi=false,Text=__DEC({44,26,19,26,28,11,95,
-46,22,95,37,16,17,26}),Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,95,46,22,95,
-5,16,17,26,95,6,16,10,95,8,30,17,11,95,11,16,95,11,13,30,22,17,95,22,17,81}),
-Callback=function(aQ)if aP[aQ]then U=aP[aQ]end end})local aR=false Z:AddToggle(
-__DEC({62,10,11,16,60,10,19,11,22,9,30,11,26,43,16,24,24,19,26}),{Text=__DEC({58
-,17,30,29,19,26,95,62,10,11,16,95,60,10,19,11,22,9,30,11,26}),Tooltip=__DEC({43,
-26,19,26,15,16,13,11,12,95,11,16,95,11,23,26,95,12,26,19,26,28,11,26,27,95,46,22
-,95,37,16,17,26,95,30,17,27,95,30,10,11,16,18,30,11,22,28,30,19,19,6,95,28,10,19
-,11,22,9,30,11,26,12,95,8,22,11,23,95,11,30,15,95,29,16,16,12,11,12,81}),
-Callback=function(aS)aR=aS if aR then task.spawn(function()teleportToActiveZone(
-g.Character)task.wait(0.2)local aT={buffer.fromstring('\6')}f.ByteNetReliable:
-FireServer(unpack(aT))while aR do local aU=g.Character if aU then local aV=aU:
-FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if aV and aV.Health>0 then local
-aW=(aV.Health/aV.MaxHealth)*100 if aW<12 then aV.Health=0 g.CharacterAdded:Wait(
-)task.wait(1)teleportToActiveZone(g.Character)task.wait(0.2)local aX={buffer.
-fromstring('\6')}f.ByteNetReliable:FireServer(unpack(aX))else local aX={buffer.
-fromstring('\n\v\0Cultivating')}f.ByteNetReliable:FireServer(unpack(aX))task.
-wait(0.5)end else task.wait(0.5)end else task.wait(0.5)end end end)else local aT
-={buffer.fromstring('\6')}f.ByteNetReliable:FireServer(unpack(aT))end end})local
-aS=100 Z:AddSlider(__DEC({61,13,26,30,20,11,23,13,16,10,24,23,60,23,30,17,28,26,
-44,19,22,27,26,13}),{Text=__DEC({61,13,26,30,20,11,23,13,16,10,24,23,95,60,23,30
-,17,28,26,95,90}),Min=1,Max=100,Default=70,Rounding=0,Tooltip=__DEC({44,26,11,95
-,11,23,26,95,18,22,17,22,18,10,18,95,12,10,28,28,26,12,12,95,13,30,11,26,95,6,16
-,10,95,8,30,17,11,95,29,26,25,16,13,26,95,30,11,11,26,18,15,11,22,17,24,95,11,16
-,95,29,13,26,30,20,11,23,13,16,10,24,23,81}),Callback=function(aT)aS=aT end})
-local aT=false Z:AddToggle(__DEC({62,10,11,16,61,13,26,30,20,11,23,13,16,10,24,
-23,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,61,13,26
-,30,20,11,23,13,16,10,24,23}),Tooltip=__DEC({43,13,22,24,24,26,13,12,95,46,22,95
-,30,17,27,95,61,16,27,6,95,29,13,26,30,20,11,23,13,16,10,24,23,12,95,29,30,12,26
-,27,95,16,17,95,6,16,10,13,95,12,26,19,26,28,11,26,27,95,28,23,30,17,28,26,81}),
-Callback=function(aU)aT=aU task.spawn(function()while aT do local aV=
-getMyLiveStats()if aV then if aV.Qi and aV.Realm then local aW=
-calculateTrueBreakthroughQi(aV.Realm)local aX=math.floor(aW*(aS/100))if aV.Qi>=
-aX then local aY={buffer.fromstring('\4\0')}f.ByteNetReliable:FireServer(unpack(
-aY))print(string.format(__DEC({127840,95,46,22,95,61,13,26,30,20,11,23,13,16,10,
-24,23,95,62,11,11,26,18,15,11,26,27,94,95,60,23,30,17,28,26,69,95,90,27,90,90,95
-,3,95,43,30,13,24,26,11,95,46,22,69,95,90,27}),aS,aX))task.wait(2.5)end end
-local aW=aV.Blood or aV.Health if aW and aV.Body then local aX=
-calculateTrueBreakthroughBody(aV.Body)local aY=math.floor(aX*(aS/100))if aW>=aY
-then local aZ={buffer.fromstring('\14\0')}f.ByteNetReliable:FireServer(unpack(aZ
-))print(string.format(__DEC({128213,95,61,16,27,6,95,61,13,26,30,20,11,23,13,16,
-10,24,23,95,62,11,11,26,18,15,11,26,27,94,95,60,23,30,17,28,26,69,95,90,27,90,90
-,95,3,95,43,30,13,24,26,11,95,61,19,16,16,27,69,95,90,27}),aS,aY))task.wait(2.5)
-end end end task.wait(1)end end)end})local aU={60,300,600,900,1200,1800,3600,
-5400,7200}for aV,aW in ipairs(aU)do aj:AddDropdown(__DEC({47,19,30,6,11,22,18,26
-,43,22,26,13,32})..aW,{Text=aW..__DEC({95,44,26,28,16,17,27,12}),Values=Q[aW],
-Default=R[aW],Multi=false,Callback=function(aX)R[aW]=aX end})end local aV=false
-aj:AddToggle(__DEC({62,10,11,16,47,19,30,6,11,22,18,26,45,26,8,30,13,27,12,43,16
-,24,24,19,26}),{Text=__DEC({62,10,11,16,95,60,19,30,22,18,95,45,26,8,30,13,27,12
-}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,28,19,30,22,18,12,95,
-6,16,10,13,95,12,26,19,26,28,11,26,27,95,15,19,30,6,11,22,18,26,95,13,26,8,30,13
-,27,12,81}),Default=false,Callback=function(aW)aV=aW if aV then b:Notify(__DEC({
-127998,95,62,10,11,16,95,60,19,30,22,18,95,47,19,30,6,11,22,18,26,95,45,26,8,30,
-13,27,12,95,58,17,30,29,19,26,27,94}))task.spawn(function()while aV do for aX,aY
-in ipairs(aU)do if not aV then break end local aZ=R[aY]local a_=
-createPlaytimePacket(aY,aZ)pcall(function()f.ByteNetReliable:FireServer(unpack(
-a_))end)task.wait(0.5)end task.wait(60)end end)else b:Notify(__DEC({128686,95,62
-,10,11,16,95,60,19,30,22,18,95,47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,12,95,
-59,22,12,30,29,19,26,27,94}))end end})local aW=false aj:AddToggle(__DEC({62,10,
-11,16,58,9,26,17,11,47,19,30,6,11,22,18,26,45,26,8,30,13,27,12,43,16,24,24,19,26
-}),{Text=__DEC({62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11,
-22,18,26}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,28,19,30,22,
-18,12,95,11,23,26,95,12,15,26,28,22,30,19,95,58,9,26,17,11,95,15,19,30,6,11,22,
-18,26,95,13,26,8,30,13,27,12,81}),Default=false,Callback=function(aX)aW=aX if aW
-then b:Notify(__DEC({127993,95,62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95
-,47,19,30,6,11,22,18,26,95,58,17,30,29,19,26,27,94}))task.spawn(function()while
-aW do for aY,aZ in ipairs(ac)do if not aW then break end local a_=
-createEventPlaytimePacket(aZ)pcall(function()f.ByteNetReliable:FireServer(
-unpack(a_))end)task.wait(0.5)end task.wait(60)end end)else b:Notify(__DEC({
-128686,95,62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11,22,18,
-26,95,59,22,12,30,29,19,26,27,94}))end end})ai:AddButton({Text=__DEC({60,16,15,6
-,95,60,10,13,13,26,17,11,95,51,16,28,30,11,22,16,17}),DoubleClick=false,Tooltip=
-__DEC({60,16,15,22,26,12,95,6,16,10,13,95,26,7,30,28,11,95,28,23,30,13,30,28,11,
-26,13,95,60,57,13,30,18,26,95,11,16,95,6,16,10,13,95,28,19,22,15,29,16,30,13,27,
-81}),Func=function()local aX=g.Character local aY=aX and aX:FindFirstChild(
-__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))if aY then local aZ=
-string.format(__DEC({60,57,13,30,18,26,81,17,26,8,87,90,25,83,95,90,25,83,95,90,
-25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95
-,90,25,83,95,90,25,83,95,90,25,86}),aY.CFrame:GetComponents())if setclipboard
-then setclipboard(aZ)b:Notify(__DEC({128180,95,51,16,28,30,11,22,16,17,95,28,16,
-15,22,26,27,95,11,16,95,28,19,22,15,29,16,30,13,27,94}))else print(__DEC({38,16,
-10,13,95,19,16,28,30,11,22,16,17,95,25,16,13,18,30,11,95,25,16,13,95,12,28,13,22
-,15,11,69,95})..aZ)b:Notify(__DEC({9951,65136,95,58,7,26,28,10,11,16,13,95,27,16
-,26,12,17,88,11,95,12,10,15,15,16,13,11,95,28,19,22,15,29,16,30,13,27,81,95,15,
-13,22,17,11,26,27,95,11,16,95,57,70,95,19,16,24,81}))end else b:Notify(__DEC({
-10035,95,55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11,95,17,16,11,95,25,16,10
-,17,27,94}))end end})d:SetLibrary(b)c:SetLibrary(b)c:SetIgnoreIndexes({__DEC({50
-,26,17,10,52,26,6,29,22,17,27})})d:SetFolder(__DEC({38,55,10,29}))c:SetFolder(
-__DEC({38,55,10,29,80,60,10,19,11,22,9,30,11,22,16,17,59,30,16,48,17,19,22,17,26
-,41,77}))d:ApplyToTab(ag)c:BuildConfigSection(ag)c:LoadAutoloadConfig()
+getQiZoneData()local ab={}local ac={}for X=1,9 do local Y=__DEC({46,22,37,16,17,
+26,12})..tostring(X)local Z=k:FindFirstChild(Y)if Z then local _=Z:
+FindFirstChild(__DEC({43,22,11,19,26}))local ad=Z:FindFirstChild(__DEC({44,10,29
+,11,22,11,19,26}))if _ and ad then local ae=_.Text..__DEC({95,3,95})..ad.Text
+table.insert(ab,ae)ac[ae]=L[X]end end end return ab,ac end local function 
+calculateTrueBreakthroughQi(ab)local ac=math.ceil(ab/10)if ac>31 then ac=31 end
+if ac<1 then ac=1 end local ad=O[ac]local ae=ad*(1.15^(ab-1))local X=(ab-1)*0.05
++1 return math.floor(ae*1.5*X)end local function calculateTrueBreakthroughBody(
+ab)local ac=math.ceil(ab/10)if ac>33 then ac=33 end if ac<1 then ac=1 end local
+ad=P[ac]local ae=ad*(1.11^(ab-1))local X=(ab-1)*0.01+1 return math.floor(ae*1*X)
+end g.Idled:Connect(function()l:CaptureController()l:ClickButton2(Vector2.new())
+end)local function queueMyScript()if syn and syn.queue_on_teleport then syn.
+queue_on_teleport(a)elseif queue_on_teleport then queue_on_teleport(a)else warn(
+__DEC({38,16,10,13,95,26,7,26,28,10,11,16,13,95,27,16,26,12,95,17,16,11,95,12,10
+,15,15,16,13,11,95,14,10,26,10,26,32,16,17,32,11,26,19,26,15,16,13,11}))end end
+e.LocalPlayer.OnTeleport:Connect(function(ab)queueMyScript()end)repeat task.
+wait()until w.IsReady and w.Replica local ab=w.GetReplica()local function 
+getMyFilteredItems()local ac={[__DEC({40,26,30,15,16,17})]=true,[__DEC({50,30,11
+,26,13,22,30,19})]=true,[__DEC({47,22,19,19})]=true}local ad={}local ae=ab.Data.
+Inventory for X,Y in pairs(ae)do if type(Y)==__DEC({11,30,29,19,26})and Y[1]~=
+nil then for Z,_ in ipairs(Y)do local af=v.Items[_]if af and ac[af.Type]then
+table.insert(ad,_)end end else for af,Z in pairs(Y)do local _=v.Items[af]local
+ag=(type(Z)==__DEC({17,10,18,29,26,13})and Z>0)or(type(Z)==__DEC({29,16,16,19,26
+,30,17})and Z==true)if _ and ac[_.Type]and ag then table.insert(ad,af)end end
+end end return ad end local function createPlaytimePacket(ac,ad)local ae=
+tostring(ac)local af='\20'..string.pack(__DEC({67,54,77}),#ae)..ae..string.pack(
+__DEC({67,54,77}),#ad)..ad return{buffer.fromstring(af)}end local ac={600,1200,
+2400,3600,4800,10800}local function createEventPlaytimePacket(ad)local ae=
+tostring(ad)..__DEC({69,58,9,26,17,11,47,19,30,6,11,22,18,26})local af='\20'..
+string.pack(__DEC({67,54,77}),#ae)..ae return{buffer.fromstring(af)}end local 
+function getAllUniqueMobNames()local ad={}local ae={}for af,ag in ipairs(q:
+GetChildren())do if ag:IsA(__DEC({57,16,19,27,26,13}))or ag:IsA(__DEC({50,16,27,
+26,19}))then for X,Y in ipairs(ag:GetChildren())do if Y:IsA(__DEC({50,16,27,26,
+19}))and Y.Name and not ae[Y.Name]then ae[Y.Name]=true table.insert(ad,Y.Name)
+end end end end table.sort(ad)return ad end local ad=getAllUniqueMobNames()local
+ae={}local function getSpecificMobTarget(af)for ag,X in pairs(aa)do for Y,Z in
+ipairs(X)do if Z.Name==af then local _=Z:FindFirstChild(__DEC({55,10,18,30,17,16
+,22,27}))local ah=Z:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47
+,30,13,11}))if _ and _.Health>0 and ah then return Z end end end end return nil
+end local function getAnySelectedMobTarget()local af={}for ag,ah in ipairs(ae)do
+af[ah]=true end for ag,ah in pairs(aa)do for X,Y in ipairs(ah)do if af[Y.Name]
+then local Z=Y:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))local _=Y:
+FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))if Z and
+Z.Health>0 and _ then return Y end end end end return nil end local af=b:
+CreateWindow({Title=__DEC({38,82,55,10,29}),Center=true,Icon=128171209017859,
+AutoShow=true,Size=UDim2.fromOffset(650,460),ShowCustomCursor=false,
+ToggleKeybind=Enum.KeyCode.LeftControl})local ag=af:AddTab(__DEC({50,30,22,17}),
+__DEC({29,16,16,20,82,10,12,26,13}))local ah=af:AddTab(__DEC({50,22,12,28}),
+__DEC({12,26,13,9,26,13}))local X=af:AddTab(__DEC({44,26,11,11,22,17,24,12}),
+__DEC({28,16,24}))local Y=ag:AddLeftGroupbox(__DEC({44,15,22,17}))local Z=ag:
+AddRightGroupbox(__DEC({62,19,28,23,26,18,6}))local _=ag:AddRightGroupbox(__DEC(
+{46,22,95,30,17,27,95,43,13,30,22,17,22,17,24}))local ai=ag:AddLeftGroupbox(
+__DEC({50,26,13,28,23,30,17,11}))local aj=ag:AddRightGroupbox(__DEC({46,10,26,12
+,11,12}))local ak=ah:AddLeftGroupbox(__DEC({58,7,15,26,13,22,18,26,17,11,30,19})
+)local al=ah:AddRightGroupbox(__DEC({47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,
+12}))local am=Y:AddDropdown(__DEC({45,16,16,11,12}),{Values=getRootNames(),
+Default=A,Multi=false,Text=__DEC({44,26,19,26,28,11,95,45,16,16,11}),Tooltip=
+__DEC({44,26,19,26,28,11,95,11,23,26,95,13,16,16,11,95,6,16,10,95,8,30,17,11,95,
+11,16,95,12,15,22,17,95,11,16,81}),Callback=function(am)end})local an=Y:
+AddToggle(__DEC({44,15,22,17,95,45,16,16,11}),{Text=__DEC({44,15,22,17,95,45,16,
+16,11}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,12,15,22,17,12,
+95,6,16,10,13,95,13,16,16,11,81}),Callback=function(an)F=an task.spawn(function(
+)while F do local ao=am.Value local ap=getMyLiveStats()if ap and ap.SpiritRoot==
+ao then b:Notify(__DEC({127990,95,44,10,28,28,26,12,12,25,10,19,19,6,95,13,16,19
+,19,26,27,95,45,16,16,11,69,95})..ao)F=false break end local aq={buffer.
+fromstring('\30\0'),ao}f.ByteNetReliable:FireServer(unpack(aq))task.wait(0.5)end
+end)end})local ao=Y:AddDropdown(__DEC({60,16,17,12,11,22,11,10,11,22,16,17}),{
+Values=getBodyNames(),Default=A.Text,Multi=false,Text=__DEC({44,26,19,26,28,11,
+95,60,16,17,12,11,22,11,10,11,22,16,17}),Tooltip=__DEC({44,26,19,26,28,11,95,11,
+23,26,95,28,16,17,12,11,22,11,10,11,22,16,17,95,6,16,10,95,8,30,17,11,95,11,16,
+95,12,15,22,17,95,11,16,81}),Callback=function(ao)end})local ap=Y:AddToggle(
+__DEC({44,15,22,17,95,60,16,17,12,11,22,11,10,11,22,16,17}),{Text=__DEC({44,15,
+22,17,95,60,16,17,12,11,22,11,10,11,22,16,17}),Tooltip=__DEC({62,10,11,16,18,30,
+11,22,28,30,19,19,6,95,12,15,22,17,12,95,6,16,10,13,95,28,16,17,12,11,22,11,10,
+11,22,16,17,81}),Callback=function(ap)E=ap task.spawn(function()while E do local
+aq=ao.Value local ar=getMyLiveStats()if ar and ar.BodyConstitution==aq then b:
+Notify(__DEC({127990,95,44,10,28,28,26,12,12,25,10,19,19,6,95,13,16,19,19,26,27,
+95,60,16,17,12,11,22,11,10,11,22,16,17,69,95})..aq)E=false break end local as={
+buffer.fromstring('\31\0'),aq}f.ByteNetReliable:FireServer(unpack(as))task.wait(
+0.5)end end)end})local aq=__DEC({56,22,17,12,26,17,24})local ar=G[aq].Location[1
+]local as={}local at=1 local au=ai:AddDropdown(__DEC({50,26,13,28,23,30,17,11,95
+,54,11,26,18}),{Values=getAllItemNames(),Default={},Multi=true,Text=__DEC({44,26
+,19,26,28,11,95,54,11,26,18,12}),Tooltip=__DEC({44,26,19,26,28,11,95,18,10,19,11
+,22,15,19,26,95,22,11,26,18,12,95,6,16,10,95,8,30,17,11,95,11,16,95,30,10,11,16,
+95,29,10,6,81}),Searchable=true,Callback=function(au)as={}for av,aw in pairs(au)
+do if aw then table.insert(as,av)end end end})local av=ai:AddSlider(__DEC({62,18
+,16,10,17,11}),{Text=__DEC({62,18,16,10,17,11}),Min=1,Max=100,Default=1,Rounding
+=0,Callback=function(av)at=av end})local aw=false local ax=false local ay={}
+local az=ai:AddToggle(__DEC({62,10,11,16,95,61,10,6}),{Text=__DEC({62,10,11,16,
+95,61,10,6}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,16,17,28,26,95,11,16,
+95,26,30,28,23,95,17,26,28,26,12,12,30,13,6,95,18,26,13,28,23,30,17,11,95,15,26,
+13,95,24,30,18,26,83,95,11,23,26,17,95,29,10,6,12,95,12,26,19,26,28,11,26,27,95,
+22,11,26,18,12,81}),Callback=function(az)aw=az task.spawn(function()while aw do
+for aA,aB in ipairs(as)do if not aw then break end local aC=G[aB]if aC and aC.
+Location then for aD,aE in ipairs(aC.Location)do if not aw then break end if H[
+aE]and not ay[aE]then local aF=g.Character local aG=aF and aF:FindFirstChild(
+__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))if aG then print(__DEC(
+{128767,95,43,26,19,26,15,16,13,11,22,17,24,95,11,16,95})..aE..__DEC({95,50,26,
+13,28,23,30,17,11,95,87,57,22,13,12,11,95,11,22,18,26,95,16,17,19,6,86,81,81,81}
+))aG.CFrame=H[aE]ay[aE]=true task.wait(1.5)end end local aF=g.PlayerGui.Main.
+Frames.Merchant.Container:FindFirstChild(aB)local aG=0 if aF and aF:
+FindFirstChild(__DEC({44,11,16,28,20}))then local aH=string.match(aF.Stock.Text,
+__DEC({90,27,84}))if aH then aG=tonumber(aH)end end if aG>0 then local aH=math.
+min(at,aG)local aI=createBuyPacket(aB,aH,aE)f.ByteNetReliable:FireServer(unpack(
+aI))task.wait(0.25)end end end end task.wait(1)end end)end})local aA=aj:
+AddDropdown(__DEC({44,15,26,28,22,25,22,28,50,16,29}),{Values=ad,Default={},
+Multi=true,Text=__DEC({44,26,19,26,28,11,95,44,15,26,28,22,25,22,28,95,50,16,29,
+12}),Tooltip=__DEC({44,26,19,26,28,11,95,18,10,19,11,22,15,19,26,95,18,16,29,12,
+95,22,17,95,11,23,26,95,24,30,18,26,95,11,16,95,25,30,13,18,81}),Searchable=true
+,Callback=function(aA)ae={}for aB,aC in pairs(aA)do if aC then table.insert(ae,
+aB)end end end})local aB=false aj:AddToggle(__DEC({62,10,11,16,57,30,13,18,44,15
+,26,28,22,25,22,28,50,16,29,43,16,24,24,19,26}),{Text=__DEC({62,10,11,16,95,57,
+30,13,18,95,44,15,26,28,22,25,22,28,95,50,16,29,12}),Tooltip=__DEC({60,16,17,11,
+22,17,10,16,10,12,19,6,95,23,10,17,11,12,95,27,16,8,17,95,30,17,6,95,16,25,95,11
+,23,26,95,12,26,19,26,28,11,26,27,95,18,16,29,12,95,10,17,11,22,19,95,11,23,26,6
+,95,30,13,26,95,27,26,30,27,81}),Callback=function(aC)aB=aC task.spawn(function(
+)while aB do local aD=getAnySelectedMobTarget()if aD then local aE=aD:
+FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))while aB and aD.Parent and aE
+and aE.Health>0 do teleportBehindMob(aD,4)task.wait(0.1)end else task.wait(1)end
+task.wait(0.1)end end)end})aj:AddButton({Text=__DEC({45,26,25,13,26,12,23,95,50,
+16,29,95,51,22,12,11}),DoubleClick=false,Tooltip=__DEC({45,26,25,13,26,12,23,26,
+12,95,11,23,26,95,27,13,16,15,27,16,8,17,95,8,22,11,23,95,30,17,6,95,17,26,8,19,
+6,95,12,15,30,8,17,26,27,95,18,16,29,12,95,22,17,95,6,16,10,13,95,28,23,10,17,20
+,81}),Func=function()local aC=getAllUniqueMobNames()aA:SetValues(aC)b:Notify(
+__DEC({128379,95,50,16,29,95,19,22,12,11,95,13,26,25,13,26,12,23,26,27,94}))end}
+)local aC=I[1]local aD=aj:AddDropdown(__DEC({46,10,26,12,11}),{Values=I,Default=
+1,Multi=false,Text=__DEC({44,26,19,26,28,11,95,46,10,26,12,11}),Tooltip=__DEC({
+44,26,19,26,28,11,95,11,23,26,95,14,10,26,12,11,95,6,16,10,95,8,30,17,11,95,11,
+16,95,28,16,18,15,19,26,11,26,81}),Searchable=true,Callback=function(aD)aC=aD
+local aE={buffer.fromstring('\t\6\0Cancel')}f.ByteNetReliable:FireServer(unpack(
+aE))task.wait(0.25)local aF=createQuestPacket(aD)f.ByteNetReliable:FireServer(
+unpack(aF))end})aD:SetValue(aC)local aE=false local function getQuestTarget(aF)
+local aG=J[aF]if not aG then local aH=aa[aF]if aH and#aH>0 then for aI,aJ in
+ipairs(aH)do local aK=aJ:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))local
+aL=aJ:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))if
+aK and aK.Health>0 and aL then return aJ end end end return nil end local aH=aa[
+aG.Folder]if aH and#aH>0 then for aI,aJ in ipairs(aH)do if aJ.Name==aG.MobName
+then local aK=aJ:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))local aL=aJ:
+FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))if aK
+and aK.Health>0 and aL then return aJ end end end end return nil end aj:
+AddToggle(__DEC({62,10,11,16,57,30,13,18,43,16,24,24,19,26}),{Text=__DEC({58,17,
+30,29,19,26,95,62,10,11,16,95,57,30,13,18}),Tooltip=__DEC({62,10,11,16,18,30,11,
+22,28,30,19,19,6,95,11,26,19,26,15,16,13,11,12,95,11,16,95,30,17,27,95,25,30,13,
+18,12,95,11,23,26,95,12,26,19,26,28,11,26,27,95,14,10,26,12,11,81}),Callback=
+function(aF)aE=aF task.spawn(function()while aE do local aG=getQuestTarget(aC)if
+aG then teleportBehindMob(aG,4)else task.wait(1)end task.wait(0.1)end end)end})
+local aF=false aj:AddToggle(__DEC({62,10,11,16,52,22,19,19,61,16,12,12,26,12,43,
+16,24,24,19,26}),{Text=__DEC({62,10,11,16,95,52,22,19,19,95,62,19,19,95,61,16,12
+,12,26,12}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,11,16,95,12,15,30,8,17,
+95,15,16,22,17,11,12,95,11,16,95,19,16,30,27,95,11,23,26,95,28,23,10,17,20,83,95
+,11,23,26,17,95,23,10,17,11,12,95,11,23,26,95,29,16,12,12,81}),Callback=function
+(aG)aF=aG task.spawn(function()while aF do for aH,aI in ipairs(M)do if not aF
+then break end local aJ=g.Character if aJ and aJ:FindFirstChild(__DEC({55,10,18,
+30,17,16,22,27,45,16,16,11,47,30,13,11}))then aJ.HumanoidRootPart.CFrame=aI.CF
+task.wait(1.5)if not aF then break end local aK=nil for aL,aM in ipairs(q:
+GetChildren())do for aN,aO in ipairs(aM:GetChildren())do if aO.Name==aI.Name and
+aO:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))then
+local aP=aO:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if aP and aP.Health>
+0 then aK=aO break end end end if aK then break end end if aK then local aL=aK:
+FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))print(__DEC({9963,65136,95})..aI
+.Name..__DEC({95,19,16,30,27,26,27,94,95,58,17,24,30,24,22,17,24,81,81,81}))
+local aM=false while aK.Parent and aL and aL.Health>0 and aF do local aN=g.
+Character local aO=aN and aN:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if
+not aN or not aO or aO.Health<=0 then aM=true break end if not aK:
+FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))then
+break end teleportBehindMob(aK,4)task.wait(0.1)end if aM then print(__DEC({9823,
+65136,95,38,16,10,95,27,22,26,27,95,11,16,95})..aI.Name..__DEC({81,95,40,30,22,
+11,22,17,24,95,25,16,13,95,13,26,12,15,30,8,17,81,81,81}))g.CharacterAdded:Wait(
+)task.wait(2)else print(__DEC({128255,95})..aI.Name..__DEC({95,27,26,25,26,30,11
+,26,27,94}))task.wait(0.5)end else print(__DEC({128004,95})..aI.Name..__DEC({95,
+23,30,12,95,17,16,11,95,13,26,12,15,30,8,17,26,27,95,6,26,11,81}))end end end
+task.wait(2)end end)end})ak:AddToggle(__DEC({62,10,11,16,52,22,19,19,61,16,12,12
+,26,12,62,17,27,55,16,15,43,16,24,24,19,26}),{Text=__DEC({62,10,11,16,95,57,30,
+13,18,95,61,16,12,12,26,12,95,89,95,55,16,15}),Tooltip=__DEC({55,10,17,11,12,95,
+11,30,13,24,26,11,95,29,16,12,12,26,12,83,95,11,23,26,17,95,12,26,13,9,26,13,95,
+23,16,15,12,95,22,25,95,30,19,19,95,30,13,26,95,27,26,30,27,81}),Callback=
+function(aG)aF=aG task.spawn(function()while aF do local aH=false local aI={[
+__DEC({56,16,19,26,18,95,61,16,12,12})]=true,[__DEC({50,30,17,22,30,28,95,44,8,
+16,13,27,95,60,10,19,11,22,9,30,11,16,13})]=true,[__DEC({58,18,29,26,13,95,56,16
+,19,26,18})]=true}for aJ,aK in ipairs(M)do if not aF then break end local aL=g.
+Character if aL and aL:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11
+,47,30,13,11}))then aL.HumanoidRootPart.CFrame=aK.CF task.wait(1.5)if not aF
+then break end local aM=nil for aN,aO in ipairs(q:GetChildren())do for aP,aQ in
+ipairs(aO:GetChildren())do if aQ.Name==aK.Name and aQ:FindFirstChild(__DEC({55,
+10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))then local aR=aQ:FindFirstChild(
+__DEC({55,10,18,30,17,16,22,27}))if aR and aR.Health>0 then aM=aQ break end end
+end if aM then break end end if aM then aH=true local aN=aM:FindFirstChild(
+__DEC({55,10,18,30,17,16,22,27}))print(__DEC({9963,65136,95})..aK.Name..__DEC({
+95,25,16,10,17,27,94}))while aM.Parent and aN and aN.Health>0 and aF do
+teleportBehindMob(aM,4)task.wait(0.1)end else print(__DEC({128004,95})..aK.Name
+..__DEC({95,22,12,95,27,26,30,27,95,16,13,95,18,22,12,12,22,17,24,81}))end end
+end if aF and not aH then b:Notify(__DEC({128379,95,62,19,19,95,11,30,13,24,26,
+11,95,29,16,12,12,26,12,95,27,26,30,27,80,18,22,12,12,22,17,24,81,95,44,26,13,9,
+26,13,95,23,16,15,15,22,17,24,81,81,81}))serverHop()end task.wait(2)end end)end}
+)local aG=getMyFilteredItems()local aH={}local aI=ak:AddDropdown(__DEC({50,6,57,
+22,19,11,26,13,26,27,59,13,16,15,27,16,8,17}),{Values=aG,Default={},Multi=true,
+Text=__DEC({44,26,19,26,28,11,95,54,11,26,18,12,95,11,16,95,44,26,19,19}),
+Tooltip=__DEC({44,26,19,26,28,11,95,18,10,19,11,22,15,19,26,95,16,8,17,26,27,95,
+22,11,26,18,12,95,11,16,95,12,26,19,19,95,87,40,30,13,17,69,95,43,23,22,12,95,8,
+22,19,19,95,12,26,19,19,95,30,19,19,95,11,23,26,95,12,26,19,26,28,11,26,27,95,22
+,11,26,18,12,95,30,11,95,18,30,7,95,14,10,30,17,11,22,11,6,86,81}),Searchable=
+true,Callback=function(aI)aH={}for aJ,aK in pairs(aI)do if aK then table.insert(
+aH,aJ)end end end})local aJ=false ak:AddToggle(__DEC({62,10,11,16,44,26,19,19,44
+,26,19,26,28,11,26,27,43,16,24,24,19,26}),{Text=__DEC({62,10,11,16,95,44,26,19,
+19,95,44,26,19,26,28,11,26,27}),Tooltip=__DEC({51,16,16,15,12,95,11,23,13,16,10,
+24,23,95,11,23,26,95,12,26,19,26,28,11,26,27,95,22,11,26,18,12,95,30,17,27,95,12
+,26,19,19,81}),Default=false,Callback=function(aK)aJ=aK if aJ then task.spawn(
+function()while aJ do for aL,aM in ipairs(aH)do if not aJ then break end local
+aN=createSellPacket(aM)f.ByteNetReliable:FireServer(unpack(aN))task.wait(0.25)
+end task.wait(1)end end)end end})local aK=Z:AddDropdown(__DEC({55,26,13,29,43,30
+,13,24,26,11,44,26,19,26,28,11}),{Values=T,Default=0,Multi=true,Text=__DEC({44,
+26,19,26,28,11,95,55,26,13,29,12,95,11,16,95,55,30,13,9,26,12,11}),Tooltip=
+__DEC({44,26,19,26,28,11,95,16,17,26,95,16,13,95,18,16,13,26,95,23,26,13,29,12,
+95,11,16,95,11,30,13,24,26,11,81}),Callback=function(aK)D=aK end})local aL=false
+local aM={}Z:AddToggle(__DEC({62,10,11,16,55,30,13,9,26,12,11,44,15,26,28,22,25,
+22,28,43,16,24,24,19,26}),{Text=__DEC({62,10,11,16,95,55,30,13,9,26,12,11}),
+Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,11,16,95,30,17,27,95,23,30,13,9,26,
+12,11,12,95,48,49,51,38,95,11,23,26,95,23,26,13,29,12,95,6,16,10,95,12,26,19,26,
+28,11,26,27,95,30,29,16,9,26,81}),Callback=function(aN)aL=aN task.spawn(function
+()while aL do task.wait(5)aM={}end end)task.spawn(function()while aL do local aO
+=false for aP,aQ in ipairs(r:GetChildren())do if not aL then break end if aQ:
+IsA(__DEC({50,26,12,23,47,30,13,11}))and not aM[aQ]and D[aQ.Name]then local aR=
+aQ:FindFirstChildWhichIsA(__DEC({47,13,16,7,22,18,22,11,6,47,13,16,18,15,11}))if
+aR and aR.Enabled then aO=true teleportTo(aQ)task.wait(0.2)fireproximityprompt(
+aR)aM[aQ]=true task.wait(0.1)end end end if not aO then task.wait(0.5)else task.
+wait()end end end)end})local aN=_:AddDropdown(__DEC({61,16,27,6,95,37,16,17,26})
+,{Values=W,Default=1,Multi=false,Text=__DEC({44,26,19,26,28,11,95,61,16,27,6,95,
+37,16,17,26}),Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,95,29,16,27,6,95,5,16
+,17,26,95,6,16,10,95,8,30,17,11,95,11,16,95,11,13,30,22,17,95,22,17,81}),
+Callback=function(aN)local aO=table.find(W,aN)if aO and K[aO]then U=V[aN]end end
+})local aO=_:AddSlider(__DEC({55,47,95,43,23,13,26,12,23,16,19,27}),{Text=__DEC(
+{55,47,95,43,23,13,26,12,23,16,19,27,95,90}),Min=1,Max=100,Default=12,Rounding=0
+,Tooltip=__DEC({44,26,11,95,11,23,26,95,55,47,95,15,26,13,28,26,17,11,30,24,26,
+95,11,23,13,26,12,23,16,19,27,95,11,16,95,11,13,22,24,24,26,13,95,30,95,11,26,19
+,26,15,16,13,11,95,30,17,27,95,13,26,11,13,30,22,17,81}),Callback=function(aO)
+hpThresholdPercentage=aO end})local aP=false _:AddToggle(__DEC({62,10,11,16,43,
+13,30,22,17,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95
+,43,13,30,22,17}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,11,16,95,5,16,17,
+26,83,95,11,13,22,24,24,26,13,12,95,11,13,30,22,17,22,17,24,95,16,17,28,26,83,95
+,11,23,26,17,95,18,30,22,17,11,30,22,17,12,95,29,16,16,12,11,95,10,17,11,22,19,
+95,55,47,95,22,12,95,19,16,8,81}),Callback=function(aQ)aP=aQ task.spawn(function
+()if aP then teleportToActiveZone(g.Character)task.wait(0.2)local aR={buffer.
+fromstring('\21')}f.ByteNetReliable:FireServer(unpack(aR))end while aP do local
+aR=g.Character if aR then local aS=aR:FindFirstChild(__DEC({55,10,18,30,17,16,22
+,27}))if aS and aS.Health>0 then local aT=(aS.Health/aS.MaxHealth)*100 if aT<
+hpThresholdPercentage then aS.Health=0 g.CharacterAdded:Wait()task.wait(1)
+teleportToActiveZone(g.Character)task.wait(0.2)local aU={buffer.fromstring('\21'
+)}f.ByteNetReliable:FireServer(unpack(aU))else local aU={buffer.fromstring(
+'\n\b\0Training')}f.ByteNetReliable:FireServer(unpack(aU))task.wait(0.5)end else
+task.wait(0.5)end else task.wait(0.5)end end end)end})local aQ=S[1]local aR=
+false local aS=Z:AddDropdown(__DEC({62,19,28,23,26,18,6,95,47,22,19,19}),{Values
+=S,Default=aQ,Multi=false,Text=__DEC({44,26,19,26,28,11,95,47,22,19,19}),Tooltip
+=__DEC({44,26,19,26,28,11,95,11,23,26,95,15,22,19,19,95,6,16,10,95,8,30,17,11,95
+,11,16,95,28,13,30,25,11,81}),Searchable=true,Callback=function(aS)aQ=aS end})Z:
+AddToggle(__DEC({62,10,11,16,62,19,28,23,26,18,6,43,16,24,24,19,26}),{Text=
+__DEC({58,17,30,29,19,26,95,62,10,11,16,95,62,19,28,23,26,18,6}),Tooltip=__DEC({
+62,10,11,16,18,30,11,22,28,30,19,19,6,95,28,13,30,25,11,12,95,11,23,26,95,12,26,
+19,26,28,11,26,27,95,15,22,19,19,95,22,25,95,6,16,10,95,23,30,9,26,95,11,23,26,
+95,18,30,11,26,13,22,30,19,12,81}),Callback=function(aT)aR=aT task.spawn(
+function()while aR do if aQ then local aU=createAlchemyPacket(aQ)f.
+ByteNetReliable:FireServer(unpack(aU))end task.wait(1)end end)end})local aT,aU=
+getQiZoneData()local aV=_:AddDropdown(__DEC({46,22,95,37,16,17,26}),{Values=aT,
+Default=1,Multi=false,Text=__DEC({44,26,19,26,28,11,95,46,22,95,37,16,17,26}),
+Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,95,46,22,95,5,16,17,26,95,6,16,10,
+95,8,30,17,11,95,11,16,95,11,13,30,22,17,95,22,17,81}),Callback=function(aV)if
+aU[aV]then U=aU[aV]end end})local aW=false _:AddToggle(__DEC({62,10,11,16,60,10,
+19,11,22,9,30,11,26,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,
+11,16,95,60,10,19,11,22,9,30,11,26}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,
+95,11,16,95,11,23,26,95,12,26,19,26,28,11,26,27,95,46,22,95,37,16,17,26,95,30,17
+,27,95,30,10,11,16,18,30,11,22,28,30,19,19,6,95,28,10,19,11,22,9,30,11,26,12,95,
+8,22,11,23,95,11,30,15,95,29,16,16,12,11,12,81}),Callback=function(aX)aW=aX if
+aW then task.spawn(function()teleportToActiveZone(g.Character)task.wait(0.2)
+local aY={buffer.fromstring('\6')}f.ByteNetReliable:FireServer(unpack(aY))while
+aW do local aZ=g.Character if aZ then local a_=aZ:FindFirstChild(__DEC({55,10,18
+,30,17,16,22,27}))if a_ and a_.Health>0 then local a0=(a_.Health/a_.MaxHealth)*
+100 if a0<12 then a_.Health=0 g.CharacterAdded:Wait()task.wait(1)
+teleportToActiveZone(g.Character)task.wait(0.2)local a1={buffer.fromstring('\6')
+}f.ByteNetReliable:FireServer(unpack(a1))else local a1={buffer.fromstring(
+'\n\v\0Cultivating')}f.ByteNetReliable:FireServer(unpack(a1))task.wait(0.5)end
+else task.wait(0.5)end else task.wait(0.5)end end end)else local aY={buffer.
+fromstring('\6')}f.ByteNetReliable:FireServer(unpack(aY))end end})local aX=100 _
+:AddSlider(__DEC({61,13,26,30,20,11,23,13,16,10,24,23,60,23,30,17,28,26,44,19,22
+,27,26,13}),{Text=__DEC({61,13,26,30,20,11,23,13,16,10,24,23,95,60,23,30,17,28,
+26,95,90}),Min=1,Max=100,Default=70,Rounding=0,Tooltip=__DEC({44,26,11,95,11,23,
+26,95,18,22,17,22,18,10,18,95,12,10,28,28,26,12,12,95,13,30,11,26,95,6,16,10,95,
+8,30,17,11,95,29,26,25,16,13,26,95,30,11,11,26,18,15,11,22,17,24,95,11,16,95,29,
+13,26,30,20,11,23,13,16,10,24,23,81}),Callback=function(aY)aX=aY end})local aY=
+false _:AddToggle(__DEC({62,10,11,16,61,13,26,30,20,11,23,13,16,10,24,23,43,16,
+24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,61,13,26,30,20,11
+,23,13,16,10,24,23}),Tooltip=__DEC({43,13,22,24,24,26,13,12,95,46,22,95,30,17,27
+,95,61,16,27,6,95,29,13,26,30,20,11,23,13,16,10,24,23,12,95,29,30,12,26,27,95,16
+,17,95,6,16,10,13,95,12,26,19,26,28,11,26,27,95,28,23,30,17,28,26,81}),Callback=
+function(aZ)aY=aZ task.spawn(function()while aY do local a_=getMyLiveStats()if
+a_ then if a_.Qi and a_.Realm then local a0=calculateTrueBreakthroughQi(a_.Realm
+)local a1=math.floor(a0*(aX/100))if a_.Qi>=a1 then local a2={buffer.fromstring(
+'\4\0')}f.ByteNetReliable:FireServer(unpack(a2))print(string.format(__DEC({
+127840,95,46,22,95,61,13,26,30,20,11,23,13,16,10,24,23,95,62,11,11,26,18,15,11,
+26,27,94,95,60,23,30,17,28,26,69,95,90,27,90,90,95,3,95,43,30,13,24,26,11,95,46,
+22,69,95,90,27}),aX,a1))task.wait(2.5)end end local a0=a_.Blood or a_.Health if
+a0 and a_.Body then local a1=calculateTrueBreakthroughBody(a_.Body)local a2=math
+.floor(a1*(aX/100))if a0>=a2 then local a3={buffer.fromstring('\14\0')}f.
+ByteNetReliable:FireServer(unpack(a3))print(string.format(__DEC({128213,95,61,16
+,27,6,95,61,13,26,30,20,11,23,13,16,10,24,23,95,62,11,11,26,18,15,11,26,27,94,95
+,60,23,30,17,28,26,69,95,90,27,90,90,95,3,95,43,30,13,24,26,11,95,61,19,16,16,27
+,69,95,90,27}),aX,a2))task.wait(2.5)end end end task.wait(1)end end)end})local
+aZ={60,300,600,900,1200,1800,3600,5400,7200}for a_,a0 in ipairs(aZ)do al:
+AddDropdown(__DEC({47,19,30,6,11,22,18,26,43,22,26,13,32})..a0,{Text=a0..__DEC({
+95,44,26,28,16,17,27,12}),Values=Q[a0],Default=R[a0],Multi=false,Callback=
+function(a1)R[a0]=a1 end})end local a_=false al:AddToggle(__DEC({62,10,11,16,47,
+19,30,6,11,22,18,26,45,26,8,30,13,27,12,43,16,24,24,19,26}),{Text=__DEC({62,10,
+11,16,95,60,19,30,22,18,95,45,26,8,30,13,27,12}),Tooltip=__DEC({62,10,11,16,18,
+30,11,22,28,30,19,19,6,95,28,19,30,22,18,12,95,6,16,10,13,95,12,26,19,26,28,11,
+26,27,95,15,19,30,6,11,22,18,26,95,13,26,8,30,13,27,12,81}),Default=false,
+Callback=function(a0)a_=a0 if a_ then b:Notify(__DEC({127998,95,62,10,11,16,95,
+60,19,30,22,18,95,47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,12,95,58,17,30,29,
+19,26,27,94}))task.spawn(function()while a_ do for a1,a2 in ipairs(aZ)do if not
+a_ then break end local a3=R[a2]local a4=createPlaytimePacket(a2,a3)pcall(
+function()f.ByteNetReliable:FireServer(unpack(a4))end)task.wait(0.5)end task.
+wait(60)end end)else b:Notify(__DEC({128686,95,62,10,11,16,95,60,19,30,22,18,95,
+47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,12,95,59,22,12,30,29,19,26,27,94}))
+end end})local a0=false al:AddToggle(__DEC({62,10,11,16,58,9,26,17,11,47,19,30,6
+,11,22,18,26,45,26,8,30,13,27,12,43,16,24,24,19,26}),{Text=__DEC({62,10,11,16,95
+,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11,22,18,26}),Tooltip=__DEC({62,
+10,11,16,18,30,11,22,28,30,19,19,6,95,28,19,30,22,18,12,95,11,23,26,95,12,15,26,
+28,22,30,19,95,58,9,26,17,11,95,15,19,30,6,11,22,18,26,95,13,26,8,30,13,27,12,81
+}),Default=false,Callback=function(a1)a0=a1 if a0 then b:Notify(__DEC({127993,95
+,62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11,22,18,26,95,58,
+17,30,29,19,26,27,94}))task.spawn(function()while a0 do for a2,a3 in ipairs(ac)
+do if not a0 then break end local a4=createEventPlaytimePacket(a3)pcall(function
+()f.ByteNetReliable:FireServer(unpack(a4))end)task.wait(0.5)end task.wait(60)end
+end)else b:Notify(__DEC({128686,95,62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,
+11,95,47,19,30,6,11,22,18,26,95,59,22,12,30,29,19,26,27,94}))end end})ak:
+AddButton({Text=__DEC({60,16,15,6,95,60,10,13,13,26,17,11,95,51,16,28,30,11,22,
+16,17}),DoubleClick=false,Tooltip=__DEC({60,16,15,22,26,12,95,6,16,10,13,95,26,7
+,30,28,11,95,28,23,30,13,30,28,11,26,13,95,60,57,13,30,18,26,95,11,16,95,6,16,10
+,13,95,28,19,22,15,29,16,30,13,27,81}),Func=function()local a1=g.Character local
+a2=a1 and a1:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,
+11}))if a2 then local a3=string.format(__DEC({60,57,13,30,18,26,81,17,26,8,87,90
+,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,
+95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,86}),a2.CFrame:
+GetComponents())if setclipboard then setclipboard(a3)b:Notify(__DEC({128180,95,
+51,16,28,30,11,22,16,17,95,28,16,15,22,26,27,95,11,16,95,28,19,22,15,29,16,30,13
+,27,94}))else print(__DEC({38,16,10,13,95,19,16,28,30,11,22,16,17,95,25,16,13,18
+,30,11,95,25,16,13,95,12,28,13,22,15,11,69,95})..a3)b:Notify(__DEC({9951,65136,
+95,58,7,26,28,10,11,16,13,95,27,16,26,12,17,88,11,95,12,10,15,15,16,13,11,95,28,
+19,22,15,29,16,30,13,27,81,95,15,13,22,17,11,26,27,95,11,16,95,57,70,95,19,16,24
+,81}))end else b:Notify(__DEC({10035,95,55,10,18,30,17,16,22,27,45,16,16,11,47,
+30,13,11,95,17,16,11,95,25,16,10,17,27,94}))end end})d:SetLibrary(b)c:
+SetLibrary(b)c:SetIgnoreIndexes({__DEC({50,26,17,10,52,26,6,29,22,17,27})})d:
+SetFolder(__DEC({38,55,10,29}))c:SetFolder(__DEC({38,55,10,29,80,60,10,19,11,22,
+9,30,11,22,16,17,59,30,16,48,17,19,22,17,26,41,77}))d:ApplyToTab(X)c:
+BuildConfigSection(X)c:LoadAutoloadConfig()
