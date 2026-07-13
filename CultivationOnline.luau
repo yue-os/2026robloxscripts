@@ -376,14 +376,15 @@ __DEC({58,17,30,29,19,26,95,62,10,11,16,95,43,13,30,22,17}),Tooltip=__DEC({43,26
 17,12,95,29,16,16,12,11,95,10,17,11,22,19,95,55,47,95,22,12,95,19,16,8,81}),
 Callback=function(av)au=av task.spawn(function()if au then teleportToActiveZone(
 h.Character)task.wait(0.2)local aw={buffer.fromstring('\22'),nil}g.
-ByteNetReliable:FireServer(unpack(aw))end while au do local aw=h.Character if aw
-then local ax=aw:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if ax and ax.
-Health>0 then local ay=(ax.Health/ax.MaxHealth)*100 if ay<as then ax.Health=0 h.
-CharacterAdded:Wait()task.wait(1)teleportToActiveZone(h.Character)task.wait(0.2)
-local az={buffer.fromstring('\22'),nil}g.ByteNetReliable:FireServer(unpack(az))
-else local az={buffer.fromstring('\n\b\0Training')}g.ByteNetReliable:FireServer(
-unpack(az))task.wait(0.5)end else task.wait(0.5)end else task.wait(0.5)end end
-end)end})local av=b.alchemyOptions[1]local aw=false local ax=L:AddDropdown(
+ByteNetReliable:FireServer(unpack(aw))end while au do local aw=h.Character or h.
+CharacterAdded:Wait()local ax=aw:FindFirstChild(__DEC({55,10,18,30,17,16,22,27})
+)if ax and ax.Health>0 then local ay=(ax.Health/ax.MaxHealth)*100 if ay<as then
+ax.Health=0 h.CharacterAdded:Wait()task.wait(2)aw=h.Character ax=aw:
+FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))teleportToActiveZone(h.Character
+)task.wait(0.2)local az={buffer.fromstring('\22'),nil}g.ByteNetReliable:
+FireServer(unpack(az))else local az={buffer.fromstring('\n\b\0Training')}g.
+ByteNetReliable:FireServer(unpack(az))task.wait(0.5)end else task.wait(0.5)end
+end end)end})local av=b.alchemyOptions[1]local aw=false local ax=L:AddDropdown(
 __DEC({62,19,28,23,26,18,6,95,47,22,19,19}),{Values=b.alchemyOptions,Default=av,
 Multi=false,Text=__DEC({44,26,19,26,28,11,95,47,22,19,19}),Tooltip=__DEC({44,26,
 19,26,28,11,95,11,23,26,95,15,22,19,19,95,6,16,10,95,8,30,17,11,95,11,16,95,28,
