@@ -476,9 +476,9 @@ Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,12,26,17,27,12,95,15,30,
 function()c:Notify(__DEC({127998,95,45,26,27,26,26,18,22,17,24,95,28,16,27,26,12
 ,81,81,81,95,60,23,26,28,20,95,11,16,15,95,19,26,25,11,94}))for aH,aI in ipairs(
 b.gameCodes)do local aJ=createCodePacket(aI)pcall(function()g.ByteNetReliable:
-FireServer(unpack(aJ))end)task.wait(0.5)end c:Notify(__DEC({10106,95,57,22,17,22
-,12,23,26,27,95,13,26,27,26,26,18,22,17,24,95,30,19,19,95,28,16,27,26,12,94}))
-end)end})e:SetLibrary(c)d:SetLibrary(c)d:SetIgnoreIndexes({__DEC({50,26,17,10,52
-,26,6,29,22,17,27})})e:SetFolder(__DEC({38,55,10,29}))d:SetFolder(__DEC({38,55,
-10,29,80,60,10,19,11,22,9,30,11,22,16,17,59,30,16,48,17,19,22,17,26,41,77}))e:
+FireServer(unpack(aJ))end)task.wait(2)end c:Notify(__DEC({10106,95,57,22,17,22,
+12,23,26,27,95,13,26,27,26,26,18,22,17,24,95,30,19,19,95,28,16,27,26,12,94}))end
+)end})e:SetLibrary(c)d:SetLibrary(c)d:SetIgnoreIndexes({__DEC({50,26,17,10,52,26
+,6,29,22,17,27})})e:SetFolder(__DEC({38,55,10,29}))d:SetFolder(__DEC({38,55,10,
+29,80,60,10,19,11,22,9,30,11,22,16,17,59,30,16,48,17,19,22,17,26,41,77}))e:
 ApplyToTab(J)d:BuildConfigSection(J)d:LoadAutoloadConfig()
