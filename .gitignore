@@ -1,6 +1,7 @@
 /*
 !/.gitignore
 !/CultivationOnline.luau
+!/GameDatas.lua
 !/keysys.lua
 !/.github/
 !/.github/workflows/
