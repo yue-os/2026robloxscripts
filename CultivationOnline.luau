@@ -349,137 +349,136 @@ fireproximityprompt(av)aq[au]=true task.wait(0.1)end end end if not as then task
 ,11,95,61,16,27,6,95,37,16,17,26}),Tooltip=__DEC({44,26,19,26,28,11,95,11,23,26,
 95,29,16,27,6,95,5,16,17,26,95,6,16,10,95,8,30,17,11,95,11,16,95,11,13,30,22,17,
 95,22,17,81}),Callback=function(ar)local as=table.find(B,ar)if as and b.
-zoneCFrames[as]then z=b.zoneMap[ar]end end})local as=12 local at=M:AddSlider(
-__DEC({55,47,95,43,23,13,26,12,23,16,19,27}),{Text=__DEC({55,47,95,43,23,13,26,
-12,23,16,19,27,95,90}),Min=1,Max=100,Default=12,Rounding=0,Tooltip=__DEC({44,26,
-11,95,11,23,26,95,55,47,95,15,26,13,28,26,17,11,30,24,26,95,11,23,13,26,12,23,16
-,19,27,95,11,16,95,11,13,22,24,24,26,13,95,30,95,11,26,19,26,15,16,13,11,95,30,
-17,27,95,13,26,11,13,30,22,17,81}),Callback=function(at)as=at end})local au=
-false M:AddToggle(__DEC({62,10,11,16,43,13,30,22,17,43,16,24,24,19,26}),{Text=
-__DEC({58,17,30,29,19,26,95,62,10,11,16,95,43,13,30,22,17}),Tooltip=__DEC({43,26
-,19,26,15,16,13,11,12,95,11,16,95,5,16,17,26,83,95,11,13,22,24,24,26,13,12,95,11
-,13,30,22,17,22,17,24,95,16,17,28,26,83,95,11,23,26,17,95,18,30,22,17,11,30,22,
-17,12,95,29,16,16,12,11,95,10,17,11,22,19,95,55,47,95,22,12,95,19,16,8,81}),
-Callback=function(av)au=av task.spawn(function()if au then teleportToActiveZone(
-h.Character)task.wait(0.2)local aw={buffer.fromstring('\22'),nil}g.
-ByteNetReliable:FireServer(unpack(aw))end while au do local aw=h.Character if aw
-then local ax=aw:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if ax and ax.
-Health>0 then local ay=(ax.Health/ax.MaxHealth)*100 if ay<as then ax.Health=0 h.
+zoneCFrames[as]then z=A[ar]end end})local as=12 local at=M:AddSlider(__DEC({55,
+47,95,43,23,13,26,12,23,16,19,27}),{Text=__DEC({55,47,95,43,23,13,26,12,23,16,19
+,27,95,90}),Min=1,Max=100,Default=12,Rounding=0,Tooltip=__DEC({44,26,11,95,11,23
+,26,95,55,47,95,15,26,13,28,26,17,11,30,24,26,95,11,23,13,26,12,23,16,19,27,95,
+11,16,95,11,13,22,24,24,26,13,95,30,95,11,26,19,26,15,16,13,11,95,30,17,27,95,13
+,26,11,13,30,22,17,81}),Callback=function(at)as=at end})local au=false M:
+AddToggle(__DEC({62,10,11,16,43,13,30,22,17,43,16,24,24,19,26}),{Text=__DEC({58,
+17,30,29,19,26,95,62,10,11,16,95,43,13,30,22,17}),Tooltip=__DEC({43,26,19,26,15,
+16,13,11,12,95,11,16,95,5,16,17,26,83,95,11,13,22,24,24,26,13,12,95,11,13,30,22,
+17,22,17,24,95,16,17,28,26,83,95,11,23,26,17,95,18,30,22,17,11,30,22,17,12,95,29
+,16,16,12,11,95,10,17,11,22,19,95,55,47,95,22,12,95,19,16,8,81}),Callback=
+function(av)au=av task.spawn(function()if au then teleportToActiveZone(h.
+Character)task.wait(0.2)local aw={buffer.fromstring('\22'),nil}g.ByteNetReliable
+:FireServer(unpack(aw))end while au do local aw=h.Character if aw then local ax=
+aw:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if ax and ax.Health>0 then
+local ay=(ax.Health/ax.MaxHealth)*100 if ay<as then ax.Health=0 h.CharacterAdded
+:Wait()task.wait(1)teleportToActiveZone(h.Character)task.wait(0.2)local az={
+buffer.fromstring('\22'),nil}g.ByteNetReliable:FireServer(unpack(az))else local
+az={buffer.fromstring('\n\b\0Training')}g.ByteNetReliable:FireServer(unpack(az))
+task.wait(0.5)end else task.wait(0.5)end else task.wait(0.5)end end end)end})
+local av=b.alchemyOptions[1]local aw=false local ax=L:AddDropdown(__DEC({62,19,
+28,23,26,18,6,95,47,22,19,19}),{Values=b.alchemyOptions,Default=av,Multi=false,
+Text=__DEC({44,26,19,26,28,11,95,47,22,19,19}),Tooltip=__DEC({44,26,19,26,28,11,
+95,11,23,26,95,15,22,19,19,95,6,16,10,95,8,30,17,11,95,11,16,95,28,13,30,25,11,
+81}),Searchable=true,Callback=function(ax)av=ax end})L:AddToggle(__DEC({62,10,11
+,16,62,19,28,23,26,18,6,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62
+,10,11,16,95,62,19,28,23,26,18,6}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,
+19,19,6,95,28,13,30,25,11,12,95,11,23,26,95,12,26,19,26,28,11,26,27,95,15,22,19,
+19,95,22,25,95,6,16,10,95,23,30,9,26,95,11,23,26,95,18,30,11,26,13,22,30,19,12,
+81}),Callback=function(ay)aw=ay task.spawn(function()while aw do if av then
+local az=createAlchemyPacket(av)print(__DEC({129429,95,62,11,11,26,18,15,11,22,
+17,24,95,11,16,95,28,13,30,25,11,69,95})..av)g.ByteNetReliable:FireServer(
+unpack(az))end task.wait(1)end end)end})local ay,az=getQiZoneData()local aA=M:
+AddDropdown(__DEC({46,22,95,37,16,17,26}),{Values=ay,Default=1,Multi=false,Text=
+__DEC({44,26,19,26,28,11,95,46,22,95,37,16,17,26}),Tooltip=__DEC({44,26,19,26,28
+,11,95,11,23,26,95,46,22,95,5,16,17,26,95,6,16,10,95,8,30,17,11,95,11,16,95,11,
+13,30,22,17,95,22,17,81}),Callback=function(aA)if az[aA]then z=az[aA]end end})
+local aB=false M:AddToggle(__DEC({62,10,11,16,60,10,19,11,22,9,30,11,26,43,16,24
+,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,60,10,19,11,22,9,30
+,11,26}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,11,16,95,11,23,26,95,12,26
+,19,26,28,11,26,27,95,46,22,95,37,16,17,26,95,30,17,27,95,30,10,11,16,18,30,11,
+22,28,30,19,19,6,95,28,10,19,11,22,9,30,11,26,12,95,8,22,11,23,95,11,30,15,95,29
+,16,16,12,11,12,81}),Callback=function(aC)aB=aC if aB then task.spawn(function()
+teleportToActiveZone(h.Character)task.wait(0.2)local aD={buffer.fromstring('\6')
+}g.ByteNetReliable:FireServer(unpack(aD))while aB do local aE=h.Character if aE
+then local aF=aE:FindFirstChild(__DEC({55,10,18,30,17,16,22,27}))if aF and aF.
+Health>0 then local aG=(aF.Health/aF.MaxHealth)*100 if aG<12 then aF.Health=0 h.
 CharacterAdded:Wait()task.wait(1)teleportToActiveZone(h.Character)task.wait(0.2)
-local az={buffer.fromstring('\22'),nil}g.ByteNetReliable:FireServer(unpack(az))
-else local az={buffer.fromstring('\n\b\0Training')}g.ByteNetReliable:FireServer(
-unpack(az))task.wait(0.5)end else task.wait(0.5)end else task.wait(0.5)end end
-end)end})local av=b.alchemyOptions[1]local aw=false local ax=L:AddDropdown(
-__DEC({62,19,28,23,26,18,6,95,47,22,19,19}),{Values=b.alchemyOptions,Default=av,
-Multi=false,Text=__DEC({44,26,19,26,28,11,95,47,22,19,19}),Tooltip=__DEC({44,26,
-19,26,28,11,95,11,23,26,95,15,22,19,19,95,6,16,10,95,8,30,17,11,95,11,16,95,28,
-13,30,25,11,81}),Searchable=true,Callback=function(ax)av=ax end})L:AddToggle(
-__DEC({62,10,11,16,62,19,28,23,26,18,6,43,16,24,24,19,26}),{Text=__DEC({58,17,30
-,29,19,26,95,62,10,11,16,95,62,19,28,23,26,18,6}),Tooltip=__DEC({62,10,11,16,18,
-30,11,22,28,30,19,19,6,95,28,13,30,25,11,12,95,11,23,26,95,12,26,19,26,28,11,26,
-27,95,15,22,19,19,95,22,25,95,6,16,10,95,23,30,9,26,95,11,23,26,95,18,30,11,26,
-13,22,30,19,12,81}),Callback=function(ay)aw=ay task.spawn(function()while aw do
-if av then local az=createAlchemyPacket(av)print(__DEC({129429,95,62,11,11,26,18
-,15,11,22,17,24,95,11,16,95,28,13,30,25,11,69,95})..av)g.ByteNetReliable:
-FireServer(unpack(az))end task.wait(1)end end)end})local ay,az=getQiZoneData()
-local aA=M:AddDropdown(__DEC({46,22,95,37,16,17,26}),{Values=ay,Default=1,Multi=
-false,Text=__DEC({44,26,19,26,28,11,95,46,22,95,37,16,17,26}),Tooltip=__DEC({44,
-26,19,26,28,11,95,11,23,26,95,46,22,95,5,16,17,26,95,6,16,10,95,8,30,17,11,95,11
-,16,95,11,13,30,22,17,95,22,17,81}),Callback=function(aA)if az[aA]then z=az[aA]
-end end})local aB=false M:AddToggle(__DEC({62,10,11,16,60,10,19,11,22,9,30,11,26
-,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,60,10,19,
-11,22,9,30,11,26}),Tooltip=__DEC({43,26,19,26,15,16,13,11,12,95,11,16,95,11,23,
-26,95,12,26,19,26,28,11,26,27,95,46,22,95,37,16,17,26,95,30,17,27,95,30,10,11,16
-,18,30,11,22,28,30,19,19,6,95,28,10,19,11,22,9,30,11,26,12,95,8,22,11,23,95,11,
-30,15,95,29,16,16,12,11,12,81}),Callback=function(aC)aB=aC if aB then task.
-spawn(function()teleportToActiveZone(h.Character)task.wait(0.2)local aD={buffer.
-fromstring('\6')}g.ByteNetReliable:FireServer(unpack(aD))while aB do local aE=h.
-Character if aE then local aF=aE:FindFirstChild(__DEC({55,10,18,30,17,16,22,27})
-)if aF and aF.Health>0 then local aG=(aF.Health/aF.MaxHealth)*100 if aG<12 then
-aF.Health=0 h.CharacterAdded:Wait()task.wait(1)teleportToActiveZone(h.Character)
-task.wait(0.2)local aH={buffer.fromstring('\6')}g.ByteNetReliable:FireServer(
-unpack(aH))else local aH={buffer.fromstring('\n\v\0Cultivating')}g.
-ByteNetReliable:FireServer(unpack(aH))task.wait(0.5)end else task.wait(0.5)end
-else task.wait(0.5)end end end)else local aD={buffer.fromstring('\6')}g.
-ByteNetReliable:FireServer(unpack(aD))end end})local aC=100 M:AddSlider(__DEC({
-61,13,26,30,20,11,23,13,16,10,24,23,60,23,30,17,28,26,44,19,22,27,26,13}),{Text=
-__DEC({61,13,26,30,20,11,23,13,16,10,24,23,95,60,23,30,17,28,26,95,90}),Min=1,
-Max=100,Default=70,Rounding=0,Tooltip=__DEC({44,26,11,95,11,23,26,95,18,22,17,22
-,18,10,18,95,12,10,28,28,26,12,12,95,13,30,11,26,95,6,16,10,95,8,30,17,11,95,29,
-26,25,16,13,26,95,30,11,11,26,18,15,11,22,17,24,95,11,16,95,29,13,26,30,20,11,23
-,13,16,10,24,23,81}),Callback=function(aD)aC=aD end})local aD=false M:AddToggle(
-__DEC({62,10,11,16,61,13,26,30,20,11,23,13,16,10,24,23,43,16,24,24,19,26}),{Text
-=__DEC({58,17,30,29,19,26,95,62,10,11,16,95,61,13,26,30,20,11,23,13,16,10,24,23}
-),Tooltip=__DEC({43,13,22,24,24,26,13,12,95,46,22,95,30,17,27,95,61,16,27,6,95,
-29,13,26,30,20,11,23,13,16,10,24,23,12,95,29,30,12,26,27,95,16,17,95,6,16,10,13,
-95,12,26,19,26,28,11,26,27,95,28,23,30,17,28,26,81}),Callback=function(aE)aD=aE
-task.spawn(function()while aD do local aF=getMyLiveStats()if aF then if aF.Qi
-and aF.Realm then local aG=calculateTrueBreakthroughQi(aF.Realm)local aH=math.
-floor(aG*(aC/100))if aF.Qi>=aH then local aI={buffer.fromstring('\4\0')}g.
-ByteNetReliable:FireServer(unpack(aI))print(string.format(__DEC({127840,95,46,22
-,95,61,13,26,30,20,11,23,13,16,10,24,23,95,62,11,11,26,18,15,11,26,27,94,95,60,
-23,30,17,28,26,69,95,90,27,90,90,95,3,95,43,30,13,24,26,11,95,46,22,69,95,90,27}
-),aC,aH))task.wait(2.5)end end local aG=aF.Blood or aF.Health if aG and aF.Body
-then local aH=calculateTrueBreakthroughBody(aF.Body)local aI=math.floor(aH*(aC/
-100))if aG>=aI then local aJ={buffer.fromstring('\14\0')}g.ByteNetReliable:
-FireServer(unpack(aJ))print(string.format(__DEC({128213,95,61,16,27,6,95,61,13,
-26,30,20,11,23,13,16,10,24,23,95,62,11,11,26,18,15,11,26,27,94,95,60,23,30,17,28
-,26,69,95,90,27,90,90,95,3,95,43,30,13,24,26,11,95,61,19,16,16,27,69,95,90,27}),
-aC,aI))task.wait(2.5)end end end task.wait(1)end end)end})local aE={60,300,600,
-900,1200,1800,3600,5400,7200}for aF,aG in ipairs(aE)do Q:AddDropdown(__DEC({47,
-19,30,6,11,22,18,26,43,22,26,13,32})..aG,{Text=aG..__DEC({95,44,26,28,16,17,27,
-12}),Values=b.playtimeRewards[aG],Default=b.selectedRewards[aG],Multi=false,
-Callback=function(aH)b.selectedRewards[aG]=aH end})end local aF=false Q:
-AddToggle(__DEC({62,10,11,16,47,19,30,6,11,22,18,26,45,26,8,30,13,27,12,43,16,24
-,24,19,26}),{Text=__DEC({62,10,11,16,95,60,19,30,22,18,95,45,26,8,30,13,27,12}),
-Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,28,19,30,22,18,12,95,6,
-16,10,13,95,12,26,19,26,28,11,26,27,95,15,19,30,6,11,22,18,26,95,13,26,8,30,13,
-27,12,81}),Default=false,Callback=function(aG)aF=aG if aF then c:Notify(__DEC({
-127998,95,62,10,11,16,95,60,19,30,22,18,95,47,19,30,6,11,22,18,26,95,45,26,8,30,
-13,27,12,95,58,17,30,29,19,26,27,94}))task.spawn(function()while aF do for aH,aI
-in ipairs(aE)do if not aF then break end local aJ=b.selectedRewards[aI]local aK=
-createPlaytimePacket(aI,aJ)pcall(function()g.ByteNetReliable:FireServer(unpack(
-aK))end)task.wait(0.5)end task.wait(60)end end)else c:Notify(__DEC({128686,95,62
-,10,11,16,95,60,19,30,22,18,95,47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,12,95,
-59,22,12,30,29,19,26,27,94}))end end})local aG=false Q:AddToggle(__DEC({62,10,11
-,16,58,9,26,17,11,47,19,30,6,11,22,18,26,45,26,8,30,13,27,12,43,16,24,24,19,26})
-,{Text=__DEC({62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11,22
-,18,26}),Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,28,19,30,22,18,
-12,95,11,23,26,95,12,15,26,28,22,30,19,95,58,9,26,17,11,95,15,19,30,6,11,22,18,
-26,95,13,26,8,30,13,27,12,81}),Default=false,Callback=function(aH)aG=aH if aG
-then c:Notify(__DEC({127993,95,62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95
-,47,19,30,6,11,22,18,26,95,58,17,30,29,19,26,27,94}))task.spawn(function()while
-aG do for aI,aJ in ipairs(D)do if not aG then break end local aK=
-createEventPlaytimePacket(aJ)pcall(function()g.ByteNetReliable:FireServer(
-unpack(aK))end)task.wait(0.5)end task.wait(60)end end)else c:Notify(__DEC({
-128686,95,62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11,22,18,
-26,95,59,22,12,30,29,19,26,27,94}))end end})P:AddButton({Text=__DEC({60,16,15,6,
-95,60,10,13,13,26,17,11,95,51,16,28,30,11,22,16,17}),DoubleClick=false,Tooltip=
-__DEC({60,16,15,22,26,12,95,6,16,10,13,95,26,7,30,28,11,95,28,23,30,13,30,28,11,
-26,13,95,60,57,13,30,18,26,95,11,16,95,6,16,10,13,95,28,19,22,15,29,16,30,13,27,
-81}),Func=function()local aH=h.Character local aI=aH and aH:FindFirstChild(
-__DEC({55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11}))if aI then local aJ=
-string.format(__DEC({60,57,13,30,18,26,81,17,26,8,87,90,25,83,95,90,25,83,95,90,
-25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95
-,90,25,83,95,90,25,83,95,90,25,86}),aI.CFrame:GetComponents())if setclipboard
-then setclipboard(aJ)c:Notify(__DEC({128180,95,51,16,28,30,11,22,16,17,95,28,16,
-15,22,26,27,95,11,16,95,28,19,22,15,29,16,30,13,27,94}))else print(__DEC({38,16,
-10,13,95,19,16,28,30,11,22,16,17,95,25,16,13,18,30,11,95,25,16,13,95,12,28,13,22
-,15,11,69,95})..aJ)c:Notify(__DEC({9951,65136,95,58,7,26,28,10,11,16,13,95,27,16
-,26,12,17,88,11,95,12,10,15,15,16,13,11,95,28,19,22,15,29,16,30,13,27,81,95,15,
-13,22,17,11,26,27,95,11,16,95,57,70,95,19,16,24,81}))end else c:Notify(__DEC({
-10035,95,55,10,18,30,17,16,22,27,45,16,16,11,47,30,13,11,95,17,16,11,95,25,16,10
-,17,27,94}))end end})P:AddButton({Text=__DEC({45,26,27,26,26,18,95,62,19,19,95,
-60,16,27,26,12}),DoubleClick=true,Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,
-19,19,6,95,12,26,17,27,12,95,15,30,28,20,26,11,12,95,25,16,13,95,26,9,26,13,6,95
-,20,17,16,8,17,95,28,16,27,26,95,11,16,95,28,19,30,22,18,95,13,26,8,30,13,27,12,
-81}),Func=function()task.spawn(function()c:Notify(__DEC({127998,95,45,26,27,26,
-26,18,22,17,24,95,28,16,27,26,12,81,81,81,95,60,23,26,28,20,95,11,16,15,95,19,26
-,25,11,94}))for aH,aI in ipairs(b.gameCodes)do local aJ=createCodePacket(aI)
-pcall(function()g.ByteNetReliable:FireServer(unpack(aJ))end)task.wait(0.5)end c:
-Notify(__DEC({10106,95,57,22,17,22,12,23,26,27,95,13,26,27,26,26,18,22,17,24,95,
-30,19,19,95,28,16,27,26,12,94}))end)end})e:SetLibrary(c)d:SetLibrary(c)d:
-SetIgnoreIndexes({__DEC({50,26,17,10,52,26,6,29,22,17,27})})e:SetFolder(__DEC({
-38,55,10,29}))d:SetFolder(__DEC({38,55,10,29,80,60,10,19,11,22,9,30,11,22,16,17,
-59,30,16,48,17,19,22,17,26,41,77}))e:ApplyToTab(J)d:BuildConfigSection(J)d:
-LoadAutoloadConfig()
+local aH={buffer.fromstring('\6')}g.ByteNetReliable:FireServer(unpack(aH))else
+local aH={buffer.fromstring('\n\v\0Cultivating')}g.ByteNetReliable:FireServer(
+unpack(aH))task.wait(0.5)end else task.wait(0.5)end else task.wait(0.5)end end
+end)else local aD={buffer.fromstring('\6')}g.ByteNetReliable:FireServer(unpack(
+aD))end end})local aC=100 M:AddSlider(__DEC({61,13,26,30,20,11,23,13,16,10,24,23
+,60,23,30,17,28,26,44,19,22,27,26,13}),{Text=__DEC({61,13,26,30,20,11,23,13,16,
+10,24,23,95,60,23,30,17,28,26,95,90}),Min=1,Max=100,Default=70,Rounding=0,
+Tooltip=__DEC({44,26,11,95,11,23,26,95,18,22,17,22,18,10,18,95,12,10,28,28,26,12
+,12,95,13,30,11,26,95,6,16,10,95,8,30,17,11,95,29,26,25,16,13,26,95,30,11,11,26,
+18,15,11,22,17,24,95,11,16,95,29,13,26,30,20,11,23,13,16,10,24,23,81}),Callback=
+function(aD)aC=aD end})local aD=false M:AddToggle(__DEC({62,10,11,16,61,13,26,30
+,20,11,23,13,16,10,24,23,43,16,24,24,19,26}),{Text=__DEC({58,17,30,29,19,26,95,
+62,10,11,16,95,61,13,26,30,20,11,23,13,16,10,24,23}),Tooltip=__DEC({43,13,22,24,
+24,26,13,12,95,46,22,95,30,17,27,95,61,16,27,6,95,29,13,26,30,20,11,23,13,16,10,
+24,23,12,95,29,30,12,26,27,95,16,17,95,6,16,10,13,95,12,26,19,26,28,11,26,27,95,
+28,23,30,17,28,26,81}),Callback=function(aE)aD=aE task.spawn(function()while aD
+do local aF=getMyLiveStats()if aF then if aF.Qi and aF.Realm then local aG=
+calculateTrueBreakthroughQi(aF.Realm)local aH=math.floor(aG*(aC/100))if aF.Qi>=
+aH then local aI={buffer.fromstring('\4\0')}g.ByteNetReliable:FireServer(unpack(
+aI))print(string.format(__DEC({127840,95,46,22,95,61,13,26,30,20,11,23,13,16,10,
+24,23,95,62,11,11,26,18,15,11,26,27,94,95,60,23,30,17,28,26,69,95,90,27,90,90,95
+,3,95,43,30,13,24,26,11,95,46,22,69,95,90,27}),aC,aH))task.wait(2.5)end end
+local aG=aF.Blood or aF.Health if aG and aF.Body then local aH=
+calculateTrueBreakthroughBody(aF.Body)local aI=math.floor(aH*(aC/100))if aG>=aI
+then local aJ={buffer.fromstring('\14\0')}g.ByteNetReliable:FireServer(unpack(aJ
+))print(string.format(__DEC({128213,95,61,16,27,6,95,61,13,26,30,20,11,23,13,16,
+10,24,23,95,62,11,11,26,18,15,11,26,27,94,95,60,23,30,17,28,26,69,95,90,27,90,90
+,95,3,95,43,30,13,24,26,11,95,61,19,16,16,27,69,95,90,27}),aC,aI))task.wait(2.5)
+end end end task.wait(1)end end)end})local aE={60,300,600,900,1200,1800,3600,
+5400,7200}for aF,aG in ipairs(aE)do Q:AddDropdown(__DEC({47,19,30,6,11,22,18,26,
+43,22,26,13,32})..aG,{Text=aG..__DEC({95,44,26,28,16,17,27,12}),Values=b.
+playtimeRewards[aG],Default=b.selectedRewards[aG],Multi=false,Callback=function(
+aH)b.selectedRewards[aG]=aH end})end local aF=false Q:AddToggle(__DEC({62,10,11,
+16,47,19,30,6,11,22,18,26,45,26,8,30,13,27,12,43,16,24,24,19,26}),{Text=__DEC({
+62,10,11,16,95,60,19,30,22,18,95,45,26,8,30,13,27,12}),Tooltip=__DEC({62,10,11,
+16,18,30,11,22,28,30,19,19,6,95,28,19,30,22,18,12,95,6,16,10,13,95,12,26,19,26,
+28,11,26,27,95,15,19,30,6,11,22,18,26,95,13,26,8,30,13,27,12,81}),Default=false,
+Callback=function(aG)aF=aG if aF then c:Notify(__DEC({127998,95,62,10,11,16,95,
+60,19,30,22,18,95,47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,12,95,58,17,30,29,
+19,26,27,94}))task.spawn(function()while aF do for aH,aI in ipairs(aE)do if not
+aF then break end local aJ=b.selectedRewards[aI]local aK=createPlaytimePacket(aI
+,aJ)pcall(function()g.ByteNetReliable:FireServer(unpack(aK))end)task.wait(0.5)
+end task.wait(60)end end)else c:Notify(__DEC({128686,95,62,10,11,16,95,60,19,30,
+22,18,95,47,19,30,6,11,22,18,26,95,45,26,8,30,13,27,12,95,59,22,12,30,29,19,26,
+27,94}))end end})local aG=false Q:AddToggle(__DEC({62,10,11,16,58,9,26,17,11,47,
+19,30,6,11,22,18,26,45,26,8,30,13,27,12,43,16,24,24,19,26}),{Text=__DEC({62,10,
+11,16,95,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11,22,18,26}),Tooltip=
+__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,28,19,30,22,18,12,95,11,23,26,95
+,12,15,26,28,22,30,19,95,58,9,26,17,11,95,15,19,30,6,11,22,18,26,95,13,26,8,30,
+13,27,12,81}),Default=false,Callback=function(aH)aG=aH if aG then c:Notify(
+__DEC({127993,95,62,10,11,16,95,60,19,30,22,18,95,58,9,26,17,11,95,47,19,30,6,11
+,22,18,26,95,58,17,30,29,19,26,27,94}))task.spawn(function()while aG do for aI,
+aJ in ipairs(D)do if not aG then break end local aK=createEventPlaytimePacket(aJ
+)pcall(function()g.ByteNetReliable:FireServer(unpack(aK))end)task.wait(0.5)end
+task.wait(60)end end)else c:Notify(__DEC({128686,95,62,10,11,16,95,60,19,30,22,
+18,95,58,9,26,17,11,95,47,19,30,6,11,22,18,26,95,59,22,12,30,29,19,26,27,94}))
+end end})P:AddButton({Text=__DEC({60,16,15,6,95,60,10,13,13,26,17,11,95,51,16,28
+,30,11,22,16,17}),DoubleClick=false,Tooltip=__DEC({60,16,15,22,26,12,95,6,16,10,
+13,95,26,7,30,28,11,95,28,23,30,13,30,28,11,26,13,95,60,57,13,30,18,26,95,11,16,
+95,6,16,10,13,95,28,19,22,15,29,16,30,13,27,81}),Func=function()local aH=h.
+Character local aI=aH and aH:FindFirstChild(__DEC({55,10,18,30,17,16,22,27,45,16
+,16,11,47,30,13,11}))if aI then local aJ=string.format(__DEC({60,57,13,30,18,26,
+81,17,26,8,87,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,
+83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,83,95,90,25,86}),aI.
+CFrame:GetComponents())if setclipboard then setclipboard(aJ)c:Notify(__DEC({
+128180,95,51,16,28,30,11,22,16,17,95,28,16,15,22,26,27,95,11,16,95,28,19,22,15,
+29,16,30,13,27,94}))else print(__DEC({38,16,10,13,95,19,16,28,30,11,22,16,17,95,
+25,16,13,18,30,11,95,25,16,13,95,12,28,13,22,15,11,69,95})..aJ)c:Notify(__DEC({
+9951,65136,95,58,7,26,28,10,11,16,13,95,27,16,26,12,17,88,11,95,12,10,15,15,16,
+13,11,95,28,19,22,15,29,16,30,13,27,81,95,15,13,22,17,11,26,27,95,11,16,95,57,70
+,95,19,16,24,81}))end else c:Notify(__DEC({10035,95,55,10,18,30,17,16,22,27,45,
+16,16,11,47,30,13,11,95,17,16,11,95,25,16,10,17,27,94}))end end})P:AddButton({
+Text=__DEC({45,26,27,26,26,18,95,62,19,19,95,60,16,27,26,12}),DoubleClick=true,
+Tooltip=__DEC({62,10,11,16,18,30,11,22,28,30,19,19,6,95,12,26,17,27,12,95,15,30,
+28,20,26,11,12,95,25,16,13,95,26,9,26,13,6,95,20,17,16,8,17,95,28,16,27,26,95,11
+,16,95,28,19,30,22,18,95,13,26,8,30,13,27,12,81}),Func=function()task.spawn(
+function()c:Notify(__DEC({127998,95,45,26,27,26,26,18,22,17,24,95,28,16,27,26,12
+,81,81,81,95,60,23,26,28,20,95,11,16,15,95,19,26,25,11,94}))for aH,aI in ipairs(
+b.gameCodes)do local aJ=createCodePacket(aI)pcall(function()g.ByteNetReliable:
+FireServer(unpack(aJ))end)task.wait(0.5)end c:Notify(__DEC({10106,95,57,22,17,22
+,12,23,26,27,95,13,26,27,26,26,18,22,17,24,95,30,19,19,95,28,16,27,26,12,94}))
+end)end})e:SetLibrary(c)d:SetLibrary(c)d:SetIgnoreIndexes({__DEC({50,26,17,10,52
+,26,6,29,22,17,27})})e:SetFolder(__DEC({38,55,10,29}))d:SetFolder(__DEC({38,55,
+10,29,80,60,10,19,11,22,9,30,11,22,16,17,59,30,16,48,17,19,22,17,26,41,77}))e:
+ApplyToTab(J)d:BuildConfigSection(J)d:LoadAutoloadConfig()
