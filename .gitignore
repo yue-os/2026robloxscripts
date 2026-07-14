@@ -2,6 +2,7 @@
 !/.gitignore
 !/CultivationOnline.luau
 !/GameDatas.lua
+!/output.lua
 !/AnomalyHospital
 !/AnomalyHospital/Anomaly.luau
 !/keysys.lua
