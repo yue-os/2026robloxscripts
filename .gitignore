@@ -2,6 +2,7 @@
 !/.gitignore
 !/CultivationOnline.luau
 !/GameDatas.lua
+!/Anomaly.luau
 !/keysys.lua
 !/.github/
 !/.github/workflows/
