@@ -1,0 +1,45 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Number
+-- Took 0s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v3 = {
+    ["Round"] = function(p1, _) -- name: Round
+        local v2 = p1 + 0.5
+        return math.floor(v2)
+    end
+}
+local v_u_4 = Random.new()
+function v3.BreakInPieces(p5, p6) -- name: BreakInPieces
+    -- upvalues: (copy) v_u_4
+    local v7 = p6 or v_u_4:NextInteger(2, 4)
+    if p5 < v7 then
+        return { p5 }
+    end
+    local v8 = {}
+    while #v8 < v7 - 1 do
+        local v9 = v_u_4
+        local v10 = p5 / v7
+        local v11 = v9:NextInteger(1, (math.floor(v10)))
+        v8[#v8 + 1] = v11
+        p5 = p5 - v11
+    end
+    v8[#v8 + 1] = p5
+    return v8
+end
+function v3.EvalNumberSequence(p12, p13) -- name: EvalNumberSequence
+    if p13 == 0 then
+        return p12.Keypoints[1].Value
+    end
+    if p13 == 1 then
+        return p12.Keypoints[#p12.Keypoints].Value
+    end
+    for v14 = 1, #p12.Keypoints - 1 do
+        local v15 = p12.Keypoints[v14]
+        local v16 = p12.Keypoints[v14 + 1]
+        if v15.Time <= p13 and p13 < v16.Time then
+            local v17 = (p13 - v15.Time) / (v16.Time - v15.Time)
+            return v15.Value + (v16.Value - v15.Value) * v17
+        end
+    end
+end
+return v3

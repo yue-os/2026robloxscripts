@@ -1,0 +1,70 @@
+-- Script Path: game:GetService("ReplicatedStorage").Data.Prods
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v1 = {
+    ["small"] = {
+        ["id"] = 3590046721,
+        ["val"] = 100,
+        ["cost"] = "\238\128\130"
+    },
+    ["med"] = {
+        ["id"] = 3590047245,
+        ["val"] = 500,
+        ["cost"] = "\238\128\130"
+    },
+    ["large"] = {
+        ["id"] = 3590047653,
+        ["val"] = 1500,
+        ["cost"] = "\238\128\130"
+    },
+    ["huge"] = {
+        ["id"] = 3590047997,
+        ["val"] = 3250,
+        ["cost"] = "\238\128\130"
+    },
+    ["Head Nurse"] = {
+        ["id"] = 3590049673,
+        ["val"] = 1,
+        ["cost"] = "\238\128\130"
+    },
+    ["level2"] = {
+        ["id"] = 3606527416,
+        ["val"] = 1,
+        ["cost"] = ""
+    },
+    ["level3"] = {
+        ["id"] = 3606527462,
+        ["val"] = 1,
+        ["cost"] = ""
+    },
+    ["Secret Agent"] = {
+        ["id"] = 3590049225,
+        ["val"] = 1,
+        ["cost"] = "\238\128\130"
+    }
+}
+for v_u_2, v_u_3 in pairs(v1) do
+    v_u_3.Name = v_u_2
+    task.spawn(function()
+        -- upvalues: (copy) v_u_3, (copy) v_u_2
+        for _ = 1, 3 do
+            local v5, _ = pcall(function()
+                -- upvalues: (ref) v_u_3
+                local v4 = game:GetService("MarketplaceService"):GetProductInfo(v_u_3.id, Enum.InfoType.Product)
+                v_u_3.Name = v4.Name
+                v_u_3.cost = "\238\128\130" .. v4.PriceInRobux
+                v_u_3.Desc = v4.Description
+            end)
+            if v5 then
+                break
+            end
+            task.wait(0.2)
+        end
+        require(game.ReplicatedStorage:WaitForChild("Lib")).UpdateRobuxPrice:Fire(v_u_2)
+    end)
+end
+for _, v6 in pairs(v1) do
+    v1[v6.id] = v6
+end
+return v1

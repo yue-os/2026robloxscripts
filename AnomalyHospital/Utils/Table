@@ -1,0 +1,95 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Table
+-- Took 0.02s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_34 = {
+    ["Size"] = function(p1) -- name: Size
+        local v2 = 0
+        for _, _ in next, p1 do
+            v2 = v2 + 1
+        end
+        return v2
+    end,
+    ["IsEmpty"] = function() -- name: IsEmpty
+        -- -- failed to decompile
+    end,
+    ["Scramble"] = function(p3, p4) -- name: Scramble
+        local v5 = p4 or #p3
+        for v6 = 1, v5 do
+            local v7 = Random.new():NextInteger(1, v5)
+            local v8 = p3[v6]
+            p3[v6] = p3[v7]
+            p3[v7] = v8
+        end
+        return p3
+    end,
+    ["DictionarySelectRandom"] = function(p9) -- name: DictionarySelectRandom
+        local v10 = {}
+        for v11, _ in pairs(p9) do
+            table.insert(v10, v11)
+        end
+        if #v10 == 0 then
+            return
+        elseif #v10 == 1 then
+            local v12 = v10[1]
+            return v12, p9[v12]
+        else
+            local v13 = v10[Random.new():NextInteger(1, #v10)]
+            return v13, p9[v13]
+        end
+    end,
+    ["DeepCopy"] = function(p14) -- name: DeepCopy
+        -- upvalues: (copy) v_u_34
+        local v15 = {}
+        for v16, v18 in next, p14 do
+            if type(v18) == "table" then
+                local v18 = v_u_34.DeepCopy(v18)
+            end
+            v15[v16] = v18
+        end
+        return v15
+    end,
+    ["DeepPrint"] = function(p19) -- name: DeepPrint
+        -- upvalues: (copy) v_u_34
+        print("{ ")
+        for v20, v21 in next, p19 do
+            if type(v21) == "table" then
+                print("[" .. v20 .. "] = ")
+                v_u_34.DeepPrint(v21)
+            else
+                print("[" .. v20 .. "] =", v21)
+            end
+        end
+        print(" }")
+    end,
+    ["Copy"] = function(p22) -- name: Copy
+        local v23 = {}
+        for v24, v25 in next, p22 do
+            v23[v24] = v25
+        end
+        return v23
+    end,
+    ["DeepSearch"] = function(p26, p27) -- name: DeepSearch
+        -- upvalues: (copy) v_u_34
+        local v28 = ""
+        for v29, v30 in next, p26 do
+            if type(v30) == "table" then
+                v28 = v28 .. v_u_34.DeepSearch(v30, v29)
+            end
+            if type(v29) ~= "string" and type(v29) ~= "number" then
+                v28 = v28 .. v29 .. type(v29) .. (p27 or "")
+            end
+        end
+        return v28
+    end,
+    ["BindClean"] = function(p_u_31, p_u_32) -- name: BindClean
+        game.Players.PlayerRemoving:Connect(function(p33)
+            -- upvalues: (copy) p_u_32, (copy) p_u_31
+            if p_u_32 then
+                p_u_32(p33)
+            end
+            p_u_31[p33] = nil
+        end)
+    end
+}
+return v_u_34

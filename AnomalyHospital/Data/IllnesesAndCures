@@ -1,0 +1,233 @@
+-- Script Path: game:GetService("ReplicatedStorage").Data.IllnessesAndCures
+-- Took 0.05s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v1 = {}
+local v_u_2 = {}
+v_u_2.__index = v_u_2
+local v_u_3 = {}
+local v_u_4 = {}
+local v_u_5 = {}
+function v_u_2.new(p6, p7, p8) -- name: new
+    -- upvalues: (copy) v_u_2, (copy) v_u_3, (copy) v_u_4
+    local v9 = {}
+    local v10 = v_u_2
+    setmetatable(v9, v10)
+    v9.Name = p6
+    v9.HealedWith = p8 or "Nothing"
+    v9.RoomType = p7
+    v_u_3[p6] = v9
+    v_u_4[p7] = v_u_4[p7] or {}
+    local v11 = v_u_4[p7]
+    table.insert(v11, v9)
+    return v9
+end
+function v_u_2.TryCure(p12, p13) -- name: TryCure
+    return p12.HealedWithv == p13
+end
+function v1.GetIllnessByName(p14) -- name: GetIllnessByName
+    -- upvalues: (copy) v_u_3
+    return v_u_3[p14]
+end
+v1.GetIllness = v1.GetIllnessByName
+local v_u_15 = {}
+function v1.GetRandomIllnessFromRoomType(p16, p17, p18) -- name: GetRandomIllnessFromRoomType
+    -- upvalues: (ref) v_u_15, (copy) v_u_4
+    if p18 == 1 and #v_u_15 > 0 then
+        return {
+            [table.remove(v_u_15, 1)] = true
+        }
+    end
+    local v19 = v_u_4[p16] or v_u_4.Medical
+    local v20 = #v19
+    local v21 = math.clamp(p17 or 1, 1, v20)
+    if not v19 or #v19 == 0 then
+        return nil
+    end
+    local v22 = 0
+    local v23 = {}
+    while v22 < v21 do
+        local v24 = v19[math.random(1, #v19)]
+        if not v23[v24] and (not v24.MinNight or p18 >= v24.MinNight) then
+            v23[v24] = true
+            v22 = v22 + 1
+        end
+    end
+    return v23
+end
+function v1.GetCureForIllness(p25) -- name: GetCureForIllness
+    -- upvalues: (copy) v_u_5
+    return v_u_5[p25.HealedWith]
+end
+function v1.GetCures() -- name: GetCures
+    -- upvalues: (copy) v_u_5
+    return v_u_5
+end
+local v26 = {
+    ["Name"] = "IV Drops",
+    ["Image"] = "rbxassetid://118311058179090",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["Liquid"] = true,
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5["IV Drops"] = v26
+local v27 = {
+    ["Name"] = "Eye Drops",
+    ["Image"] = "rbxassetid://139637091303873",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["GoodForEyes"] = true,
+        ["Liquid"] = true,
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5["Eye Drops"] = v27
+local v28 = {
+    ["Name"] = "Medicine",
+    ["Image"] = "rbxassetid://135236061613718",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Medicine = v28
+local v29 = {
+    ["Name"] = "Herbs",
+    ["Image"] = "rbxassetid://94559086254344",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Herbs = v29
+v_u_5.Antibiotics = {
+    ["Name"] = "Antibiotics",
+    ["Image"] = "rbxassetid://132258407294719",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+local v30 = {
+    ["Name"] = "Bandages",
+    ["Image"] = "rbxassetid://84839702164032",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Bandages = v30
+local v31 = {
+    ["Name"] = "Ointment",
+    ["Image"] = "rbxassetid://75884870805308",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Ointment = v31
+v_u_5.Scissors = {
+    ["Name"] = "Scissors",
+    ["Image"] = "rbxassetid://97305931082100",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Scalpel = {
+    ["Name"] = "Scalpel",
+    ["Image"] = "rbxassetid://93721219255457",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+local v32 = {
+    ["Name"] = "Medkit",
+    ["Image"] = "rbxassetid://88750936127655",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Medkit = v32
+local v33 = {
+    ["Name"] = "Thermo",
+    ["Image"] = "rbxassetid://138334905913311",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Thermo = v33
+v_u_5.Transplant = {
+    ["Name"] = "Transplant",
+    ["Image"] = "rbxassetid://137637637347521",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["MonsterFood"] = true,
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.Organ = {
+    ["Name"] = "Organ",
+    ["Image"] = "rbxassetid://102550407034117",
+    ["Surgery"] = true,
+    ["Attributes"] = {
+        ["MonsterFood"] = true,
+        ["Stealable"] = true
+    } or {}
+}
+local v34 = {
+    ["Name"] = "Maple Syrup",
+    ["Image"] = "rbxassetid://113912761080559",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["MonsterFood"] = true,
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5["Maple Syrup"] = v34
+local v35 = {
+    ["Name"] = "Cough Syrup",
+    ["Image"] = "rbxassetid://120895273610611",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5["Cough Syrup"] = v35
+v_u_5.Coffee = {
+    ["Name"] = "Coffee",
+    ["Image"] = "rbxassetid://119229733320121",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["Liquid"] = true,
+        ["Stealable"] = true
+    } or {}
+}
+v_u_5.RunCola = {
+    ["Name"] = "RunCola",
+    ["Image"] = "rbxassetid://129106782630406",
+    ["Surgery"] = false,
+    ["Attributes"] = {
+        ["Liquid"] = true,
+        ["Stealable"] = true
+    } or {}
+}
+v_u_2.new("Dehydration", "Medical", v26.Name).MinNight = 2
+local v36 = v_u_2.new("Stomach Ache", "Medical", v29.Name)
+v_u_2.new("Head Ache", "Medical", v28.Name)
+v_u_2.new("Bleeding", "Medical", v30.Name)
+v_u_2.new("Fever", "Medical", v33.Name)
+v_u_2.new("Low Sugar", "Medical", v34.Name)
+v_u_2.new("Canadian", "Medical", v34.Name)
+v_u_2.new("Flu", "Medical", v35.Name)
+v_u_2.new("Rash", "Medical", v31.Name)
+local v37 = v_u_2.new("Dried Eyes", "Medical", v27.Name)
+v_u_2.new("Bruises", "Medical", v32.Name)
+v_u_15 = { v36, v37 }
+v1.MAX = 3
+return v1

@@ -1,0 +1,26 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Level
+-- Took 0.02s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v1 = {}
+local v_u_2 = { 0, 200, 1050 }
+local v_u_3 = #v_u_2
+function v1.GetMaxLevel() -- name: GetMaxLevel
+    -- upvalues: (copy) v_u_3
+    return v_u_3
+end
+function v1.GetLevelFromXP(p4) -- name: GetLevelFromXP
+    -- upvalues: (copy) v_u_3, (copy) v_u_2
+    local v5 = 1
+    for v6 = 1, v_u_3 do
+        if v_u_2[v6] <= p4 then
+            v5 = v6
+        end
+    end
+    return v5
+end
+function v1.GetNextLevelXP(p7) -- name: GetNextLevelXP
+    -- upvalues: (copy) v_u_2
+    return v_u_2[p7 + 1]
+end
+return v1

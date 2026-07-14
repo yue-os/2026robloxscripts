@@ -1,0 +1,162 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Net
+-- Took 0.03s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_1 = game:GetService("RunService")
+local v_u_58 = {
+    ["RemoteEvent"] = function(_, p_u_2, p_u_3) -- name: RemoteEvent
+        -- upvalues: (copy) v_u_1
+        local v_u_4 = "RE/" .. p_u_2
+        if v_u_1:IsServer() then
+            local v5 = script:FindFirstChild(v_u_4)
+            if not v5 then
+                v5 = Instance.new("RemoteEvent")
+                v5.Name = v_u_4
+                v5.Parent = script
+            end
+            return v5
+        end
+        task.spawn(function()
+            -- upvalues: (copy) v_u_4, (copy) p_u_2, (copy) p_u_3
+            if not script:FindFirstChild(v_u_4) then
+                script:WaitForChild("RE/RequestRemoteEvent"):FireServer(p_u_2)
+            end
+            local v6 = script:WaitForChild(v_u_4, 10)
+            if v6 then
+                if p_u_3 then
+                    v6.OnClientEvent:Connect(p_u_3)
+                end
+                return v6
+            else
+                error("Failed to find RemoteEvent: " .. v_u_4, 2)
+                return v6
+            end
+        end)
+    end,
+    ["FindRemoteEvent"] = function(_, p7) -- name: FindRemoteEvent
+        local v8 = "RE/" .. p7
+        return script:FindFirstChild(v8)
+    end,
+    ["FireClient"] = function(p9, p10, p11, ...) -- name: FireClient
+        p9:RemoteEvent(p11):FireClient(p10, ...)
+    end,
+    ["FireAllClients"] = function(p12, p13, ...) -- name: FireAllClients
+        p12:RemoteEvent(p13):FireAllClients(...)
+    end,
+    ["FireAllClientsWithinDistance"] = function(p14, p15, p16, p17, ...) -- name: FireAllClientsWithinDistance
+        for _, v18 in ipairs(game.Players:GetPlayers()) do
+            if v18.Character and (v18.Character.PrimaryPart and ((v18.Character.PrimaryPart.Position - p16) * Vector3.new(1, 0, 1)).Magnitude <= p17) then
+                p14:RemoteEvent(p15):FireClient(v18, ...)
+            end
+        end
+    end,
+    ["FireAllClientsInArray"] = function(p19, p20, p21, ...) -- name: FireAllClientsInArray
+        for _, v22 in p20 do
+            p19:RemoteEvent(p21):FireClient(v22, ...)
+        end
+    end,
+    ["FireServer"] = function(p_u_23, p_u_24, ...) -- name: FireServer
+        local v25 = nil
+        local v_u_26 = { ... }
+        while not v25 do
+            local v27
+            v25, v27 = pcall(function()
+                -- upvalues: (copy) p_u_23, (copy) p_u_24, (copy) v_u_26
+                local v28 = v_u_26
+                p_u_23:FindRemoteEvent(p_u_24):FireServer(table.unpack(v28))
+            end)
+            if not v25 then
+                task.wait()
+            end
+        end
+    end,
+    ["UnreliableRemoteEvent"] = function(_, p29) -- name: UnreliableRemoteEvent
+        -- upvalues: (copy) v_u_1
+        local v30 = "URE/" .. p29
+        if v_u_1:IsServer() then
+            local v31 = script:FindFirstChild(v30)
+            if not v31 then
+                v31 = Instance.new("UnreliableRemoteEvent")
+                v31.Name = v30
+                v31.Parent = script
+            end
+            return v31
+        else
+            local v32 = script:WaitForChild(v30, 10)
+            if not v32 then
+                error("Failed to find UnreliableRemoteEvent: " .. v30, 2)
+            end
+            return v32
+        end
+    end,
+    ["Connect"] = function(p33, p34, p35) -- name: Connect
+        -- upvalues: (copy) v_u_1
+        if v_u_1:IsServer() then
+            return p33:RemoteEvent(p34).OnServerEvent:Connect(p35)
+        else
+            return p33:RemoteEvent(p34, p35)
+        end
+    end,
+    ["ConnectUnreliable"] = function(p36, p37, p38) -- name: ConnectUnreliable
+        -- upvalues: (copy) v_u_1
+        if v_u_1:IsServer() then
+            return p36:UnreliableRemoteEvent(p37).OnServerEvent:Connect(p38)
+        else
+            return p36:UnreliableRemoteEvent(p37).OnClientEvent:Connect(p38)
+        end
+    end,
+    ["RemoteFunction"] = function(_, p39) -- name: RemoteFunction
+        -- upvalues: (copy) v_u_1
+        local v40 = "RF/" .. p39
+        if v_u_1:IsServer() then
+            local v41 = script:FindFirstChild(v40)
+            if not v41 then
+                v41 = Instance.new("RemoteFunction")
+                v41.Name = v40
+                v41.Parent = script
+            end
+            return v41
+        else
+            local v42 = script:WaitForChild(v40, 10)
+            if not v42 then
+                error("Failed to find RemoteFunction: " .. v40, 2)
+            end
+            return v42
+        end
+    end,
+    ["Handle"] = function(p43, p44, p45) -- name: Handle
+        p43:RemoteFunction(p44).OnServerInvoke = p45
+    end,
+    ["Invoke"] = function(p46, p47, ...) -- name: Invoke
+        return p46:RemoteFunction(p47):InvokeServer(...)
+    end,
+    ["InvokeServer"] = function(p48, p49, ...) -- name: InvokeServer
+        return p48:RemoteFunction(p49):InvokeServer(...)
+    end,
+    ["Clean"] = function(_) -- name: Clean
+        script:ClearAllChildren()
+    end,
+    ["BindFunctions"] = function(p50, p51) -- name: BindFunctions
+        for v52, v53 in pairs(p51) do
+            p50:Handle(v52, v53)
+        end
+    end,
+    ["BindEvents"] = function(p54, p55) -- name: BindEvents
+        for v56, v57 in pairs(p55) do
+            p54:Connect(v56, v57)
+        end
+    end
+}
+if v_u_1:IsServer() then
+    v_u_58:BindEvents({
+        ["RequestRemoteEvent"] = function(_, p59) -- name: RequestRemoteEvent
+            -- upvalues: (copy) v_u_58
+            v_u_58:RemoteEvent(p59)
+        end,
+        ["RequestRemoteFunction"] = function(_, p60) -- name: RequestRemoteFunction
+            -- upvalues: (copy) v_u_58
+            v_u_58:RemoteFunction(p60)
+        end
+    })
+end
+return v_u_58

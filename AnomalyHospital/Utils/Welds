@@ -1,0 +1,45 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Welds
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_15 = {
+    ["Weld"] = function(p1, p2, p3) -- name: Weld
+        local v4 = Instance.new("WeldConstraint")
+        v4.Name = p1.Name .. "Weld"
+        p1.CFrame = p3 or p1.CFrame
+        v4.Part1 = p1
+        v4.Part0 = p2
+        local v5 = CFrame.new(p1.Position)
+        local _ = p1.CFrame:inverse() * v5
+        local _ = p2.CFrame:inverse() * v5
+        v4.Parent = v4.Part1
+        return v4
+    end,
+    ["WeldModel"] = function(p6, _, p7) -- name: WeldModel
+        local v8 = p7 or p6.PrimaryPart
+        for _, v9 in pairs(p6:GetChildren()) do
+            if v9:IsA("BasePart") and v9 ~= v8 then
+                local v10 = Instance.new("WeldConstraint")
+                v10.Part0 = v9
+                v10.Part1 = v8
+                v10.Parent = v10.Part0
+                v9.Anchored = false
+            end
+        end
+    end,
+    ["WeldModelToPrimary"] = function(p11, p12) -- name: WeldModelToPrimary
+        -- upvalues: (copy) v_u_15
+        local v13 = p12 or p11.PrimaryPart
+        for _, v14 in pairs(p11:GetChildren()) do
+            if v14:IsA("BasePart") and v14 ~= v13 then
+                v14.CanCollide = false
+                v14.Massless = true
+                v14.Anchored = false
+                v_u_15.Weld(v14, v13, v14.CFrame)
+            else
+                v14:IsA("Model")
+            end
+        end
+    end
+}
+return v_u_15

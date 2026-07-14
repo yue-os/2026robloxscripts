@@ -1,0 +1,50 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Find
+-- Took 0.04s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_14 = {
+    ["Parent"] = function(p1) -- name: Parent
+        -- upvalues: (copy) v_u_14
+        if p1 and p1.Parent then
+            local v2 = p1.Parent
+            if v2 == workspace or v2:IsA("Folder") then
+                return p1
+            else
+                return v_u_14.Parent(v2)
+            end
+        else
+            return
+        end
+    end,
+    ["ChildOfParent"] = function(p3, p4) -- name: ChildOfParent
+        -- upvalues: (copy) v_u_14
+        local v5 = p3.Parent
+        if v5 == workspace then
+            return false
+        elseif v5 == p4 then
+            return p3
+        else
+            return v_u_14.ChildOfParent(v5, p4)
+        end
+    end,
+    ["Tool"] = function(p6, p7) -- name: Tool
+        local v8 = not p6.Backpack:FindFirstChild(p7) and p6.Character
+        if v8 then
+            v8 = p6.Character:FindFirstChild(p7)
+        end
+        return v8
+    end,
+    ["ClosestLight"] = function(p9) -- name: ClosestLight
+        local v10 = (1 / 0)
+        local v11 = nil
+        for _, v12 in ipairs(workspace.Lights:GetChildren()) do
+            local v13 = (v12.Position - p9).Magnitude
+            if v13 < v10 then
+                v11 = v12
+                v10 = v13
+            end
+        end
+        return v11
+    end
+}
+return v_u_14

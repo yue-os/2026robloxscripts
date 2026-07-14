@@ -1,0 +1,74 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Functional
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v7 = {
+    ["FastSpawn"] = function(p1, ...)
+        local v2 = Instance.new("BindableEvent")
+        v2.Event:Connect(p1)
+        v2:Fire(...)
+        v2:Destroy()
+    end,
+    ["WaitForPath"] = function(p3) -- name: WaitForPath
+        local v4 = string.split(p3, ".")
+        local v5 = game
+        for _, v6 in v4 do
+            v5 = v5:WaitForChild(v6)
+        end
+        return v5
+    end
+}
+local v_u_8 = game["Run Service"]
+function v7.RealWait(p9)
+    -- upvalues: (copy) v_u_8
+    local v10 = p9 or 0
+    local v11 = 0
+    while v10 >= 0 do
+        local _, v12 = v_u_8.Stepped:wait()
+        v10 = v10 - v12
+        v11 = v11 + v12
+    end
+    return v11
+end
+function v7.Wait1Frame() -- name: Wait1Frame
+    -- upvalues: (copy) v_u_8
+    local _, v13 = v_u_8.Stepped:wait()
+    return v13
+end
+local v_u_14 = Random.new()
+function v7.GetRandom(p15) -- name: GetRandom
+    -- upvalues: (copy) v_u_14
+    local v16 = p15:GetChildren()
+    return v16[v_u_14:NextInteger(1, #v16)]
+end
+function v7.GetRandomFromChance(p17) -- name: GetRandomFromChance
+    -- upvalues: (copy) v_u_14
+    local v18 = 0
+    for _, v19 in pairs(p17) do
+        v18 = v18 + v19
+    end
+    local v20 = v_u_14:NextInteger(0, v18)
+    local v21 = nil
+    for v22, v23 in pairs(p17) do
+        v20 = v20 - v23
+        if v20 < 0 then
+            return v22
+        end
+        v21 = v22
+    end
+    return v21
+end
+v7.Wait = v7.RealWait
+v7.Spawn = v7.FastSpawn
+v7.wait = v7.RealWait
+v7.spawn = v7.FastSpawn
+function v7.OnPlayerAdded(p_u_24) -- name: OnPlayerAdded
+    for _, v25 in ipairs(game.Players:GetChildren()) do
+        p_u_24(v25)
+    end
+    game.Players.PlayerAdded:Connect(function(p26)
+        -- upvalues: (copy) p_u_24
+        p_u_24(p26)
+    end)
+end
+return v7

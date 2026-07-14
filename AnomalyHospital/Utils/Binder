@@ -1,0 +1,268 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Binder
+-- Took 0.03s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_1 = game:GetService("RunService")
+local v_u_2 = game:GetService("CollectionService")
+local v_u_3 = require(script.Parent.Maid)
+local v_u_4 = require(script.Parent.Signal)
+local v_u_5 = {}
+v_u_5.__index = v_u_5
+v_u_5.ClassName = "Binder"
+local function v_u_6() -- name: doNothing end
+function v_u_5.newInactive(p7, p8) -- name: newInactive
+    -- upvalues: (copy) v_u_5, (copy) v_u_3, (copy) v_u_6
+    local v9 = v_u_5
+    local v_u_10 = setmetatable({}, v9)
+    v_u_10._maid = v_u_3.new()
+    v_u_10._tagName = p7 or error("Bad argument \'tagName\', expected string")
+    v_u_10._constructor = p8 or error("Bad argument \'constructor\', expected table or function")
+    v_u_10._instToClass = {}
+    v_u_10._allClassSet = {}
+    v_u_10._pendingInstSet = {}
+    v_u_10._listeners = {}
+    if not p8.Destroy then
+        p8.Destroy = v_u_6
+    end
+    delay(5, function()
+        -- upvalues: (copy) v_u_10
+        if not v_u_10._loaded then
+            warn("Binder is not loaded. Call :Init() on it!")
+        end
+    end)
+    v_u_10:Init()
+    return v_u_10
+end
+function v_u_5.new(p11, p12) -- name: new
+    -- upvalues: (copy) v_u_5
+    local v13 = v_u_5.newInactive(p11, p12)
+    v13:Init()
+    return v13
+end
+function v_u_5.isBinder(p14) -- name: isBinder
+    local v15
+    if type(p14) == "table" then
+        v15 = p14.ClassName == "Binder"
+    else
+        v15 = false
+    end
+    return v15
+end
+function v_u_5.Init(p_u_16) -- name: Init
+    -- upvalues: (copy) v_u_2
+    if not p_u_16._loaded then
+        p_u_16._loaded = true
+        local v17 = Instance.new("BindableEvent")
+        for _, v_u_18 in pairs(v_u_2:GetTagged(p_u_16._tagName)) do
+            local v19 = v17.Event:Connect(function()
+                -- upvalues: (copy) p_u_16, (copy) v_u_18
+                p_u_16:_add(v_u_18)
+            end)
+            v17:Fire()
+            v19:Disconnect()
+        end
+        v17:Destroy()
+        p_u_16._maid:GiveTask(v_u_2:GetInstanceAddedSignal(p_u_16._tagName):Connect(function(p20)
+            -- upvalues: (copy) p_u_16
+            p_u_16:_add(p20)
+        end))
+        p_u_16._maid:GiveTask(v_u_2:GetInstanceRemovedSignal(p_u_16._tagName):Connect(function(p21)
+            -- upvalues: (copy) p_u_16
+            p_u_16:_remove(p21)
+        end))
+    end
+end
+function v_u_5.GetConstructor(p22) -- name: GetConstructor
+    return p22._constructor
+end
+function v_u_5.ObserveInstance(p_u_23, p_u_24, p_u_25) -- name: ObserveInstance
+    p_u_23._listeners[p_u_24] = p_u_23._listeners[p_u_24] or {}
+    p_u_23._listeners[p_u_24][p_u_25] = true
+    return function()
+        -- upvalues: (copy) p_u_23, (copy) p_u_24, (copy) p_u_25
+        if p_u_23._listeners[p_u_24] then
+            p_u_23._listeners[p_u_24][p_u_25] = nil
+            if not next(p_u_23._listeners[p_u_24]) then
+                p_u_23._listeners[p_u_24] = nil
+            end
+        end
+    end
+end
+function v_u_5.GetClassAddedSignal(p26) -- name: GetClassAddedSignal
+    -- upvalues: (copy) v_u_4
+    if p26._classAddedSignal then
+        return p26._classAddedSignal
+    end
+    p26._classAddedSignal = v_u_4.new()
+    p26._maid:GiveTask(p26._classAddedSignal)
+    return p26._classAddedSignal
+end
+function v_u_5.GetClassRemovingSignal(p27) -- name: GetClassRemovingSignal
+    -- upvalues: (copy) v_u_4
+    if p27._classRemovingSignal then
+        return p27._classRemovingSignal
+    end
+    p27._classRemovingSignal = v_u_4.new()
+    p27._maid:GiveTask(p27._classRemovingSignal)
+    return p27._classRemovingSignal
+end
+function v_u_5.GetTag(p28) -- name: GetTag
+    return p28._tagName
+end
+function v_u_5.GetAll(p29) -- name: GetAll
+    local v30 = {}
+    for v31, _ in pairs(p29._allClassSet) do
+        v30[#v30 + 1] = v31
+    end
+    return v30
+end
+function v_u_5.GetTagged(p32, p33) -- name: GetTagged
+    -- upvalues: (copy) v_u_2
+    local v34 = {}
+    for _, v35 in pairs(v_u_2:GetTagged(p33)) do
+        local v36 = p32:Get(v35)
+        v34[#v34 + 1] = v36
+    end
+    return v34
+end
+function v_u_5.GetAllSet(p37) -- name: GetAllSet
+    return p37._allClassSet
+end
+function v_u_5.BindClient(p38, p39) -- name: BindClient
+    -- upvalues: (copy) v_u_1, (copy) v_u_2
+    if not v_u_1:IsClient() then
+        warn(("[Binder.BindClient] - Bindings \'%s\' done on the server! Will be replicated!"):format(p38._tagName))
+    end
+    v_u_2:AddTag(p39, p38._tagName)
+    return p38:Get(p39)
+end
+function v_u_5.Bind(p40, p41) -- name: Bind
+    -- upvalues: (copy) v_u_1, (copy) v_u_2
+    if v_u_1:IsClient() then
+        warn(("[Binder.Bind] - Bindings \'%s\' done on the client! Will be disrupted upon server replication!"):format(p40._tagName))
+    end
+    v_u_2:AddTag(p41, p40._tagName)
+    return p40:Get(p41)
+end
+function v_u_5.Unbind(p42, p43) -- name: Unbind
+    -- upvalues: (copy) v_u_1, (copy) v_u_2
+    local v44 = typeof(p43) == "Instance"
+    assert(v44)
+    if v_u_1:IsClient() then
+        warn(("[Binder.Bind] - Unbinding \'%s\' done on the client! Might be disrupted upon server replication!"):format(p42._tagName))
+    end
+    v_u_2:RemoveTag(p43, p42._tagName)
+end
+function v_u_5.UnbindClient(p45, p46) -- name: UnbindClient
+    -- upvalues: (copy) v_u_2
+    local v47 = typeof(p46) == "Instance"
+    assert(v47)
+    v_u_2:RemoveTag(p46, p45._tagName)
+end
+function v_u_5.Get(p48, p49) -- name: Get
+    local v50 = typeof(p49) == "Instance"
+    assert(v50, "Argument \'inst\' is not an Instance")
+    return p48._instToClass[p49]
+end
+function v_u_5._add(p51, p52) -- name: _add
+    local v53 = typeof(p52) == "Instance"
+    assert(v53, "Argument \'inst\' is not an Instance")
+    if p51._instToClass[p52] then
+        return
+    end
+    if p51._pendingInstSet[p52] == true then
+        warn("[Binder._add] - Respawned add. Still loading, probably caused by error in constructor.")
+        return
+    end
+    p51._pendingInstSet[p52] = true
+    local v54 = p51._constructor
+    local v_u_55
+    if type(v54) == "function" then
+        v_u_55 = p51._constructor(p52)
+    elseif p51._constructor.Create then
+        v_u_55 = p51._constructor:Create(p52)
+    else
+        v_u_55 = p51._constructor.new(p52)
+    end
+    if p51._pendingInstSet[p52] ~= true then
+        local v56 = warn
+        local v57 = p52:GetFullName()
+        local v58 = p51._constructor
+        local v59 = type(v58) == "table" and p51._constructor.ClassName or p51._constructor
+        v56(("[Binder._add] - Failed to load instance %q of %q, removed while loading!"):format(v57, (tostring(v59))))
+        return
+    end
+    p51._pendingInstSet[p52] = nil
+    if type(v_u_55) == "table" then
+        local v60 = v_u_55.Destroy
+        if type(v60) == "function" then
+            ::l20::
+            local v61 = p51._instToClass[p52] == nil
+            assert(v61, "Overwrote")
+            p51._allClassSet[v_u_55] = true
+            p51._instToClass[p52] = v_u_55
+            local v62 = p51._listeners[p52]
+            if v62 then
+                local v63 = Instance.new("BindableEvent")
+                for v_u_64, _ in pairs(v62) do
+                    local v65 = v63.Event:Connect(function()
+                        -- upvalues: (copy) v_u_64, (ref) v_u_55
+                        v_u_64(v_u_55)
+                    end)
+                    v63:Fire()
+                    v65:Disconnect()
+                end
+                v63:Destroy()
+            end
+            if p51._classAddedSignal then
+                p51._classAddedSignal:Fire(v_u_55, p52)
+            end
+            return
+        end
+    end
+    warn("[Binder._add] - Bad class constructed")
+    goto l20
+end
+function v_u_5._remove(p66, p67) -- name: _remove
+    p66._pendingInstSet[p67] = nil
+    local v68 = p66._instToClass[p67]
+    if v68 == nil then
+        return
+    else
+        if p66._classRemovingSignal then
+            p66._classRemovingSignal:Fire(v68, p67)
+        end
+        p66._instToClass[p67] = nil
+        p66._allClassSet[v68] = nil
+        local v69 = p66._listeners[p67]
+        if v69 then
+            local v70 = Instance.new("BindableEvent")
+            for v_u_71, _ in pairs(v69) do
+                local v72 = v70.Event:Connect(function()
+                    -- upvalues: (copy) v_u_71
+                    v_u_71(nil)
+                end)
+                v70:Fire()
+                v72:Disconnect()
+            end
+            v70:Destroy()
+        end
+        if v68.Destroy then
+            v68:Destroy()
+        else
+            local v73 = warn
+            local v74 = p66._tagName
+            v73(("[Binder._remove] - Class %q no longer has destroy, something destroyed it!"):format((tostring(v74))))
+        end
+    end
+end
+function v_u_5.Destroy(p75) -- name: Destroy
+    local v76, v77 = next(p75._instToClass)
+    while v77 ~= nil do
+        p75:_remove(v77)
+        local v78 = p75._instToClass[v76] == nil
+        assert(v78)
+    end
+    p75._maid:DoCleaning()
+end
+return v_u_5

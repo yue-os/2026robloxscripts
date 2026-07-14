@@ -1,0 +1,25 @@
+-- Script Path: game:GetService("ReplicatedStorage").Data.Dialog
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+return {
+    ["SittingNPC1"] = {
+        "I feel like someone is watching me near this place.",
+        "Did you see that shadow move in the hallway again?",
+        "Three patients vanished from their rooms last week.",
+        "The doctors won\'t talk about what\'s in the basement.",
+        "I\'ve seen the same patient die twice now. Same person. Twice.",
+        "Something\'s watching from the shadows. I can hear it breathing.",
+        "The anomaly count jumped from 2 to 67 in just three days.",
+        "I feel bad for those that have to work here."
+    },
+    ["StandingNPC1"] = {
+        "Another containment breach in Ward C. That\'s the fourth this month.",
+        "Every employee who enters the east wing quits within a week.",
+        "The anomalies are spreading faster than we can document them.",
+        "I watched a patient\'s reflection move independently yesterday.",
+        "They\'re not even trying to hide it anymore. Look around.",
+        "The security footage from last night is missing. Again.",
+        "The doctors refuse to speak."
+    }
+}

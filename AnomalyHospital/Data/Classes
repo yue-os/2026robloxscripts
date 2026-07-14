@@ -1,0 +1,156 @@
+-- Script Path: game:GetService("ReplicatedStorage").Data.Classes
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v1 = {
+    ["Intern"] = {
+        ["Value"] = 0,
+        ["Desc"] = "Start with 10 bonus sanity.",
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 0,
+        ["Scores"] = nil,
+        ["DescTiers"] = { "Start with 10 bonus sanity.", "Start with 15 bonus sanity.", "Start with 20 bonus sanity." },
+        ["Scores"] = {
+            ["Sanity"] = 4,
+            ["Utility"] = 0,
+            ["StartingMoney"] = 0
+        }
+    },
+    ["Nurse"] = {
+        ["Value"] = 20,
+        ["Desc"] = "+1 Max inventory capacity",
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 0,
+        ["Scores"] = nil,
+        ["DescTiers"] = { "+1 Max inventory capacity", "+2 Max inventory capacity", "+3 Max inventory capacity" },
+        ["Scores"] = {
+            ["Sanity"] = 0,
+            ["Utility"] = 5,
+            ["StartingMoney"] = 0
+        }
+    },
+    ["Secretary"] = {
+        ["Value"] = 120,
+        ["Desc"] = "Recover 1 Sanity when checking in patients.",
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 20,
+        ["Scores"] = nil,
+        ["DescTiers"] = { "Recover 1 Sanity when checking in patients.", "Recover Sanity when checking in patients, +5 bonus sanity.", "Recover Sanity when checking in patients, +10 bonus sanity." },
+        ["Scores"] = {
+            ["Sanity"] = 5,
+            ["Utility"] = 1,
+            ["StartingMoney"] = 2
+        }
+    },
+    ["Paramedic"] = {
+        ["Value"] = 250,
+        ["Desc"] = "Start with Large Speed Cola (6 Uses)",
+        ["Tools"] = nil,
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 0,
+        ["Scores"] = nil,
+        ["Tools"] = { "Large Run Cola" },
+        ["DescTiers"] = { "Start with Large Speed Cola (6 Uses)", "Start with Large Speed Cola (9 Uses)", "Start with Large Speed Cola (9 Uses), regenerate 1 use each round." },
+        ["Scores"] = {
+            ["Sanity"] = 0,
+            ["Utility"] = 8,
+            ["StartingMoney"] = 0
+        }
+    },
+    ["Psychologist"] = {
+        ["Value"] = 500,
+        ["Desc"] = "All sanity effects are doubled (negative and positive)",
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 0,
+        ["Scores"] = nil,
+        ["DescTiers"] = { "All sanity effects are doubled (negative and positive)", "All sanity effects doubled, 7.5% chance to ignore sanity loss.", "All sanity effects doubled, 15% chance to ignore sanity loss." },
+        ["Scores"] = {
+            ["Sanity"] = 10,
+            ["Utility"] = 2,
+            ["StartingMoney"] = 0
+        }
+    },
+    ["Doctor"] = {
+        ["Value"] = 900,
+        ["Desc"] = "Recover 1 Sanity when healing patients.",
+        ["Tools"] = nil,
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 0,
+        ["Scores"] = nil,
+        ["Tools"] = {},
+        ["DescTiers"] = { "Recover 1 Sanity when healing patients. +10 bonus sanity.", "Recover Sanity when healing patients, +15 bonus sanity.", "Recover Sanity when healing patients, +20 bonus sanity." },
+        ["Scores"] = {
+            ["Sanity"] = 7,
+            ["Utility"] = 5,
+            ["StartingMoney"] = 0
+        }
+    },
+    ["Security"] = {
+        ["Value"] = 1250,
+        ["Desc"] = "Start with X-Taser (5 Uses)",
+        ["Tools"] = nil,
+        ["ToolsTiers"] = nil,
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 20,
+        ["Scores"] = nil,
+        ["Tools"] = { "X-Taser" },
+        ["ToolsTiers"] = {
+            { "X-Taser" },
+            { "X-Taser", "Deployable Camera" },
+            { "X-Taser", "Deployable Camera" }
+        },
+        ["DescTiers"] = { "Start with X-Taser (5 Uses)", "Start with X-Taser and a Deployable Camera.", "Start with X-Taser and a Deployable Camera, X-Taser regenerates 1 use each round." },
+        ["Scores"] = {
+            ["Sanity"] = 0,
+            ["Utility"] = 9,
+            ["StartingMoney"] = 3
+        }
+    },
+    ["Head Nurse"] = {
+        ["Value"] = 1500,
+        ["Desc"] = "+3 Max inventory capacity",
+        ["RobuxOnly"] = true,
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 30,
+        ["Scores"] = nil,
+        ["DescTiers"] = { "+3 Max inventory capacity", "+3 Max inventory capacity, +10 bonus sanity.", "+3 Max inventory capacity, start each round with \'Special Technique\' upgrade." },
+        ["Scores"] = {
+            ["Sanity"] = 5,
+            ["Utility"] = 9,
+            ["StartingMoney"] = 5
+        }
+    },
+    ["Surgeon"] = {
+        ["Value"] = 2500,
+        ["Desc"] = "Get sanity and short speed boost after healing a patient.",
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 35,
+        ["Scores"] = nil,
+        ["DescTiers"] = { "Get sanity and short speed boost after healing a patient.", "Get sanity and a longer (8s) speed boost after healing a patient.", "Get x2 sanity and a longer (8s) speed boost after healing a patient, +10 bonus sanity." },
+        ["Scores"] = {
+            ["Sanity"] = 8,
+            ["Utility"] = 7,
+            ["StartingMoney"] = 6
+        }
+    },
+    ["Secret Agent"] = {
+        ["Value"] = 5000,
+        ["Desc"] = "Start with a gun (20 uses) and a scanner (120s CD). +2 carry capacity.",
+        ["Tools"] = nil,
+        ["RobuxOnly"] = true,
+        ["DescTiers"] = nil,
+        ["StartingMoney"] = 50,
+        ["Scores"] = nil,
+        ["Tools"] = { "Gun", "Scanner" },
+        ["DescTiers"] = { "Start with a gun (20 uses) and a multi-use scanner. +2 carry capacity.", "Gun has 24 uses and regenerates 1 use each round.", "Killing anomalies with the gun grants +4 sanity and +5 cash." },
+        ["Scores"] = {
+            ["Sanity"] = 6,
+            ["Utility"] = 10,
+            ["StartingMoney"] = 8
+        }
+    }
+}
+return {
+    ["Classes"] = v1,
+    ["BASE_CLASS"] = "Intern"
+}

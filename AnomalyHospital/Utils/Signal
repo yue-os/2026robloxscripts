@@ -1,0 +1,56 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Signal
+-- Took 0.03s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_1 = {}
+v_u_1.__index = v_u_1
+v_u_1.ClassName = "Signal"
+function v_u_1.new() -- name: new
+    -- upvalues: (copy) v_u_1
+    local v2 = v_u_1
+    local v3 = setmetatable({}, v2)
+    v3._bindableEvent = Instance.new("BindableEvent")
+    v3._argData = nil
+    v3._argCount = nil
+    v3._source = ""
+    return v3
+end
+function v_u_1.Fire(p4, ...) -- name: Fire
+    if p4._bindableEvent then
+        p4._argData = { ... }
+        p4._argCount = select("#", ...)
+        p4._bindableEvent:Fire()
+    else
+        warn(("Signal is already destroyed. %s"):format(p4._source))
+    end
+end
+function v_u_1.Connect(p_u_5, p_u_6) -- name: Connect
+    if type(p_u_6) ~= "function" then
+        error(("connect(%s)"):format((typeof(p_u_6))), 2)
+    end
+    return p_u_5._bindableEvent.Event:Connect(function()
+        -- upvalues: (copy) p_u_6, (copy) p_u_5
+        local v7 = p_u_6
+        local v8 = p_u_5._argData
+        local v9 = p_u_5._argCount
+        v7(unpack(v8, 1, v9))
+    end)
+end
+function v_u_1.Wait(p10) -- name: Wait
+    p10._bindableEvent.Event:Wait()
+    local v11 = p10._argData
+    assert(v11, "Missing arg data, likely due to :TweenSize/Position corrupting threadrefs.")
+    local v12 = p10._argData
+    local v13 = p10._argCount
+    return unpack(v12, 1, v13)
+end
+function v_u_1.Destroy(p14) -- name: Destroy
+    if p14._bindableEvent then
+        p14._bindableEvent:Destroy()
+        p14._bindableEvent = nil
+    end
+    p14._argData = nil
+    p14._argCount = nil
+    setmetatable(p14, nil)
+end
+return v_u_1

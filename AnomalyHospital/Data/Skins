@@ -1,0 +1,127 @@
+-- Script Path: game:GetService("ReplicatedStorage").Data.Skins
+-- Took 0s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v1 = {
+    ["Intern"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Rascal"] = {
+            ["Price"] = 100,
+            ["LayoutOrder"] = 2
+        }
+    },
+    ["Nurse"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Assistant Nurse"] = {
+            ["Price"] = 500,
+            ["LayoutOrder"] = 2
+        },
+        ["Nurse (Classic)"] = {
+            ["Price"] = 5,
+            ["LayoutOrder"] = 3
+        }
+    },
+    ["Secretary"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Secretary (Classic)"] = {
+            ["Price"] = 12,
+            ["LayoutOrder"] = 2
+        }
+    },
+    ["Paramedic"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Paramedic (Classic)"] = {
+            ["Price"] = 25,
+            ["LayoutOrder"] = 2
+        }
+    },
+    ["Psychologist"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Psycho"] = {
+            ["Price"] = 500,
+            ["LayoutOrder"] = 2
+        },
+        ["Psychologist (Classic)"] = {
+            ["Price"] = 50,
+            ["LayoutOrder"] = 3
+        }
+    },
+    ["Doctor"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Doctor (Classic)"] = {
+            ["Price"] = 90,
+            ["LayoutOrder"] = 2
+        }
+    },
+    ["Security"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Hospital Cop"] = {
+            ["Price"] = 1000,
+            ["LayoutOrder"] = 2
+        },
+        ["Security (Classic)"] = {
+            ["Price"] = 125,
+            ["LayoutOrder"] = 3
+        }
+    },
+    ["Head Nurse"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Supervisor"] = {
+            ["Price"] = 2000,
+            ["LayoutOrder"] = 2
+        },
+        ["Head Nurse (Classic)"] = {
+            ["Price"] = 150,
+            ["LayoutOrder"] = 3
+        }
+    },
+    ["Surgeon"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Surgeon (Classic)"] = {
+            ["Price"] = 250,
+            ["LayoutOrder"] = 2
+        }
+    },
+    ["Secret Agent"] = {
+        ["Default"] = {
+            ["Price"] = 0,
+            ["LayoutOrder"] = 1
+        },
+        ["Agent R"] = {
+            ["Price"] = 2000,
+            ["LayoutOrder"] = 2
+        },
+        ["Secret Agent (Classic)"] = {
+            ["Price"] = 500,
+            ["LayoutOrder"] = 3
+        }
+    }
+}
+return table.freeze(v1)

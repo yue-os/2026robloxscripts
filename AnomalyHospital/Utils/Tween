@@ -1,0 +1,53 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.Tween
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v1 = {}
+local v_u_2 = game:GetService("TweenService")
+local v_u_3 = require(script.Parent.Signal)
+local v_u_4 = require(script.Parent.Maid)
+local v_u_5 = {}
+local v_u_6 = {}
+v_u_6.__index = v_u_6
+function v_u_6.new(p7, p8, ...) -- name: new
+    -- upvalues: (copy) v_u_2, (copy) v_u_4, (copy) v_u_3, (copy) v_u_6, (copy) v_u_5
+    if type(p8) == "table" then
+        p8 = TweenInfo.new(unpack(p8))
+    end
+    local v_u_9 = {
+        ["t"] = v_u_2:Create(p7, p8, ...),
+        ["maid"] = v_u_4.new(),
+        ["Finished"] = v_u_3.new(),
+        ["times"] = 2 * (p8.Reverses and 1 or 0)
+    }
+    local v10 = v_u_6
+    setmetatable(v_u_9, v10)
+    v_u_9.maid:GiveTask(v_u_9)
+    local v11 = v_u_9.t.Completed:Connect(function()
+        -- upvalues: (copy) v_u_9
+        if v_u_9.times > 1 then
+            v_u_9.times = v_u_9.times - 1
+        else
+            v_u_9.Finished:Fire()
+            v_u_9.maid:DoCleaning()
+        end
+    end)
+    v_u_9.maid:GiveTask(v11)
+    v_u_5[v_u_9] = true
+    return v_u_9
+end
+function v_u_6.Destroy(p12) -- name: Destroy
+    -- upvalues: (copy) v_u_5
+    p12.maid:GiveTask(p12.t)
+    p12.maid:GiveTask(p12.Finished)
+    v_u_5[p12] = nil
+end
+function v_u_6.Play(p13) -- name: Play
+    p13.t:Play()
+end
+function v1.Create(...) -- name: Create
+    -- upvalues: (copy) v_u_6
+    return v_u_6.new(...)
+end
+v1.new = v1.Create
+return v1

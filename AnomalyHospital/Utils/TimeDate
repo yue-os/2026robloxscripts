@@ -1,0 +1,25 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.TimeDate
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v1 = {}
+function Format(p2) -- name: Format
+    return string.format("%02i", p2)
+end
+function v1.ToDHMS(p3) -- name: ToDHMS
+    local v4 = (p3 - p3 % 60) / 60
+    local v5 = p3 - v4 * 60
+    local v6 = (v4 - v4 % 60) / 60
+    local v7 = v4 - v6 * 60
+    local v8 = (v6 - v6 % 24) / 24
+    local v9 = v6 - v8 * 24
+    return Format(v8) .. ":" .. Format(v9) .. ":" .. Format(v7) .. ":" .. Format(v5)
+end
+function v1.ToHMS(p10) -- name: ToHMS
+    local v11 = (p10 - p10 % 60) / 60
+    local v12 = p10 - v11 * 60
+    local v13 = (v11 - v11 % 60) / 60
+    local v14 = v11 - v13 * 60
+    return Format(v13) .. ":" .. Format(v14) .. ":" .. Format(v12)
+end
+return v1

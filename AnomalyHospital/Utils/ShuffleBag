@@ -1,0 +1,65 @@
+-- Script Path: game:GetService("ReplicatedStorage").Util.ShuffleBag
+-- Took 0.01s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_1 = {}
+v_u_1.__index = v_u_1
+local v_u_2 = Random.new()
+function DeepCopy(p3) -- name: DeepCopy
+    local v4 = {}
+    for v5, v7 in next, p3 do
+        if type(v7) == "table" then
+            local v7 = DeepCopy(v7)
+        end
+        v4[v5] = v7
+    end
+    return v4
+end
+function v_u_1.new(p8, p9) -- name: new
+    -- upvalues: (copy) v_u_1
+    local v10 = {
+        ["items"] = p8,
+        ["size"] = p9 or #p8,
+        ["q"] = {},
+        ["i"] = 1
+    }
+    local v11 = v_u_1
+    setmetatable(v10, v11)
+    return v10
+end
+function v_u_1.Shuffle(p12) -- name: Shuffle
+    -- upvalues: (copy) v_u_2
+    local v13 = DeepCopy(p12.items)
+    local v14 = {}
+    local v15 = {}
+    for _ = 1, p12.size do
+        local v16 = 0
+        for _, v17 in ipairs(v13) do
+            v16 = v16 + v17.w
+        end
+        local v18 = v_u_2:NextInteger(1, v16)
+        for v19, v20 in ipairs(v13) do
+            v14[v19] = v14[v19] or 0
+            v18 = v18 - v20.w
+            if v18 < 0 then
+                v15[#v15 + 1] = v20
+                v14[v19] = v14[v19] + 1
+                if v20.max and v14[v19] == v20.max then
+                    table.remove(v13, v19)
+                end
+                break
+            end
+        end
+    end
+    p12.q = v15
+    p12.i = 1
+end
+function v_u_1.GetNext(p21) -- name: GetNext
+    if p21.i > #p21.q then
+        p21:Shuffle()
+    end
+    local v22 = p21.q[p21.i]
+    p21.i = p21.i + 1
+    return v22
+end
+return v_u_1

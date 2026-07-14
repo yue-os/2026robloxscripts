@@ -2,7 +2,8 @@
 !/.gitignore
 !/CultivationOnline.luau
 !/GameDatas.lua
-!/Anomaly.luau
+!/AnomalyHospital
+!/AnomalyHospital/Anomaly.luau
 !/keysys.lua
 !/.github/
 !/.github/workflows/

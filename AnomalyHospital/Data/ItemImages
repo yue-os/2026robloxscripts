@@ -1,0 +1,36 @@
+-- Script Path: game:GetService("ReplicatedStorage").Data.ItemImages
+-- Took 0s to decompile.
+-- Executor: Delta (1.1.727.1199)
+
+local v_u_1 = {
+    ["IV Drops"] = "rbxassetid://80921902713892",
+    ["Eye Drops"] = "rbxassetid://111311966501039",
+    ["Medicine"] = "rbxassetid://77371987968160",
+    ["Herbs"] = "rbxassetid://75968336376122",
+    ["Antibiotics"] = "rbxassetid://105921256950336",
+    ["Bandages"] = "rbxassetid://75306621714002",
+    ["Ointment"] = "rbxassetid://81516549429267",
+    ["Scissors"] = "rbxassetid://99802820054944",
+    ["Scalpel"] = "rbxassetid://126035532627391",
+    ["Medkit"] = "rbxassetid://130516067676328",
+    ["Thermo"] = "rbxassetid://96487003723881",
+    ["Transplant"] = "rbxassetid://122764625848652",
+    ["Organ"] = "rbxassetid://98996052403892",
+    ["Maple Syrup"] = "rbxassetid://94018869912090",
+    ["Cough Syrup"] = "rbxassetid://138139492943635",
+    ["Coffee"] = "rbxassetid://118223977489343",
+    ["RunCola"] = "rbxassetid://118818101858676",
+    ["Speed Cola"] = "rbxassetid://124437129233870",
+    ["Large Run Cola"] = "rbxassetid://118818101858676",
+    ["X-Taser"] = "rbxassetid://119512891916803",
+    ["Gun"] = "rbxassetid://137130269155285",
+    ["Deployable Camera"] = "rbxassetid://125445194337091",
+    ["Scanner"] = "rbxassetid://114414315857682"
+}
+return {
+    ["Images"] = v_u_1,
+    ["Get"] = function(p2) -- name: Get
+        -- upvalues: (copy) v_u_1
+        return v_u_1[p2] or ""
+    end
+}
